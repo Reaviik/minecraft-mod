@@ -1,12 +1,14 @@
-package com.rani.mod.block;
+package com.minersdream.block;
 
-import com.rani.mod.MinersDream;
-import com.rani.mod.item.ModCreativeModeTab;
-import com.rani.mod.item.ModItems;
+import com.minersdream.MinersDream;
+import com.minersdream.item.ModCreativeModeTab;
+import com.minersdream.item.ModItems;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,7 +24,14 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> ETERIUM_BLOCK = registerBlock("eterium_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
-            .strength(6f).requiresCorrectToolForDrops()), ModCreativeModeTab.MinersDream_TAB);
+                    .strength(4f).requiresCorrectToolForDrops()), ModCreativeModeTab.MinersDream_TAB);
+    public static final RegistryObject<Block> ETERIUM_ORE = registerBlock("eterium_ore",
+            () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(1f).requiresCorrectToolForDrops(),
+                    UniformInt.of(3, 7)), ModCreativeModeTab.MinersDream_TAB);
+    public static final RegistryObject<Block> DEEPSLATE_ETERIUM_BLOCK = registerBlock("deepslate_eterium_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.MinersDream_TAB);
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> blocks, CreativeModeTab tab){

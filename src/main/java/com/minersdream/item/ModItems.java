@@ -1,7 +1,6 @@
-package com.rani.mod.item;
+package com.minersdream.item;
 
-import com.rani.mod.MinersDream;
-import net.minecraft.world.item.CreativeModeTab;
+import com.minersdream.MinersDream;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

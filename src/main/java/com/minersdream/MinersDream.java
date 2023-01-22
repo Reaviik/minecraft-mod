@@ -1,8 +1,8 @@
-package com.rani.mod;
+package com.minersdream;
 
+import com.minersdream.block.ModBlocks;
 import com.mojang.logging.LogUtils;
-import com.rani.mod.block.ModBlocks;
-import com.rani.mod.item.ModItems;
+import com.minersdream.item.ModItems;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;

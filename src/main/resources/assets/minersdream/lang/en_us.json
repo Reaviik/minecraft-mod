@@ -2,5 +2,9 @@
   "item.minersdream.eterium": "Eterium",
   "item.minersdream.raw_eterium": "Raw Eterium",
 
+  "block.minersdream.eternium_block": "Eterium Block",
+  "block.minersdream.eternium_ore": "Eterium Ore",
+  "block.minersdream.deepslate_eterium_ore": "Deepslate Eterium Ore",
+
   "itemGroup.minersdream": "Miners Dream"
 }

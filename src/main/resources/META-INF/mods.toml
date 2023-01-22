@@ -27,17 +27,20 @@ displayName="Miners Dreams" #mandatory
 # A URL for the "homepage" for this mod, displayed in the mod UI
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
-logoFile="md.png" #optional
+logoFile="logo.png" #optional
 # A text field displayed in the mod UI
-credits="Thanks for play with a Miners Dreams" #optional
+credits="Thanks for play with a Miners Dreams Mod" #optional
 # A text field displayed in the mod UI
 authors="Player_rs, Reavik, HarryKaray" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.mdmods]] #optional
+[[dependencies.minersdream]] #optional
     # the modid of the dependency
     modId="forge" #mandatory
     # Does this dependency have to exist - if not, ordering below must be specified
@@ -49,8 +52,8 @@ description='''
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
 # Here's another dependency
-[[dependencies.mdmods]]
-    modId="mdmods"
+[[dependencies.minersdream]]
+    modId="minecraft"
     mandatory=true
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
     versionRange="[1.18.2]"

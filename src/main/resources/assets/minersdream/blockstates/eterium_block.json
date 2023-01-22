@@ -1,6 +1,5 @@
 {
   "variants": {
-    "": { "model": "minersdream:block/eterium_block"
-    }
+    "": { "model": "minersdream:block/eterium_block" }
   }
 }

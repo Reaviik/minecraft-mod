@@ -34,10 +34,12 @@ public class ModBlocks {
             () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(2f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
 
- //
-    public static final RegistryObject<Block> SPEEDY_BLOCK = registerBlock("speedy_block",
+ public static final RegistryObject<Block> SPEEDY_BLOCK = registerBlock("speedy_block",
+         () -> new SpeedyBlock(BlockBehaviour.Properties.of(Material.STONE)
+                 .strength(1f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
+    public static final RegistryObject<Block> BLOCK_TESTE = registerBlock("block_teste",
             () -> new SpeedyBlock(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(1f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
+                    .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB);
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> blocks, CreativeModeTab tab){

@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_eterium": {
+    "has_eterium_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minersdream:eterium"
+              "minersdream:eterium_ingot"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_eterium",
+      "has_eterium_ingot",
       "has_the_recipe"
     ]
   ]

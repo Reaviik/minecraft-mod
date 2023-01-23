@@ -8,7 +8,6 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.common.Mod;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -18,7 +17,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         // SIMPLE ITEMS
-        simpleItem(ModItems.ETERIUM.get());
+        simpleItem(ModItems.ETERIUM_INGOT.get());
         simpleItem(ModItems.RAW_ETERIUM.get());
 
         // HANDHELD ITEMS

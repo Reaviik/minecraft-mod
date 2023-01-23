@@ -42,6 +42,7 @@ public class ModBlocks {
                     .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB);
 
 
+
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> blocks, CreativeModeTab tab){
     RegistryObject<T> toReturn = BLOCKS.register(name, blocks);
     registerBlockItem(name, toReturn, tab);

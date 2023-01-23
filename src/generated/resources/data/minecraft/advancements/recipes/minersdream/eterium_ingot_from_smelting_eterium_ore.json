@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minersdream:eterium"
+      "minecraft:eterium_ingot_from_smelting_eterium_ore"
     ]
   },
   "criteria": {
-    "has_eterium_block": {
+    "has_eterium_ore": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minersdream:eterium_block"
+              "minersdream:eterium_ore"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minersdream:eterium"
+        "recipe": "minecraft:eterium_ingot_from_smelting_eterium_ore"
       }
     }
   },
   "requirements": [
     [
-      "has_eterium_block",
+      "has_eterium_ore",
       "has_the_recipe"
     ]
   ]

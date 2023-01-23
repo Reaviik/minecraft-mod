@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:eterium_from_smelting_deepslate_eterium_ore"
+      "minecraft:eterium_ingot_from_smelting_raw_eterium"
     ]
   },
   "criteria": {
-    "has_deepslate_eterium_ore": {
+    "has_raw_eterium": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minersdream:deepslate_eterium_ore"
+              "minersdream:raw_eterium"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:eterium_from_smelting_deepslate_eterium_ore"
+        "recipe": "minecraft:eterium_ingot_from_smelting_raw_eterium"
       }
     }
   },
   "requirements": [
     [
-      "has_deepslate_eterium_ore",
+      "has_raw_eterium",
       "has_the_recipe"
     ]
   ]

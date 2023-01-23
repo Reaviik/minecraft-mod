@@ -6,12 +6,8 @@ import com.minersdream.item.ModItems;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
-import net.minecraftforge.fml.common.Mod;
 
 import java.util.function.Consumer;
 
@@ -30,15 +26,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         // WORKBENCH RECIPES
 
         ShapedRecipeBuilder.shaped(ModBlocks.ETERIUM_BLOCK.get())
-                .define('C', ModItems.ETERIUM.get())
+                .define('C', ModItems.ETERIUM_INGOT.get())
                 .pattern("CCC")
                 .pattern("CCC")
                 .pattern("CCC")
-                .unlockedBy("has_eterium", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ModItems.ETERIUM.get()).build()))
+                .unlockedBy("has_eterium_ingot", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.ETERIUM_INGOT.get()).build()))
                 .save(pFinishedRecipeConsumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.ETERIUM.get(), 9)
+        ShapelessRecipeBuilder.shapeless(ModItems.ETERIUM_INGOT.get(), 9)
                 .requires(ModBlocks.ETERIUM_BLOCK.get())
                 .unlockedBy("has_eterium_block", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModBlocks.ETERIUM_BLOCK.get()).build()))
@@ -48,6 +44,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         // ORE MELTING RECIPES
 
-        oreSmelting(pFinishedRecipeConsumer, ETERIUM_SMELTABLES, ModItems.ETERIUM.get(), 0.7F, 200, "eterium");
+        oreSmelting(pFinishedRecipeConsumer, ETERIUM_SMELTABLES, ModItems.ETERIUM_INGOT.get(), 0.7F, 200, "eterium_ingot");
     }
 }

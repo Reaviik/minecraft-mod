@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tutorialmod:eterium_block"
+          "name": "minersdream:eterium_block"
         }
       ],
       "conditions": [

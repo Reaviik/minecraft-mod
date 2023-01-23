@@ -24,15 +24,15 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> ETERIUM_BLOCK = registerBlock("eterium_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(1f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
+                    .strength(2f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
 
     public static final RegistryObject<Block> ETERIUM_ORE = registerBlock("eterium_ore",
             () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(0.5f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
+                    .strength(2f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
 
     public static final RegistryObject<Block> DEEPSLATE_ETERIUM_ORE = registerBlock("deepslate_eterium_ore",
             () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(0.6f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
+                    .strength(2f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> blocks, CreativeModeTab tab){

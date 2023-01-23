@@ -1,6 +1,7 @@
 package com.minersdream.block;
 
 import com.minersdream.MinersDream;
+import com.minersdream.block.custom.BlockTeste;
 import com.minersdream.block.custom.SpeedyBlock;
 import com.minersdream.item.ModCreativeModeTab;
 import com.minersdream.item.ModItems;
@@ -34,11 +35,11 @@ public class ModBlocks {
             () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(2f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
 
- public static final RegistryObject<Block> SPEEDY_BLOCK = registerBlock("speedy_block",
+    public static final RegistryObject<Block> SPEEDY_BLOCK = registerBlock("speedy_block",
          () -> new SpeedyBlock(BlockBehaviour.Properties.of(Material.STONE)
                  .strength(1f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> BLOCK_TESTE = registerBlock("block_teste",
-            () -> new SpeedyBlock(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new BlockTeste(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB);
 
 

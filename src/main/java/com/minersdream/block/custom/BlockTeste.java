@@ -14,6 +14,8 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.stream.Stream;
+
 public class BlockTeste extends Block {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
@@ -21,8 +23,8 @@ public class BlockTeste extends Block {
         super(proprieties);
     }
 
-    //Colision Box//
-    public static final VoxelShape SHAPE = Block.box(0,0,0,16,8, 16);
+    //Collision Box//
+    public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 8, 16);
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext){
         return SHAPE;

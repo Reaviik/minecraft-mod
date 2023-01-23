@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:eterium_from_smelting_raw_eterium"
+    ]
+  },
+  "criteria": {
+    "has_raw_eterium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minersdream:raw_eterium"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:eterium_from_smelting_raw_eterium"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_eterium",
+      "has_the_recipe"
+    ]
+  ]
+}

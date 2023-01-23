@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minersdream:eterium_block"
+    ]
+  },
+  "criteria": {
+    "has_eterium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minersdream:eterium"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minersdream:eterium_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_eterium",
+      "has_the_recipe"
+    ]
+  ]
+}

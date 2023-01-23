@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minersdream:eterium_block"
+    }
+  ],
+  "result": {
+    "item": "minersdream:eterium",
+    "count": 9
+  }
+}

@@ -2,7 +2,11 @@ buildscript {
     repositories {
         // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
         maven { url = 'https://maven.minecraftforge.net' }
+
+        // parchmentmc
         maven { url = 'https://maven.parchmentmc.org' }
+
+
         mavenCentral()
     }
     dependencies {
@@ -148,6 +152,22 @@ repositories {
     // flatDir {
     //     dir 'libs'
     // }
+
+    // JEI
+    maven {
+        // location of the maven that hosts JEI files
+        name = "Progwml6 maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
+
+//    maven { url "https://maven.architectury.dev/" }
+//    maven { url "https://maven.shedaniel.me/" }
+
 }
 
 dependencies {
@@ -157,8 +177,9 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.2.0'
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
-    // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
-    // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
+    implementation fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
+    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
     // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
 
     // Examples using mod jars from ./libs
@@ -167,6 +188,10 @@ dependencies {
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+
+//    implementation fg.deobf("dev.architectury:architectury-forge:4.10.88")
+//    implementation fg.deobf("me.shedaniel:RoughlyEnoughItems-forge:8.3.584")
+//    implementation fg.deobf("me.shedaniel.cloth:cloth-config-forge:6.4.90")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

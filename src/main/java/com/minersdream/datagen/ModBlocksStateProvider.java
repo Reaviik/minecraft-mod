@@ -18,6 +18,6 @@ public class ModBlocksStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.ETERIUM_BLOCK.get());
         simpleBlock(ModBlocks.ETERIUM_ORE.get());
         simpleBlock(ModBlocks.DEEPSLATE_ETERIUM_ORE.get());
-
+        simpleBlock(ModBlocks.SPEEDY_BLOCK.get());
     }
 }

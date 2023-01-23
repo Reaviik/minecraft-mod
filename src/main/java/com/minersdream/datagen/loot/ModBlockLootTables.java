@@ -13,6 +13,7 @@ public class ModBlockLootTables extends BlockLoot {
     protected void addTables() {
         // DROP THEM SELFs
         this.dropSelf(ModBlocks.ETERIUM_BLOCK.get());
+        this.dropSelf(ModBlocks.SPEEDY_BLOCK.get());
 
         // DROP ORES
         this.add(ModBlocks.ETERIUM_ORE.get(),

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "minersdream:eterium_block",
+    "minersdream:eterium_ore",
+    "minersdream:deepslate_eterium_ore"
+  ]
+}

@@ -15,5 +15,6 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
         generator.addProvider(new ModRecipeProvider(generator));
+        generator.addProvider(new ModLootTableProvider(generator));
     }
 }

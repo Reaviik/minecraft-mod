@@ -1,6 +1,7 @@
 package com.minersdream.block;
 
 import com.minersdream.MinersDream;
+import com.minersdream.block.custom.SpeedyBlock;
 import com.minersdream.item.ModCreativeModeTab;
 import com.minersdream.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -32,6 +33,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> DEEPSLATE_ETERIUM_ORE = registerBlock("deepslate_eterium_ore",
             () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(2f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
+
+
+    public static final RegistryObject<Block> SPEEDY_BLOCK = registerBlock("speedy_block",
+            () -> new SpeedyBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(1f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> blocks, CreativeModeTab tab){

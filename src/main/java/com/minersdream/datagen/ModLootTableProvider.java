@@ -2,6 +2,7 @@ package com.minersdream.datagen;
 
 import com.google.common.collect.ImmutableList;
 import com.minersdream.datagen.loot.ModBlockLootTables;
+import com.minersdream.datagen.loot.ModChestLootTables;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.*;
@@ -21,7 +22,8 @@ import java.util.function.Supplier;
 public class ModLootTableProvider extends LootTableProvider {
 
     private final List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>>
-            loot_tables = ImmutableList.of(Pair.of(ModBlockLootTables::new, LootContextParamSets.BLOCK));
+            loot_tables = ImmutableList.of(Pair.of(ModBlockLootTables::new, LootContextParamSets.BLOCK), Pair.of(ModChestLootTables::new, LootContextParamSets.CHEST));
+
 
     public ModLootTableProvider(DataGenerator pGenerator) {
         super(pGenerator);

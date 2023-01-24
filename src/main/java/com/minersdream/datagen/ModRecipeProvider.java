@@ -4,9 +4,14 @@ import com.google.common.collect.ImmutableList;
 import com.minersdream.block.ModBlocks;
 import com.minersdream.item.ModItems;
 import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.client.Minecraft;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.function.Consumer;
@@ -36,6 +41,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapelessRecipeBuilder.shapeless(ModItems.ETERIUM_INGOT.get(), 9)
                 .requires(ModBlocks.ETERIUM_BLOCK.get())
+                .unlockedBy("has_eterium_block", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.ETERIUM_BLOCK.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.ETERIUM_PICKAXE.get())
+                .define('I', ModBlocks.ETERIUM_BLOCK.get())
+                .define('S', Items.NETHER_STAR)
+                .pattern("III")
+                .pattern(" S ")
+                .pattern(" S ")
                 .unlockedBy("has_eterium_block", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModBlocks.ETERIUM_BLOCK.get()).build()))
                 .save(pFinishedRecipeConsumer);

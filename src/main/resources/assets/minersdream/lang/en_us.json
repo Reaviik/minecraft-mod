@@ -1,4 +1,6 @@
 {
+  "itemGroup.minersdream": "Miners Dream",
+
   "item.minersdream.eterium_ingot": "Eterium Ingot",
   "item.minersdream.raw_eterium": "Raw Eterium",
 
@@ -8,6 +10,7 @@
   "block.minersdream.speedy_block": "Speedy Block",
   "block.minersdream.block_teste": "Auzaimer",
 
-  "itemGroup.minersdream": "Miners Dream"
+  "item.minersdream.eterium_pickaxe": "Eterium Pickaxe"
+
 
 }

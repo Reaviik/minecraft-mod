@@ -21,7 +21,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.RAW_ETERIUM.get());
 
         // HANDHELD ITEMS
-
+        handheldItem(ModItems.ETERIUM_PICKAXE.get());
     }
 
     private ItemModelBuilder simpleItem(Item item) {

@@ -14,6 +14,7 @@ public class ModBlockLootTables extends BlockLoot {
         // DROP THEM SELFs
         this.dropSelf(ModBlocks.ETERIUM_BLOCK.get());
         this.dropSelf(ModBlocks.SPEEDY_BLOCK.get());
+        this.dropSelf(ModBlocks.BLOCK_TESTE.get());
 
         // DROP ORES
         this.add(ModBlocks.ETERIUM_ORE.get(),

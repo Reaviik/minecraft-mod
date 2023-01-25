@@ -1,11 +1,12 @@
 {
   "itemGroup.minersdream": "Sonho de Mineração",
 
+  "tooltip.minersdream.pressShift": "Pressione §e[Shift]§f para descrições",
+
   "item.minersdream.beryl_nut": "Berilo",
 
   "item.minersdream.coal": "Carvão",
-  "item.minersdream.coalShift":"Press §e[Shift]§f to description",
-  "item.minersdream.coalDescription":"§8BurnTime 6400 t §b|§f 32 items",
+  "tooltip.minersdream.coalDescription":"§8Tempo de queima 6400 t §b|§f 32 itens",
 
   "item.minersdream.eterium_ingot": "Lingote de Eterium",
   "item.minersdream.raw_eterium": "Eterium Bruto",
@@ -16,7 +17,8 @@
   "block.minersdream.speedy_block": "Bloco de Velocidade",
   "block.minersdream.block_teste": "Esquecimento",
 
-  "item.minersdream.eterium_pickaxe": "Picareta de Eterium"
+  "item.minersdream.eterium_pickaxe": "Picareta de Eterium",
+  "tooltip.minersdream.eterium_pickaxeDescription": "§5Esta picareta traz uma grande fortuna!"
 
 
 }

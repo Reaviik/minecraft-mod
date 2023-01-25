@@ -2,6 +2,8 @@ package com.minersdream.item;
 
 import com.minersdream.MinersDream;
 import com.minersdream.item.custom.Coal;
+import com.minersdream.block.ModBlocks;
+import com.minersdream.item.custom.EteriumPickaxe;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PickaxeItem;
@@ -26,7 +28,7 @@ public class ModItems {
 
     // TOOLS
     public static final RegistryObject<Item> ETERIUM_PICKAXE = ITEMS.register("eterium_pickaxe",
-            () -> new PickaxeItem(ModTiers.ETERIUM, 1, 1.0f,
+            () -> new EteriumPickaxe(ModTiers.ETERIUM, 1, 1.0f,
                     new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB)));
 
     // FOODS

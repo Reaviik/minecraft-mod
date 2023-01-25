@@ -29,7 +29,7 @@ public class Coal extends Item {
     public void appendHoverText(ItemStack pStack, @org.jetbrains.annotations.Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         pTooltipComponents.add(new TranslatableComponent("tooltip.minersdream.pressShift"));
         if(Screen.hasShiftDown()) {
-            pTooltipComponents.remove(1);
+            pTooltipComponents.set(1, new TranslatableComponent("tooltip.minersdream.coalNewName"));
             pTooltipComponents.add(new TranslatableComponent("tooltip.minersdream.coalDescription"));
         }
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);

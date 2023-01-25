@@ -7,6 +7,7 @@
 
   "item.minersdream.coal": "Coal",
   "tooltip.minersdream.coalDescription":"§8BurnTime 6400 t §b|§f 32 items",
+  "tooltip.minersdream.coalNewName":"§8C§0o§5a§2l",
 
   "item.minersdream.eterium_ingot": "Eterium Ingot",
   "item.minersdream.raw_eterium": "Raw Eterium",
@@ -17,7 +18,7 @@
   "block.minersdream.speedy_block": "Speedy Block",
   "block.minersdream.block_teste": "Auzaimer",
 
-  "item.minersdream.eterium_pickaxe": "Eterium Pickaxe",
-  "tooltip.minersdream.eterium_pickaxeDescription": "§5This pickaxe brings you a huge fortune!"
+  "item.minersdream.eterium_pickaxe": "Eterium Pickaxe"
+
 
 }

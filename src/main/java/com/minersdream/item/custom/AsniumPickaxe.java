@@ -28,7 +28,7 @@ public class AsniumPickaxe extends PickaxeItem {
         pTooltipComponents.add(new TranslatableComponent("tooltip.minersdream.pressShift"));
         if(Screen.hasShiftDown()) {
             pTooltipComponents.remove(1);
-            pTooltipComponents.add(new TranslatableComponent("tooltip.minersdream.asnium_pickaxeDescription"));
+            pTooltipComponents.add(new TranslatableComponent("tooltip.minersdream.asnium_pickaxe"));
         }
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

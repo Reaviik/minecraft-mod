@@ -21,7 +21,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.RAW_ASNIUM.get());
 
         // HANDHELD ITEMS
-       // handheldItem(ModItems.ASNIUM_PICKAXE.get());
+        //handheldItem(ModItems.ASNIUM_PICKAXE.get());
     }
 
     private ItemModelBuilder simpleItem(Item item) {

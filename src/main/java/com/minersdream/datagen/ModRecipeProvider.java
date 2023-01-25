@@ -37,7 +37,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("CCC")
                 .pattern("CCC")
                 .pattern("CCC")
-                .unlockedBy("has_easnium_ingot", inventoryTrigger(ItemPredicate.Builder.item()
+                .unlockedBy("has_asnium_ingot", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModItems.ASNIUM_INGOT.get()).build()))
                 .save(pFinishedRecipeConsumer);
 
@@ -49,7 +49,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapedRecipeBuilder.shaped(ModItems.ASNIUM_PICKAXE.get())
                 .define('I', ModBlocks.ASNIUM_BLOCK.get())
-                .define('S', Items.NETHER_STAR)
+                .define('S', Items.OBSIDIAN)
                 .pattern("III")
                 .pattern(" S ")
                 .pattern(" S ")

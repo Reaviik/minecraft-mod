@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has_easnium_ingot": {
+    "has_asnium_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_easnium_ingot",
+      "has_asnium_ingot",
       "has_the_recipe"
     ]
   ]

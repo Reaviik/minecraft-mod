@@ -7,7 +7,7 @@
   "item.minersdream.paleberry": "Baga pálida",
 
   "item.minersdream.coal": "Carvão",
-  "tooltip.minersdream.coal":"§8Tempo de queima 6400 t §b|§f 32 itens",
+  "tooltip.minersdream.coal": "§8Tempo de queima 6400 t §b|§f 32 itens",
 
   "item.minersdream.asnium_ingot": "Lingote de Asnium",
 
@@ -19,16 +19,18 @@
 
   "block.minersdream.deepslate_asnium_ore": "Minério de Asnium de Aredósia Profunda",
 
-  "block.minersdream.speedy_block": "Bloco de Velocidade",
-  "tooltip.minersdream.block_teste": "Este bloco garante efeito de velocidade II quando sobre ele",
+  "block.minersdream.asphalt": "Asfalto",
+  "tooltip.minersdream.asphalt": "§3This block grants Speed II effect when on it.",
 
   "block.minersdream.block_teste": "Decantador",
+  "tooltip.minersdream.block_teste": "No one know what this block is for",
 
   "block.minersdream.foundation": "Bloco de fundação",
   "tooltip.minersdream.foundation": "Nunca é bom deixar suas maquinas em contato com a terra",
 
+
   "item.minersdream.asnium_pickaxe": "Picareta de Asnium",
-  "tooltip.minersdream.asnium_pickaxeDescription": "§5Esta picareta traz uma grande fortuna!"
+  "tooltip.minersdream.asnium_pickaxe": "§5Esta picareta traz uma grande fortuna!"
 
 
 }

@@ -19,17 +19,18 @@
 
   "block.minersdream.deepslate_asnium_ore": "Deepslate Asnium Ore",
 
-  "block.minersdream.speedy_block": "Speedy Block",
-  "tooltip.minersdream.block_teste": "§This block grants Speed II effect when on it.",
+  "block.minersdream.asphalt": "Asphalt",
+  "tooltip.minersdream.asphalt": "§3This block grants Speed II effect when on it.",
 
   "block.minersdream.block_teste": "Decanter",
+  "tooltip.minersdream.block_teste": "No one know what this block is for",
 
   "block.minersdream.foundation": "Foundation block",
   "tooltip.minersdream.foundation": "It's never good to leave your machines in contact with the dirt",
 
 
   "item.minersdream.asnium_pickaxe": "Asnium Pickaxe",
-  "tooltip.minersdream.asnium_pickaxeDescription": "§5This pickaxe brings great fortune!"
+  "tooltip.minersdream.asnium_pickaxe": "§5This pickaxe brings great fortune!"
 
 
 }

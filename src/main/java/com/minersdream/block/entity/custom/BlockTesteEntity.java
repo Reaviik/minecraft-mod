@@ -169,7 +169,7 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
     }
 
     private static boolean hasToolsInToolSlot(BlockTesteEntity entity) {
-        return entity.itemHandler.getStackInSlot(2).getItem() == ModItems.ETERIUM_PICKAXE.get();
+        return entity.itemHandler.getStackInSlot(2).getItem() == ModItems.ASNIUM_PICKAXE.get();
     }
 
     private static void craftItem(BlockTesteEntity entity) {

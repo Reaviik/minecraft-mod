@@ -7,7 +7,7 @@ public class ModCreativeModeTab {
     public static final CreativeModeTab MinersDream_TAB = new CreativeModeTab("minersdream"){
         @Override
         public ItemStack makeIcon() {
-                return new ItemStack(ModItems.ETERIUM_INGOT.get());
+                return new ItemStack(ModItems.ASNIUM_INGOT.get());
         }
     };
 }

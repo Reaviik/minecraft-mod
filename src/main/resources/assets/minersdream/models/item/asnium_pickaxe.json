@@ -1,9 +1,9 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "minersdream:block/eterium_block",
+		"0": "minersdream:block/asnium_block",
 		"1": "minersdream:item/handler_pickaxe",
-		"particle": "minersdream:block/eterium_block"
+		"particle": "minersdream:block/asnium_block"
 	},
 	"elements": [
 		{

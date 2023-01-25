@@ -2,10 +2,8 @@ package com.minersdream.item.custom;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Tier;
@@ -16,8 +14,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class EteriumPickaxe extends PickaxeItem {
-    public EteriumPickaxe(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
+public class AsniumPickaxe extends PickaxeItem {
+    public AsniumPickaxe(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
 
@@ -30,7 +28,7 @@ public class EteriumPickaxe extends PickaxeItem {
         pTooltipComponents.add(new TranslatableComponent("tooltip.minersdream.pressShift"));
         if(Screen.hasShiftDown()) {
             pTooltipComponents.remove(1);
-            pTooltipComponents.add(new TranslatableComponent("tooltip.minersdream.eterium_pickaxeDescription"));
+            pTooltipComponents.add(new TranslatableComponent("tooltip.minersdream.asnium_pickaxeDescription"));
         }
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

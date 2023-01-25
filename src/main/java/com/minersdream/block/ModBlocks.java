@@ -27,19 +27,19 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, MinersDream.MOD_ID);
 
-    public static final RegistryObject<Block> ETERIUM_BLOCK = registerBlock("eterium_block",
+    public static final RegistryObject<Block> ASNIUM_BLOCK = registerBlock("asnium_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(2f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
 
-    public static final RegistryObject<Block> ETERIUM_ORE = registerBlock("eterium_ore",
+    public static final RegistryObject<Block> ASNIUM_ORE = registerBlock("asnium_ore",
             () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(2f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
 
-    public static final RegistryObject<Block> DEEPSLATE_ETERIUM_ORE = registerBlock("deepslate_eterium_ore",
+    public static final RegistryObject<Block> DEEPSLATE_ASNIUM_ORE = registerBlock("deepslate_asnium_ore",
             () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(2f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
 
-    public static final RegistryObject<Block> SPEEDY_BLOCK = registerBlock("speedy_block",
+    public static final RegistryObject<Block> ASPHALT = registerBlock("asphalt",
          () -> new SpeedyBlock(BlockBehaviour.Properties.of(Material.STONE)
                  .strength(1f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> BLOCK_TESTE = registerBlock("block_teste",

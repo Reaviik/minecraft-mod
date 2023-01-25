@@ -12,15 +12,15 @@ public class ModBlockLootTables extends BlockLoot {
     @Override
     protected void addTables() {
         // DROP THEM SELFs
-        this.dropSelf(ModBlocks.ETERIUM_BLOCK.get());
-        this.dropSelf(ModBlocks.SPEEDY_BLOCK.get());
+        this.dropSelf(ModBlocks.ASNIUM_BLOCK.get());
+        this.dropSelf(ModBlocks.ASPHALT.get());
         this.dropSelf(ModBlocks.BLOCK_TESTE.get());
 
         // DROP ORES
-        this.add(ModBlocks.ETERIUM_ORE.get(),
-                (block) -> createOreDrop(ModBlocks.ETERIUM_ORE.get(), ModItems.RAW_ETERIUM.get()));
-        this.add(ModBlocks.DEEPSLATE_ETERIUM_ORE.get(),
-                (block) -> createOreDrop(ModBlocks.DEEPSLATE_ETERIUM_ORE.get(), ModItems.RAW_ETERIUM.get()));
+        this.add(ModBlocks.ASNIUM_ORE.get(),
+                (block) -> createOreDrop(ModBlocks.ASNIUM_ORE.get(), ModItems.RAW_ASNIUM.get()));
+        this.add(ModBlocks.DEEPSLATE_ASNIUM_ORE.get(),
+                (block) -> createOreDrop(ModBlocks.DEEPSLATE_ASNIUM_ORE.get(), ModItems.RAW_ASNIUM.get()));
 
     }
 

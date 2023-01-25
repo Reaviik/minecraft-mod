@@ -14,10 +14,10 @@ public class ModBlocksStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        simpleBlock(ModBlocks.ETERIUM_BLOCK.get());
+        simpleBlock(ModBlocks.ASNIUM_BLOCK.get());
         simpleBlock(ModBlocks.FOUNDATION.get());
-        simpleBlock(ModBlocks.ETERIUM_ORE.get());
-        simpleBlock(ModBlocks.DEEPSLATE_ETERIUM_ORE.get());
-        simpleBlock(ModBlocks.SPEEDY_BLOCK.get());
+        simpleBlock(ModBlocks.ASNIUM_ORE.get());
+        simpleBlock(ModBlocks.DEEPSLATE_ASNIUM_ORE.get());
+        simpleBlock(ModBlocks.ASPHALT.get());
     }
 }

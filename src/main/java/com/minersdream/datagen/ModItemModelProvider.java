@@ -17,11 +17,11 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         // SIMPLE ITEMS
-        simpleItem(ModItems.ETERIUM_INGOT.get());
-        simpleItem(ModItems.RAW_ETERIUM.get());
+        simpleItem(ModItems.ASNIUM_INGOT.get());
+        simpleItem(ModItems.RAW_ASNIUM.get());
 
         // HANDHELD ITEMS
-        handheldItem(ModItems.ETERIUM_PICKAXE.get());
+        handheldItem(ModItems.ASNIUM_PICKAXE.get());
     }
 
     private ItemModelBuilder simpleItem(Item item) {

@@ -1,8 +1,8 @@
 {
-    "variants":{
-      "facing=north":{"model": "minersdream:block/block_teste"},
-      "facing=east":{"model": "minersdream:block/block_teste", "y": 90},
-      "facing=south":{"model": "minersdream:block/block_teste", "y": 180},
-      "facing=west":{"model": "minersdream:block/block_teste", "y": 270}
+  "variants":{
+    "facing=north":{"model": "minersdream:block/block_teste"},
+    "facing=east":{"model": "minersdream:block/block_teste", "y": 90},
+    "facing=south":{"model": "minersdream:block/block_teste", "y": 180},
+    "facing=west":{"model": "minersdream:block/block_teste", "y": 270}
   }
 }

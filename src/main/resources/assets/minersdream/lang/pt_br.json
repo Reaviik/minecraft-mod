@@ -9,15 +9,15 @@
   "item.minersdream.coal": "Carvão",
   "tooltip.minersdream.coal":"§8Tempo de queima 6400 t §b|§f 32 itens",
 
-  "item.minersdream.eterium_ingot": "Lingote de Eterium",
+  "item.minersdream.asnium_ingot": "Lingote de Asnium",
 
-  "item.minersdream.raw_eterium": "Eterium Bruto",
+  "item.minersdream.raw_asnium": "Asnium Bruto",
 
-  "block.minersdream.eterium_block": "Bloco de Eterium",
+  "block.minersdream.asnium_block": "Bloco de Asnium",
 
-  "block.minersdream.eterium_ore": "Minério de Eterium",
+  "block.minersdream.asnium_ore": "Minério de Asnium",
 
-  "block.minersdream.deepslate_eterium_ore": "Minério de Eterium de Aredósia Profunda",
+  "block.minersdream.deepslate_asnium_ore": "Minério de Asnium de Aredósia Profunda",
 
   "block.minersdream.speedy_block": "Bloco de Velocidade",
   "tooltip.minersdream.block_teste": "Este bloco garante efeito de velocidade II quando sobre ele",
@@ -27,8 +27,8 @@
   "block.minersdream.foundation": "Bloco de fundação",
   "tooltip.minersdream.foundation": "Nunca é bom deixar suas maquinas em contato com a terra",
 
-  "item.minersdream.eterium_pickaxe": "Picareta de Eterium",
-  "tooltip.minersdream.eterium_pickaxeDescription": "§5Esta picareta traz uma grande fortuna!"
+  "item.minersdream.asnium_pickaxe": "Picareta de Asnium",
+  "tooltip.minersdream.asnium_pickaxeDescription": "§5Esta picareta traz uma grande fortuna!"
 
 
 }

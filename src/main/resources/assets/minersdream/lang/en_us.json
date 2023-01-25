@@ -9,27 +9,27 @@
   "item.minersdream.coal": "Coal",
   "tooltip.minersdream.coal":"§8BurnTime 6400 t §b|§f 32 items",
 
-  "item.minersdream.eterium_ingot": "Eterium Ingot",
+  "item.minersdream.asnium_ingot": "Asnium Ingot",
 
-  "item.minersdream.raw_eterium": "Raw Eterium",
+  "item.minersdream.raw_asnium": "Raw Asnium",
 
-  "block.minersdream.eterium_block": "Eterium Block",
+  "block.minersdream.asnium_block": "Asnium Block",
 
-  "block.minersdream.eterium_ore": "Eterium Ore",
+  "block.minersdream.asnium_ore": "Asnium Ore",
 
-  "block.minersdream.deepslate_eterium_ore": "Deepslate Eterium Ore",
+  "block.minersdream.deepslate_asnium_ore": "Deepslate Asnium Ore",
 
   "block.minersdream.speedy_block": "Speedy Block",
   "tooltip.minersdream.block_teste": "§This block grants Speed II effect when on it.",
 
   "block.minersdream.block_teste": "Decanter",
 
-  "block.minersdream.foundation": "Fundation block",
+  "block.minersdream.foundation": "Foundation block",
   "tooltip.minersdream.foundation": "It's never good to leave your machines in contact with the dirt",
 
 
-  "item.minersdream.eterium_pickaxe": "Eterium Pickaxe",
-  "tooltip.minersdream.eterium_pickaxeDescription": "§5This pickaxe brings great fortune!"
+  "item.minersdream.asnium_pickaxe": "Asnium Pickaxe",
+  "tooltip.minersdream.asnium_pickaxeDescription": "§5This pickaxe brings great fortune!"
 
 
 }

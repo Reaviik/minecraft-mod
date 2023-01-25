@@ -1,8 +1,8 @@
 package com.minersdream.item;
 
 import com.minersdream.MinersDream;
+import com.minersdream.item.custom.AsniumPickaxe;
 import com.minersdream.item.custom.Coal;
-import com.minersdream.item.custom.EteriumPickaxe;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -16,14 +16,14 @@ public class ModItems {
 
 
     //BASIC ITEMS
-    public static final RegistryObject<Item> ETERIUM_INGOT = ITEMS.register("eterium_ingot",
+    public static final RegistryObject<Item> ASNIUM_INGOT = ITEMS.register("asnium_ingot",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).rarity(Rarity.RARE)));
-    public static final RegistryObject<Item> RAW_ETERIUM = ITEMS.register("raw_eterium",
+    public static final RegistryObject<Item> RAW_ASNIUM = ITEMS.register("raw_asnium",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB)));
 
     // TOOLS
-    public static final RegistryObject<Item> ETERIUM_PICKAXE = ITEMS.register("eterium_pickaxe",
-            () -> new EteriumPickaxe(ModTiers.ETERIUM, 1, 1.0f,
+    public static final RegistryObject<Item> ASNIUM_PICKAXE = ITEMS.register("asnium_pickaxe",
+            () -> new AsniumPickaxe(ModTiers.ASNIUM, 1, 1.0f,
                     new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).rarity(Rarity.EPIC)));
 
     // FOODS

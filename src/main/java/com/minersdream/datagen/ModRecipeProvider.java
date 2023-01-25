@@ -25,48 +25,48 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     // LISTs
 
-    protected static final ImmutableList<ItemLike> ETERIUM_SMELTABLES = ImmutableList.of(ModBlocks.ETERIUM_ORE.get(), ModBlocks.DEEPSLATE_ETERIUM_ORE.get(), ModItems.RAW_ETERIUM.get());
+    protected static final ImmutableList<ItemLike> ASNIUM_SMELTABLES = ImmutableList.of(ModBlocks.ASNIUM_ORE.get(), ModBlocks.DEEPSLATE_ASNIUM_ORE.get(), ModItems.RAW_ASNIUM.get());
 
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
 
         // WORKBENCH RECIPES
 
-        ShapedRecipeBuilder.shaped(ModBlocks.ETERIUM_BLOCK.get())
-                .define('C', ModItems.ETERIUM_INGOT.get())
+        ShapedRecipeBuilder.shaped(ModBlocks.ASNIUM_BLOCK.get())
+                .define('C', ModItems.ASNIUM_INGOT.get())
                 .pattern("CCC")
                 .pattern("CCC")
                 .pattern("CCC")
-                .unlockedBy("has_eterium_ingot", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ModItems.ETERIUM_INGOT.get()).build()))
+                .unlockedBy("has_easnium_ingot", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.ASNIUM_INGOT.get()).build()))
                 .save(pFinishedRecipeConsumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.ETERIUM_INGOT.get(), 9)
-                .requires(ModBlocks.ETERIUM_BLOCK.get())
-                .unlockedBy("has_eterium_block", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ModBlocks.ETERIUM_BLOCK.get()).build()))
+        ShapelessRecipeBuilder.shapeless(ModItems.ASNIUM_INGOT.get(), 9)
+                .requires(ModBlocks.ASNIUM_BLOCK.get())
+                .unlockedBy("has_asnium_block", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.ASNIUM_BLOCK.get()).build()))
                 .save(pFinishedRecipeConsumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.ETERIUM_PICKAXE.get())
-                .define('I', ModBlocks.ETERIUM_BLOCK.get())
+        ShapedRecipeBuilder.shaped(ModItems.ASNIUM_PICKAXE.get())
+                .define('I', ModBlocks.ASNIUM_BLOCK.get())
                 .define('S', Items.NETHER_STAR)
                 .pattern("III")
                 .pattern(" S ")
                 .pattern(" S ")
-                .unlockedBy("has_eterium_block", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ModBlocks.ETERIUM_BLOCK.get()).build()))
+                .unlockedBy("has_asnium_block", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.ASNIUM_BLOCK.get()).build()))
                 .save(pFinishedRecipeConsumer);
 
 
 
         // ORE MELTING RECIPES
 
-        oreSmelting(pFinishedRecipeConsumer, ETERIUM_SMELTABLES, ModItems.ETERIUM_INGOT.get(), 0.7F, 200, "eterium_ingot");
+        oreSmelting(pFinishedRecipeConsumer, ASNIUM_SMELTABLES, ModItems.ASNIUM_INGOT.get(), 0.7F, 200, "asnium_ingot");
 
-        // BLOCK TESTE RECIPES
+        // BLOCK TESTE ASNIUM
 
-        new BlockTesteRecipeBuilder(ModItems.RAW_ETERIUM.get(), ModItems.ETERIUM_INGOT.get(), 4)
-                .unlockedBy("has_raw_eterium", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ModItems.RAW_ETERIUM.get()).build())).save(pFinishedRecipeConsumer);
+        new BlockTesteRecipeBuilder(ModItems.RAW_ASNIUM.get(), ModItems.ASNIUM_INGOT.get(), 4)
+                .unlockedBy("has_raw_asnium", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.RAW_ASNIUM.get()).build())).save(pFinishedRecipeConsumer);
     }
 }

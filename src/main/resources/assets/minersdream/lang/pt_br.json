@@ -4,6 +4,8 @@
   "item.minersdream.beryl_nut": "Berilo",
 
   "item.minersdream.coal": "Carvão",
+  "item.minersdream.coalShift":"Press §e[Shift]§f to description",
+  "item.minersdream.coalDescription":"§8BurnTime 6400 t §b|§f 32 items",
 
   "item.minersdream.eterium_ingot": "Lingote de Eterium",
   "item.minersdream.raw_eterium": "Eterium Bruto",

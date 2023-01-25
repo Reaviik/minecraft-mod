@@ -2,17 +2,12 @@ package com.minersdream.item;
 
 import com.minersdream.MinersDream;
 import com.minersdream.item.custom.Coal;
-import com.minersdream.block.ModBlocks;
 import com.minersdream.item.custom.EteriumPickaxe;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.PickaxeItem;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.jetbrains.annotations.Nullable;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -33,7 +28,7 @@ public class ModItems {
 
     // FOODS
     public static final RegistryObject<Item> BERYL_NUT = ITEMS.register("beryl_nut",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).food(ModFoods.BERYL_NUT).stacksTo(6)));
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).food(ModFoods.BERYL_NUT).stacksTo(128)));
 
     // FUEL
 

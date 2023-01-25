@@ -4,6 +4,8 @@
   "item.minersdream.beryl_nut": "Beryl Nut",
 
   "item.minersdream.coal": "Coal",
+  "item.minersdream.coalShift":"Presione §e[Shift]§f para descrições",
+  "item.minersdream.coalDescription":"§8Tempo de queima 6400 t §b|§f 32 itens",
 
   "item.minersdream.eterium_ingot": "Eterium Ingot",
   "item.minersdream.raw_eterium": "Raw Eterium",

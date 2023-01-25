@@ -5,6 +5,7 @@ import com.minersdream.block.custom.BlockTeste;
 import com.minersdream.block.custom.SpeedyBlock;
 import com.minersdream.item.ModCreativeModeTab;
 import com.minersdream.item.ModItems;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.*;
@@ -43,7 +44,7 @@ public class ModBlocks {
                  .strength(1f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> BLOCK_TESTE = registerBlock("block_teste",
             () -> new BlockTeste(BlockBehaviour.Properties.of(Material.STONE).noOcclusion()
-                    .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "");
+                    .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.block_testeDescription");
 
 
     //Tooltip
@@ -57,7 +58,11 @@ public class ModBlocks {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),  new Item.Properties().tab(tab)){
             @Override
             public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-                pTooltip.add(new TranslatableComponent(tooltipKey));
+                pTooltip.add(new TranslatableComponent("tooltip.minersdream.pressShift"));
+                    if(Screen.hasShiftDown()) {
+                        pTooltip.remove(1);
+                        pTooltip.add(new TranslatableComponent(tooltipKey));
+                }
             }
         });
     }

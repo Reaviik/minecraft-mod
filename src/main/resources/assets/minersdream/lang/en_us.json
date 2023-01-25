@@ -16,7 +16,9 @@
   "block.minersdream.eterium_ore": "Eterium Ore",
   "block.minersdream.deepslate_eterium_ore": "Deepslate Eterium Ore",
   "block.minersdream.speedy_block": "Speedy Block",
+
   "block.minersdream.block_teste": "Auzaimer",
+  "tooltip.minersdream.block_testeDescription": "Auzaimer",
 
   "item.minersdream.eterium_pickaxe": "Eterium Pickaxe"
 

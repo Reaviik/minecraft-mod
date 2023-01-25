@@ -1,8 +1,13 @@
 package com.minersdream;
 
 import com.minersdream.block.ModBlocks;
+import com.minersdream.block.entity.ModBlockEntities;
+import com.minersdream.block.screen.BlockTeste.BlockTesteMenu;
+import com.minersdream.block.screen.BlockTeste.BlockTesteScreen;
+import com.minersdream.block.screen.ModMenuTypes;
 import com.mojang.logging.LogUtils;
 import com.minersdream.item.ModItems;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
@@ -31,17 +36,25 @@ public class MinersDream {
     public static final String MOD_ID = "minersdream";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public MinersDream()
-    {
+    public MinersDream() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        ModBlockEntities.register(modEventBus);
+
+        ModMenuTypes.register(modEventBus);
+
+        modEventBus.addListener(this::setup);
+        modEventBus.addListener(this::clientSetup);
+
         MinecraftForge.EVENT_BUS.register(this);
     }
     public void clientSetup(final FMLClientSetupEvent event){
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOCK_TESTE.get(), RenderType.cutout());
+
+        MenuScreens.register(ModMenuTypes.BLOCK_TESTE_MENU.get(), BlockTesteScreen::new);
     }
     private void setup(final FMLCommonSetupEvent event) {
         // some preinit code

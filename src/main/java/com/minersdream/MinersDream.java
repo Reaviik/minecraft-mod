@@ -41,7 +41,7 @@ public class MinersDream {
         MinecraftForge.EVENT_BUS.register(this);
     }
     public void clientSetup(final FMLClientSetupEvent event){
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOCK_TESTE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOCK_TESTE.get(), RenderType.translucent());
     }
     private void setup(final FMLCommonSetupEvent event) {
         // some preinit code

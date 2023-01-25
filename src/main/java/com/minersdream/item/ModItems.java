@@ -15,12 +15,11 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, MinersDream.MOD_ID);
 
 
-
+    //BASIC ITEMS
     public static final RegistryObject<Item> ETERIUM_INGOT = ITEMS.register("eterium_ingot",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> RAW_ETERIUM = ITEMS.register("raw_eterium",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB)));
-
 
     // TOOLS
     public static final RegistryObject<Item> ETERIUM_PICKAXE = ITEMS.register("eterium_pickaxe",
@@ -31,9 +30,11 @@ public class ModItems {
     public static final RegistryObject<Item> BERYL_NUT = ITEMS.register("beryl_nut",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).food(ModFoods.BERYL_NUT).stacksTo(128)
                     .rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> PALEBERRY= ITEMS.register("paleberry",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).food(ModFoods.BERYL_NUT).stacksTo(128)
+                    .rarity(Rarity.UNCOMMON)));
 
     // FUEL
-
     public static final RegistryObject<Item> COAL = ITEMS.register("coal",
             () -> new Coal(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).rarity(Rarity.UNCOMMON)));
 

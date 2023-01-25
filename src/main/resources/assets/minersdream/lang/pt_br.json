@@ -4,19 +4,28 @@
   "tooltip.minersdream.pressShift": "Pressione §e[Shift]§f para descrições",
 
   "item.minersdream.beryl_nut": "Berilo",
+  "item.minersdream.paleberry": "Baga pálida",
 
   "item.minersdream.coal": "Carvão",
-  "tooltip.minersdream.coalDescription":"§8Tempo de queima 6400 t §b|§f 32 itens",
+  "tooltip.minersdream.coal":"§8Tempo de queima 6400 t §b|§f 32 itens",
 
   "item.minersdream.eterium_ingot": "Lingote de Eterium",
+
   "item.minersdream.raw_eterium": "Eterium Bruto",
 
   "block.minersdream.eterium_block": "Bloco de Eterium",
+
   "block.minersdream.eterium_ore": "Minério de Eterium",
+
   "block.minersdream.deepslate_eterium_ore": "Minério de Eterium de Aredósia Profunda",
+
   "block.minersdream.speedy_block": "Bloco de Velocidade",
-  "block.minersdream.block_teste": "Esquecimento",
-  "tooltip.minersdream.block_testeDescription": "Auzaimer",
+  "tooltip.minersdream.block_teste": "Este bloco garante efeito de velocidade II quando sobre ele",
+
+  "block.minersdream.block_teste": "Decantador",
+
+  "block.minersdream.foundation": "Bloco de fundação",
+  "tooltip.minersdream.foundation": "Nunca é bom deixar suas maquinas em contato com a terra",
 
   "item.minersdream.eterium_pickaxe": "Picareta de Eterium",
   "tooltip.minersdream.eterium_pickaxeDescription": "§5Esta picareta traz uma grande fortuna!"

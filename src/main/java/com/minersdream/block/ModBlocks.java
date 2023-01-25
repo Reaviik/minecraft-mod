@@ -44,7 +44,11 @@ public class ModBlocks {
                  .strength(1f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> BLOCK_TESTE = registerBlock("block_teste",
             () -> new BlockTeste(BlockBehaviour.Properties.of(Material.STONE).noOcclusion()
-                    .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.block_testeDescription");
+                    .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.block_teste");
+
+    public static final RegistryObject<Block> FOUNDATION = registerBlock("foundation",
+            () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL)
+                    .strength(0.7f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.foundation");
 
 
     //Tooltip

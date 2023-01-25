@@ -2,7 +2,9 @@ package com.minersdream.datagen;
 
 import com.google.common.collect.ImmutableList;
 import com.minersdream.block.ModBlocks;
+import com.minersdream.datagen.custom.BlockTesteRecipeBuilder;
 import com.minersdream.item.ModItems;
+import com.minersdream.recipe.BlockTesteRecipe;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.client.Minecraft;
 import net.minecraft.data.DataGenerator;
@@ -60,5 +62,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         // ORE MELTING RECIPES
 
         oreSmelting(pFinishedRecipeConsumer, ETERIUM_SMELTABLES, ModItems.ETERIUM_INGOT.get(), 0.7F, 200, "eterium_ingot");
+
+        // BLOCK TESTE RECIPES
+
+        new BlockTesteRecipeBuilder(ModItems.RAW_ETERIUM.get(), ModItems.ETERIUM_INGOT.get(), 4)
+                .unlockedBy("has_raw_eterium", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.RAW_ETERIUM.get()).build())).save(pFinishedRecipeConsumer);
     }
 }

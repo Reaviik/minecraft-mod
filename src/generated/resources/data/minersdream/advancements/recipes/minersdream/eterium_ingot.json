@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_eterium_block": {
+    "has_raw_eterium": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minersdream:eterium_block"
+              "minersdream:raw_eterium"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_eterium_block",
+      "has_raw_eterium",
       "has_the_recipe"
     ]
   ]

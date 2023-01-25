@@ -20,7 +20,8 @@
   "block.minersdream.block_teste": "Auzaimer",
   "tooltip.minersdream.block_testeDescription": "Auzaimer",
 
-  "item.minersdream.eterium_pickaxe": "Eterium Pickaxe"
+  "item.minersdream.eterium_pickaxe": "Eterium Pickaxe",
+  "tooltip.minersdream.eterium_pickaxeDescription": "§5This pickaxe brings great fortune!"
 
 
 }

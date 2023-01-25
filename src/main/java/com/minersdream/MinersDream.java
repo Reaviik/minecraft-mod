@@ -5,6 +5,7 @@ import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.screen.BlockTeste.BlockTesteMenu;
 import com.minersdream.block.screen.BlockTeste.BlockTesteScreen;
 import com.minersdream.block.screen.ModMenuTypes;
+import com.minersdream.recipe.ModRecipes;
 import com.mojang.logging.LogUtils;
 import com.minersdream.item.ModItems;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -43,8 +44,9 @@ public class MinersDream {
         ModBlocks.register(modEventBus);
 
         ModBlockEntities.register(modEventBus);
-
         ModMenuTypes.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
 
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::clientSetup);

@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:asniume_ingot_from_smelting_asnium_ore"
+      "minecraft:asnium_ingot_from_smelting_asnium_ore"
     ]
   },
   "criteria": {

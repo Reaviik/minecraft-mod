@@ -15,6 +15,7 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(ModBlocks.ASNIUM_BLOCK.get());
         this.dropSelf(ModBlocks.ASPHALT.get());
         this.dropSelf(ModBlocks.BLOCK_TESTE.get());
+        this.dropSelf(ModBlocks.FOUNDATION.get());
 
         // DROP ORES
         this.add(ModBlocks.ASNIUM_ORE.get(),

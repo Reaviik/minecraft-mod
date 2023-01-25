@@ -24,14 +24,4 @@ public class Coal extends Item {
     public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
         return 6400;
     }
-
-    @Override
-    public void appendHoverText(ItemStack pStack, @org.jetbrains.annotations.Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-        pTooltipComponents.add(new TranslatableComponent("tooltip.minersdream.pressShift"));
-        if(Screen.hasShiftDown()) {
-            pTooltipComponents.set(1, new TranslatableComponent("tooltip.minersdream.coalNewName"));
-            pTooltipComponents.add(new TranslatableComponent("tooltip.minersdream.coalDescription"));
-        }
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
-    }
 }

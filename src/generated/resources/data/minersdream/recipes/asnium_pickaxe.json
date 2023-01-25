@@ -7,13 +7,13 @@
   ],
   "key": {
     "I": {
-      "item": "minersdream:eterium_block"
+      "item": "minersdream:asnium_block"
     },
     "S": {
       "item": "minecraft:nether_star"
     }
   },
   "result": {
-    "item": "minersdream:eterium_pickaxe"
+    "item": "minersdream:asnium_pickaxe"
   }
 }

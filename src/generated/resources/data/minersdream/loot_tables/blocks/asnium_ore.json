@@ -25,7 +25,7 @@
                   }
                 }
               ],
-              "name": "minersdream:deepslate_eterium_ore"
+              "name": "minersdream:asnium_ore"
             },
             {
               "type": "minecraft:item",
@@ -39,7 +39,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "minersdream:raw_eterium"
+              "name": "minersdream:raw_asnium"
             }
           ]
         }

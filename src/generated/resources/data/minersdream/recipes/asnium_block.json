@@ -7,10 +7,10 @@
   ],
   "key": {
     "C": {
-      "item": "minersdream:eterium_ingot"
+      "item": "minersdream:asnium_ingot"
     }
   },
   "result": {
-    "item": "minersdream:eterium_block"
+    "item": "minersdream:asnium_block"
   }
 }

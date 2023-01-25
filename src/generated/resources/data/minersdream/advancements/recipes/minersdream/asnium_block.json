@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minersdream:eterium_ingot"
+      "minersdream:asnium_block"
     ]
   },
   "criteria": {
-    "has_raw_eterium": {
+    "has_asnium_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minersdream:raw_eterium"
+              "minersdream:asnium_ingot"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minersdream:eterium_ingot"
+        "recipe": "minersdream:asnium_block"
       }
     }
   },
   "requirements": [
     [
-      "has_raw_eterium",
+      "has_asnium_ingot",
       "has_the_recipe"
     ]
   ]

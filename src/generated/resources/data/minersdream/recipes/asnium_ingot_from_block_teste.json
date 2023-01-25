@@ -2,11 +2,11 @@
   "type": "minersdream:block_teste",
   "ingredients": [
     {
-      "item": "minersdream:raw_eterium"
+      "item": "minersdream:raw_asnium"
     }
   ],
   "output": {
-    "item": "minersdream:eterium_ingot",
+    "item": "minersdream:asnium_ingot",
     "count": 4
   }
 }

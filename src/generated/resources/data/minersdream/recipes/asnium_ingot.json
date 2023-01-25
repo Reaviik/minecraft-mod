@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minersdream:eterium_block"
+      "item": "minersdream:asnium_block"
     }
   ],
   "result": {
-    "item": "minersdream:eterium_ingot",
+    "item": "minersdream:asnium_ingot",
     "count": 9
   }
 }

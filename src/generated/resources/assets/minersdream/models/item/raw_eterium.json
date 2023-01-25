@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "minersdream:item/raw_eterium"
+    "layer0": "minersdream:item/raw_asnium"
   }
 }

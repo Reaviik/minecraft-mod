@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:eterium_ingot_from_smelting_eterium_ore"
+      "minecraft:asniume_ingot_from_smelting_asnium_ore"
     ]
   },
   "criteria": {
-    "has_eterium_ore": {
+    "has_asnium_ore": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minersdream:eterium_ore"
+              "minersdream:asnium_ore"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:eterium_ingot_from_smelting_eterium_ore"
+        "recipe": "minecraft:asnium_ingot_from_smelting_asnium_ore"
       }
     }
   },
   "requirements": [
     [
-      "has_eterium_ore",
+      "has_asnium_ore",
       "has_the_recipe"
     ]
   ]

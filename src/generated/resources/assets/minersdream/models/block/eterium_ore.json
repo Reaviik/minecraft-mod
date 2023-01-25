@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "minersdream:block/eterium_ore"
+    "all": "minersdream:block/asnium_ore"
   }
 }

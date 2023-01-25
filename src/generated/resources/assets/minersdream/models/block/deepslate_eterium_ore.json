@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "minersdream:block/deepslate_eterium_ore"
+    "all": "minersdream:block/deepslate_asnium_ore"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "conditions": [
+    {
+      "condition": "block_state_property",
+      "loot_table_id": "minecraft:grass"
+    }
+  ],
+  "addition": "minersdream:beryl_nut",
+  "type": "minersdream:beryl_from_grass"
+}

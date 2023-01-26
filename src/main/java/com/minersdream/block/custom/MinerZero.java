@@ -57,11 +57,10 @@ public class MinerZero extends Block {
             Block.box(15, 0, 0, 16, 16, 1), Block.box(15, 0, 15, 16, 16, 16),
             Block.box(15, 15, 1, 16, 16, 15), Block.box(1, 15, 15, 15, 16, 16),
             Block.box(1, 15, 0, 15, 16, 1)).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
+
     public MinerZero(Properties pProperties) {
         super(pProperties);
     }
-
-    public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 8, 16);
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext){
         switch (pState.getValue(FACING)) {

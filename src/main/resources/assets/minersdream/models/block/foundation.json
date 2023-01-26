@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"down": "minersdream:block/foundation_side",
+		"up": "minersdream:block/foundation",
+		"north": "minersdream:block/foundation_side",
+		"east": "minersdream:block/foundation_side",
+		"south": "minersdream:block/foundation_side",
+		"west": "minersdream:block/foundation_side",
+		"particle": "minersdream:block/foundation_side"
+	}
+}

@@ -18,6 +18,5 @@ public class ModBlocksStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.ASNIUM_ORE.get());
         simpleBlock(ModBlocks.DEEPSLATE_ASNIUM_ORE.get());
         simpleBlock(ModBlocks.ASPHALT.get());
-        simpleBlock(ModBlocks.FOUNDATION.get());
     }
 }

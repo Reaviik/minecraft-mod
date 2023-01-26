@@ -11,7 +11,8 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class Fence  extends Block{
+public class Fence  extends Block{ // APAGA A LUZ APAGA TUDO QUE ISSO AMORRR SEI COMO RESOLVER SEUS PROBLEMAS, LIGUE JÁ PARA HAHAHA ERROU
+    // https://www.youtube.com/watch?v=7zjJZrM3q_8 CHAAAMAAA
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     public Fence(Properties proprieties) {

@@ -3,6 +3,7 @@ package com.minersdream.block;
 import com.minersdream.MinersDream;
 import com.minersdream.block.custom.BlockTeste;
 import com.minersdream.block.custom.Fence;
+import com.minersdream.block.custom.MinerZero;
 import com.minersdream.block.custom.SpeedyBlock;
 import com.minersdream.item.ModCreativeModeTab;
 import com.minersdream.item.ModItems;
@@ -58,6 +59,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> FOUNDATION = registerBlock("foundation",
             () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL)
                     .strength(0.7f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.foundation");
+
+    public static final RegistryObject<Block> MINER_ZERO = registerBlock("miner_zero",
+            () -> new MinerZero(BlockBehaviour.Properties.of(Material.HEAVY_METAL).noOcclusion()
+                    .strength(0.7f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.miner_zero");
 
 
     //Tooltip

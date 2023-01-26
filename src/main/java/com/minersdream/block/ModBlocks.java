@@ -1,10 +1,7 @@
 package com.minersdream.block;
 
 import com.minersdream.MinersDream;
-import com.minersdream.block.custom.BlockTeste;
-import com.minersdream.block.custom.Fence;
-import com.minersdream.block.custom.MinerZero;
-import com.minersdream.block.custom.SpeedyBlock;
+import com.minersdream.block.custom.*;
 import com.minersdream.item.ModCreativeModeTab;
 import com.minersdream.item.ModItems;
 import net.minecraft.client.gui.screens.Screen;
@@ -55,6 +52,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> FENCE = registerBlock("fence",
             () -> new Fence(BlockBehaviour.Properties.of(Material.STONE).noOcclusion().dynamicShape()
                     .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.fence");
+    public static final RegistryObject<Block> MIMERMK1 = registerBlock("minermk1",
+            () -> new MinerMK1(BlockBehaviour.Properties.of(Material.METAL).noOcclusion().dynamicShape()
+                    .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.minermk1");
 
     public static final RegistryObject<Block> FOUNDATION = registerBlock("foundation",
             () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL)

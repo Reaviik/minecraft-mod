@@ -20,10 +20,13 @@
   "block.minersdream.deepslate_asnium_ore": "Minério de Asnium de Aredósia Profunda",
 
   "block.minersdream.asphalt": "Asfalto",
-  "tooltip.minersdream.asphalt": "§3This block grants Speed II effect when on it.",
+  "tooltip.minersdream.asphalt": "§3Este bloco concede efeito de Velocidade II quando sobre ele.",
 
   "block.minersdream.block_teste": "Decantador",
-  "tooltip.minersdream.block_teste": "No one know what this block is for",
+  "tooltip.minersdream.block_teste": "Ninguém sabe para que serve esse bloco",
+
+  "block.minersdream.fence": "Cerca de fibra de carbono",
+  "tooltip.minersdream.fence": "Diagonais?",
 
   "block.minersdream.foundation": "Bloco de fundação",
   "tooltip.minersdream.foundation": "Nunca é bom deixar suas maquinas em contato com a terra",

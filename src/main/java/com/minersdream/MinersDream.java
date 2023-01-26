@@ -55,6 +55,7 @@ public class MinersDream {
     }
     public void clientSetup(final FMLClientSetupEvent event){
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOCK_TESTE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.FENCE.get(), RenderType.cutout());
 
         MenuScreens.register(ModMenuTypes.BLOCK_TESTE_MENU.get(), BlockTesteScreen::new);
     }

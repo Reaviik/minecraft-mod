@@ -2,6 +2,7 @@ package com.minersdream.block;
 
 import com.minersdream.MinersDream;
 import com.minersdream.block.custom.BlockTeste;
+import com.minersdream.block.custom.Fence;
 import com.minersdream.block.custom.SpeedyBlock;
 import com.minersdream.item.ModCreativeModeTab;
 import com.minersdream.item.ModItems;
@@ -11,7 +12,9 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.OreBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,6 +25,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.function.Supplier;
+
+import static org.openjdk.nashorn.api.tree.Parser.create;
 
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
@@ -45,6 +50,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLOCK_TESTE = registerBlock("block_teste",
             () -> new BlockTeste(BlockBehaviour.Properties.of(Material.STONE).noOcclusion()
                     .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.block_teste");
+
+    public static final RegistryObject<Block> FENCE = registerBlock("fence",
+            () -> new Fence(BlockBehaviour.Properties.of(Material.STONE).noOcclusion().dynamicShape()
+                    .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.fence");
 
     public static final RegistryObject<Block> FOUNDATION = registerBlock("foundation",
             () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL)

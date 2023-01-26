@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
-	"texture_size": [32, 32],
+	"texture_size": [128, 128],
 	"textures": {
-		"0": "minersdream:block/fence",
+		"1": "minersdream:block/fence",
 		"particle": "minersdream:block/fence"
 	},
 	"elements": [

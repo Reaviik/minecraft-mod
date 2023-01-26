@@ -45,14 +45,15 @@ public class ModBlocks {
     public static final RegistryObject<Block> ASPHALT = registerBlock("asphalt",
          () -> new SpeedyBlock(BlockBehaviour.Properties.of(Material.STONE)
                  .strength(1f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.asphalt");
+
+    //Custom
     public static final RegistryObject<Block> BLOCK_TESTE = registerBlock("block_teste",
             () -> new BlockTeste(BlockBehaviour.Properties.of(Material.STONE).noOcclusion()
                     .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.block_teste");
-
     public static final RegistryObject<Block> FENCE = registerBlock("fence",
             () -> new Fence(BlockBehaviour.Properties.of(Material.STONE).noOcclusion().dynamicShape()
                     .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.fence");
-    public static final RegistryObject<Block> MIMERMK1 = registerBlock("minermk1",
+    public static final RegistryObject<Block> MINERMK1 = registerBlock("minermk1",
             () -> new MinerMK1(BlockBehaviour.Properties.of(Material.METAL).noOcclusion().dynamicShape()
                     .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.minermk1");
 

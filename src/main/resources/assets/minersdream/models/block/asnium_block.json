@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"down": "minersdream:block/asnium_block_bottom",
+		"up": "minersdream:block/asnium_block_top",
+		"north": "minersdream:block/asnium_block",
+		"east": "minersdream:block/asnium_block",
+		"south": "minersdream:block/asnium_block",
+		"west": "minersdream:block/asnium_block",
+		"particle": "minersdream:block/asnium_block"
+	}
+}

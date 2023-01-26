@@ -1,10 +1,5 @@
 {
   "variants":{
-    "": {"model": "minersdream:block/foundation"},
-
-    "facing=north":{"model": "minersdream:block/foundation"},
-    "facing=east":{"model": "minersdream:block/foundation", "y": 90},
-    "facing=south":{"model": "minersdream:block/foundation", "y": 180},
-    "facing=west":{"model": "minersdream:block/foundation", "y": 270}
+    "": {"model": "minersdream:block/foundation"}
   }
 }

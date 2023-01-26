@@ -90,7 +90,6 @@ public class BlockTesteRecipeBuilder implements RecipeBuilder {
             if (this.count > 1) {
                 jsonobject.addProperty("count", this.count);
             }
-
             pJson.add("output", jsonobject);
         }
 

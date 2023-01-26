@@ -50,12 +50,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLOCK_TESTE = registerBlock("block_teste",
             () -> new BlockTeste(BlockBehaviour.Properties.of(Material.STONE).noOcclusion()
                     .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.block_teste");
+
     public static final RegistryObject<Block> FENCE = registerBlock("fence",
             () -> new Fence(BlockBehaviour.Properties.of(Material.STONE).noOcclusion().dynamicShape()
                     .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.fence");
-    public static final RegistryObject<Block> MINERMK1 = registerBlock("minermk1",
-            () -> new MinerMK1(BlockBehaviour.Properties.of(Material.METAL).noOcclusion().dynamicShape()
-                    .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.minermk1");
 
     public static final RegistryObject<Block> FOUNDATION = registerBlock("foundation",
             () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL)
@@ -64,6 +62,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> MINER_ZERO = registerBlock("miner_zero",
             () -> new MinerZero(BlockBehaviour.Properties.of(Material.HEAVY_METAL).noOcclusion()
                     .strength(1.5f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.miner_zero");
+
+    public static final RegistryObject<Block> MINER_MK1 = registerBlock("miner_mk1",
+            () -> new MinerMK1(BlockBehaviour.Properties.of(Material.METAL).noOcclusion().dynamicShape()
+                    .strength(1.5f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.miner_mk1");
 
 
     //Tooltip

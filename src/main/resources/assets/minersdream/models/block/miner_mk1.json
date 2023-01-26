@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [512, 512],
 	"textures": {
-		"2": "minersdream:block/minermk1",
-		"particle": "minersdream:block/minermk1"
+		"2": "minersdream:block/miner_mk1",
+		"particle": "minersdream:block/miner_mk1"
 	},
 	"elements": [
 		{

@@ -4,6 +4,7 @@ import com.minersdream.block.ModBlocks;
 import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.screen.BlockTeste.BlockTesteMenu;
 import com.minersdream.block.screen.BlockTeste.BlockTesteScreen;
+import com.minersdream.block.screen.MinerMK1.MinerMK1Screen;
 import com.minersdream.block.screen.ModMenuTypes;
 import com.minersdream.recipe.ModRecipes;
 import com.mojang.logging.LogUtils;
@@ -56,9 +57,11 @@ public class MinersDream {
     public void clientSetup(final FMLClientSetupEvent event){
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOCK_TESTE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.FENCE.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINERMK1.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_ZERO.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_MK1.get(), RenderType.cutout());
 
         MenuScreens.register(ModMenuTypes.BLOCK_TESTE_MENU.get(), BlockTesteScreen::new);
+        MenuScreens.register(ModMenuTypes.MINER_MK1_MENU.get(), MinerMK1Screen::new);
     }
     private void setup(final FMLCommonSetupEvent event) {
         // some preinit code

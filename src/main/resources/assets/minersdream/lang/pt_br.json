@@ -35,8 +35,8 @@
   "tooltip.minersdream.miner_zero": "Sei lá",
 
 
-  "block.minersdream.minermk1": "Mineradora MK1",
-  "tooltip.minersdream.minermk1": "Mineradora mas, não minera",
+  "block.minersdream.miner_mk1": "Mineradora MK1",
+  "tooltip.minersdream.mine_rmk1": "Mineradora mas, não minera",
 
   "item.minersdream.asnium_pickaxe": "Picareta de Asnium",
   "tooltip.minersdream.asnium_pickaxe": "§5Esta picareta traz uma grande fortuna!"

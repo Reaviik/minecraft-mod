@@ -3,6 +3,7 @@ package com.minersdream.block.entity;
 import com.minersdream.MinersDream;
 import com.minersdream.block.ModBlocks;
 import com.minersdream.block.entity.custom.BlockTesteEntity;
+import com.minersdream.block.entity.custom.MinerMK1BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -17,6 +18,11 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("block_teste_entity", () ->
                     BlockEntityType.Builder.of(BlockTesteEntity::new,
                             ModBlocks.BLOCK_TESTE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<MinerMK1BlockEntity>> MINER_MK1_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("miner_mk1_block_entity", () ->
+                    BlockEntityType.Builder.of(MinerMK1BlockEntity::new,
+                            ModBlocks.MINER_MK1.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

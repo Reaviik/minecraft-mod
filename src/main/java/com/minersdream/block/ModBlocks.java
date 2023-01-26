@@ -62,7 +62,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> MINER_ZERO = registerBlock("miner_zero",
             () -> new MinerZero(BlockBehaviour.Properties.of(Material.HEAVY_METAL).noOcclusion()
-                    .strength(0.7f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.miner_zero");
+                    .strength(1.5f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.miner_zero");
 
 
     //Tooltip

@@ -4,16 +4,11 @@ import com.google.common.collect.ImmutableList;
 import com.minersdream.block.ModBlocks;
 import com.minersdream.datagen.custom.BlockTesteRecipeBuilder;
 import com.minersdream.item.ModItems;
-import com.minersdream.recipe.BlockTesteRecipe;
 import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.client.Minecraft;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.function.Consumer;
@@ -26,7 +21,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     // LISTs
 
     protected static final ImmutableList<ItemLike> ASNIUM_SMELTABLES = ImmutableList.of(ModBlocks.ASNIUM_ORE.get(), ModBlocks.DEEPSLATE_ASNIUM_ORE.get(), ModItems.RAW_ASNIUM.get());
-
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
 

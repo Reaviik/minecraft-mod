@@ -35,8 +35,6 @@ import javax.annotation.Nonnull;
 import java.util.Optional;
 import java.util.Random;
 
-import static com.minersdream.item.ModItems.ITEMS;
-
 public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
         @Override

@@ -12,6 +12,7 @@ import com.minersdream.item.ModItems;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -38,6 +39,9 @@ public class MinersDream {
     public static final String MOD_ID = "minersdream";
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    //TesteGui - apagar
+    public static MenuType<?> TesteGui;
+    //
     public MinersDream() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 

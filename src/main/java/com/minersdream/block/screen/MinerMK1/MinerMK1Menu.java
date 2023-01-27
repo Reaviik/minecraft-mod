@@ -12,6 +12,7 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -23,6 +24,7 @@ public class MinerMK1Menu extends AbstractContainerMenu {
     private final Level level;
     public MinerMK1Menu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
         this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()));
+
     }
 
     public MinerMK1Menu(int pContainerId, Inventory inv, BlockEntity entity) {
@@ -31,14 +33,36 @@ public class MinerMK1Menu extends AbstractContainerMenu {
         blockEntity = ((MinerMK1BlockEntity) entity);
         this.level = inv.player.level;
 
+
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new ModResultSlot(handler, 0, 33, 19));
-            this.addSlot(new SlotItemHandler(handler, 1, 81, 19));
-            this.addSlot(new SlotItemHandler(handler, 2, 110, 19));
-            this.addSlot(new SlotItemHandler(handler, 3, 142, 19));
+            this.addSlot(new ModResultSlot(handler, 0, 33, 19){
+                //Slota apenas de saida
+                @Override
+                public boolean mayPlace(ItemStack stack) {
+                    return false;
+                }
+            });
+            this.addSlot(new SlotItemHandler(handler, 1, 81, 19){
+                //Slot com WitheList
+                @Override
+                public boolean mayPlace(ItemStack stack) {
+                    return (Items.FIREWORK_ROCKET == stack.getItem());
+                }});
+            this.addSlot(new SlotItemHandler(handler, 2, 110, 19){
+                //Slot com WitheList
+                @Override
+                public boolean mayPlace(ItemStack stack) {
+                    return (Items.FIREWORK_ROCKET == stack.getItem());
+                }});
+            this.addSlot(new SlotItemHandler(handler, 3, 142, 19){
+                //Slot com WitheList
+                @Override
+                public boolean mayPlace(ItemStack stack) {
+                    return (Items.FIREWORK_ROCKET == stack.getItem());
+                }});
         });
     }
 

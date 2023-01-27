@@ -16,20 +16,20 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.client.event.ColorHandlerEvent;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -37,8 +37,6 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 import java.util.Optional;
 import java.util.Random;
-
-import static com.minersdream.item.ModItems.ITEMS;
 
 public class BlockTesteEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
@@ -54,6 +52,7 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
     private int progress = 0;
     private int maxProgress = 72;
 
+
     public BlockTesteEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.BLOCK_TESTE_ENTITY.get(), pPos, pBlockState);
         this.data = new ContainerData() {
@@ -65,7 +64,6 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
                     default: return 0;
                 }
             }
-
             @Override
             public void set(int pIndex, int pValue) {
                 switch (pIndex) {
@@ -80,7 +78,20 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
             }
         };
     }
-
+    public static void execute(LevelAccessor world, double x, double y, double z) {
+        {
+            BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+            if (_ent != null) {
+                final int _slotid = 1;
+                final ItemStack _setstack = new ItemStack(Blocks.SLIME_BLOCK);
+                _setstack.setCount(16);
+                _ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+                    if (capability instanceof IItemHandlerModifiable)
+                        ((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
+                });
+            }
+        }
+    }
     @Override
     public Component getDisplayName() {
         return new TextComponent("EU TO MUITO DOIDIO!");
@@ -125,6 +136,7 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
     public void load(CompoundTag nbt) {
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
+
     }
 
     public void drops() {
@@ -206,4 +218,5 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
         return inventory.getItem(3).getMaxStackSize() > inventory.getItem(3).getCount();
     }
+
 }

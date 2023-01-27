@@ -38,7 +38,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapelessRecipeBuilder.shapeless(ModItems.ASNIUM_INGOT.get(), 9)
                 .requires(ModBlocks.ASNIUM_BLOCK.get())
                 .unlockedBy("has_asnium_block", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ModBlocks.ASNIUM_BLOCK.get()).build()))
+                .of(ModBlocks.ASNIUM_BLOCK.get()).build()))
                 .save(pFinishedRecipeConsumer);
 
         ShapedRecipeBuilder.shaped(ModItems.ASNIUM_PICKAXE.get())
@@ -48,7 +48,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" S ")
                 .pattern(" S ")
                 .unlockedBy("has_asnium_block", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ModBlocks.ASNIUM_BLOCK.get()).build()))
+                .of(ModBlocks.ASNIUM_BLOCK.get()).build()))
                 .save(pFinishedRecipeConsumer);
 
 

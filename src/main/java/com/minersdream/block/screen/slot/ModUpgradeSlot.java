@@ -1,5 +1,6 @@
 package com.minersdream.block.screen.slot;
 
+import com.minersdream.block.ModBlocks;
 import com.minersdream.item.ModItems;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
@@ -13,6 +14,11 @@ public class ModUpgradeSlot extends SlotItemHandler {
 
     @Override
     public boolean mayPlace(@NotNull ItemStack stack) {
-        return (ModItems.ASNIUM_PICKAXE.get() == stack.getItem());
+        return (ModBlocks.OVERCLOCK.get().asItem() == stack.getItem());
+    }
+
+    @Override
+    public int getMaxStackSize() {
+        return 1;
     }
 }

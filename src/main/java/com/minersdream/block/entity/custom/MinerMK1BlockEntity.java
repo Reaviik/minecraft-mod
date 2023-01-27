@@ -78,7 +78,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
 
     @Override
     public Component getDisplayName() {
-        return new TextComponent("Miner MK1");
+        return new TextComponent(" ");
     }
 
     @Nullable
@@ -155,12 +155,19 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
                 .getRecipeFor(BlockTesteRecipe.Type.INSTANCE, inventory, level);
 
         return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
-                && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem())
-                && hasWaterInWaterSlot(entity) && hasToolsInToolSlot(entity);
+                && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
+                //&& hasUpgrades(entity) && hasToolsInToolSlot(entity);
     }
 
-    private static boolean hasWaterInWaterSlot(MinerMK1BlockEntity entity) {
-        return PotionUtils.getPotion(entity.itemHandler.getStackInSlot(0)) == Potions.WATER;
+    private static int hasUpgrades(MinerMK1BlockEntity entity) {
+        int upgrades = 0;
+        for (int i = 1; i <= 3; i++) {
+            if (entity.itemHandler.getStackInSlot(i).getItem() == ModItems.ASNIUM_PICKAXE.get()) {
+                upgrades++;
+            }
+        }
+        return upgrades;
+        //return true;
     }
 
     private static boolean hasToolsInToolSlot(MinerMK1BlockEntity entity) {

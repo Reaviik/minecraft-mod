@@ -65,8 +65,8 @@ public class ModBlocks {
             () -> new MinerMK1(BlockBehaviour.Properties.of(Material.METAL).noOcclusion().dynamicShape()
                     .strength(1.5f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.miner_mk1");
     public static final RegistryObject<Block> OVERCLOCK = registerBlock("overclock",
-            () -> new Block(BlockBehaviour.Properties.of(Material.GLASS).noOcclusion()
-                    .strength(1.5f).lightLevel(LUiZ -> {return 6;})),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.overclock");
+            () -> new Overclock(BlockBehaviour.Properties.of(Material.GLASS).noOcclusion()
+                    .strength(1.5f).lightLevel(LUZ -> {return 6;})),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.overclock");
 
 
     //Tooltip

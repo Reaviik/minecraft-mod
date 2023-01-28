@@ -21,15 +21,12 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -77,20 +74,6 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
                 return 2;
             }
         };
-    }
-    public static void execute(LevelAccessor world, double x, double y, double z) {
-        {
-            BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
-            if (_ent != null) {
-                final int _slotid = 1;
-                final ItemStack _setstack = new ItemStack(Blocks.SLIME_BLOCK);
-                _setstack.setCount(16);
-                _ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-                    if (capability instanceof IItemHandlerModifiable)
-                        ((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
-                });
-            }
-        }
     }
     @Override
     public Component getDisplayName() {

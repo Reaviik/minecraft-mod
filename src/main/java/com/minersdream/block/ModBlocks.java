@@ -12,6 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -20,7 +21,9 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Properties;
 import java.util.function.Supplier;
+import java.util.function.ToIntFunction;
 
 import static org.openjdk.nashorn.api.tree.Parser.create;
 
@@ -65,8 +68,8 @@ public class ModBlocks {
             () -> new MinerMK1(BlockBehaviour.Properties.of(Material.METAL).noOcclusion().dynamicShape()
                     .strength(1.5f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.miner_mk1");
     public static final RegistryObject<Block> OVERCLOCK = registerBlock("overclock",
-            () -> new Block(BlockBehaviour.Properties.of(Material.GLASS).noOcclusion().dynamicShape()
-                    .strength(1.5f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.overclock");
+            () -> new Overclock(BlockBehaviour.Properties.of(Material.GLASS).noOcclusion()
+                    .strength(1.5f).lightLevel(LUZ -> {return 6;})),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.overclock");
 
 
     //Tooltip

@@ -68,6 +68,10 @@ public class ModBlocks {
             () -> new Overclock(BlockBehaviour.Properties.of(Material.GLASS).noOcclusion()
                     .strength(1.5f).lightLevel(LUZ -> {return 6;})),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.overclock");
 
+    public static final RegistryObject<Block> MINER_MK1_BACK = registerBlock("miner_mk1_back",
+            () -> new MinerMk1Back(BlockBehaviour.Properties.of(Material.GLASS).noOcclusion()
+                    .strength(1.5f)),ModCreativeModeTab.MinersDream_TAB);
+
 
     //Tooltip
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> blocks, CreativeModeTab tab, String tooltipKey){

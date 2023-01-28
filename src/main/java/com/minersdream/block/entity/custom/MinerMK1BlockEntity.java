@@ -2,32 +2,40 @@ package com.minersdream.block.entity.custom;
 
 import com.minersdream.block.ModBlocks;
 import com.minersdream.block.custom.MinerMK1;
-import com.minersdream.block.custom.Overclock;
 import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.screen.MinerMK1.MinerMK1Menu;
-import com.minersdream.item.ModItems;
-import com.minersdream.recipe.BlockTesteRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
@@ -37,10 +45,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Random;
-
 public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
         @Override
@@ -111,7 +115,6 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
     }
 
-
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
@@ -146,15 +149,27 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         if (_ent != null) {
             // base 16 items
             final int _slotid = 0;
+            hasUpgrades(entity);
             final int slotCount = entity.itemHandler.getStackInSlot(0).getCount();
             final ItemStack _setstack = new ItemStack(Items.RAW_IRON); // Todo tAGs : ores
+            if(world instanceof Level _lvl_isPow ? _lvl_isPow.hasNeighborSignal(new BlockPos(x, y, z)) : false){
                 if (entity.itemHandler.getStackInSlot(0).getCount() == 0 || entity.itemHandler.getStackInSlot(0).getCount() < entity.itemHandler.getSlotLimit(0) && entity.itemHandler.getStackInSlot(0).getItem() == Items.RAW_IRON) {
                     _setstack.setCount(slotCount + 1);
                     _ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
                         if (capability instanceof IItemHandlerModifiable)
                             ((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
                     });
+                    world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(Blocks.AMETHYST_BLOCK.defaultBlockState()));
+                } else {
+/*                    if (world instanceof Level _level && !_level.isClientSide()) {
+                        ItemEntity entityToSpawn = new ItemEntity(_level, x, y+1, z, new ItemStack(Items.RAW_IRON));
+                        entityToSpawn.setPickUpDelay(1);
+                        _level.addFreshEntity(entityToSpawn);
+
+
+                    }*/
                 }
+            }
         }
         entity.resetProgress();
     }
@@ -175,7 +190,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         }
     }
 
-    private static int hasUpgrades(MinerMK1BlockEntity entity) {
+    private static void hasUpgrades(MinerMK1BlockEntity entity) {
         int upgrades = 0;
         //modificado
         entity.maxProgress = 120;
@@ -183,48 +198,13 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
             if (entity.itemHandler.getStackInSlot(i).getItem() == ModBlocks.OVERCLOCK.get().asItem()) {
                 upgrades++;
                 //modificado
-                entity.maxProgress -= 30;
             }
         }
-        return upgrades;
+        entity.maxProgress = entity.maxProgress - upgrades * 30;
         //return true;
-    }
-
-    private static boolean hasToolsInToolSlot(MinerMK1BlockEntity entity) {
-        return entity.itemHandler.getStackInSlot(2).getItem() == ModItems.ASNIUM_PICKAXE.get();
-    }
-
-    private static void craftItem(MinerMK1BlockEntity entity) {
-        Level level = entity.level;
-        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
-        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
-            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
-        }
-
-        Optional<BlockTesteRecipe> match = level.getRecipeManager()
-                .getRecipeFor(BlockTesteRecipe.Type.INSTANCE, inventory, level);
-
-        if(match.isPresent()) {
-            entity.itemHandler.extractItem(0,1, false);
-            entity.itemHandler.extractItem(1,1, false);
-            entity.itemHandler.getStackInSlot(2).hurt(1, new Random(), null);
-
-            entity.itemHandler.setStackInSlot(0, new ItemStack(Items.GLASS_BOTTLE));
-            entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem().getItem(),
-                    entity.itemHandler.getStackInSlot(3).getCount() + match.get().getResultItem().getCount()));
-
-            entity.resetProgress();
-        }
     }
     private void resetProgress() {
         this.progress = 0;
     }
 
-    private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
-        return inventory.getItem(3).getItem() == output.getItem() || inventory.getItem(3).isEmpty();
-    }
-
-    private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        return inventory.getItem(3).getMaxStackSize() > inventory.getItem(3).getCount();
-    }
 }

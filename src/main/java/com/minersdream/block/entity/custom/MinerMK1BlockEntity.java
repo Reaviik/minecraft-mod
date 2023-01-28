@@ -21,12 +21,16 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -131,34 +135,34 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
+    public static void execute(LevelAccessor world, double x, double y, double z, MinerMK1BlockEntity entity, Block resource) {
+
+        BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+        if (_ent != null) {
+            final int _slotid = 0;
+            final ItemStack _setstack = new ItemStack(resource);
+            _setstack.setCount(16);
+            _ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+                if (capability instanceof IItemHandlerModifiable)
+                    ((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
+            });
+        }
+        entity.resetProgress();
+    }
+
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, MinerMK1BlockEntity pBlockEntity) {
+        Block resource = pLevel.getBlockState(new BlockPos(pPos.getX(), pPos.getY()-1, pPos.getZ())).getBlock();
 
-
-        if(hasRecipe(pBlockEntity)) {
+        if (resource != Blocks.AIR && resource == Blocks.AMETHYST_CLUSTER) { // TODO TAGs : Clusters
             pBlockEntity.progress++;
             setChanged(pLevel, pPos, pState);
             if(pBlockEntity.progress > pBlockEntity.maxProgress) {
-                craftItem(pBlockEntity);
+                execute(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), pBlockEntity, resource);
             }
         } else {
             pBlockEntity.resetProgress();
             setChanged(pLevel, pPos, pState);
         }
-    }
-
-    private static boolean hasRecipe(MinerMK1BlockEntity entity) {
-        Level level = entity.level;
-        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
-        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
-            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
-        }
-
-        Optional<BlockTesteRecipe> match = level.getRecipeManager()
-                .getRecipeFor(BlockTesteRecipe.Type.INSTANCE, inventory, level);
-
-        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
-                && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
-                //&& hasUpgrades(entity) && hasToolsInToolSlot(entity);
     }
 
     private static int hasUpgrades(MinerMK1BlockEntity entity) {
@@ -198,7 +202,6 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
             entity.resetProgress();
         }
     }
-
     private void resetProgress() {
         this.progress = 0;
     }

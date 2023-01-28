@@ -78,20 +78,7 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
             }
         };
     }
-    public static void execute(LevelAccessor world, double x, double y, double z) {
-        {
-            BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
-            if (_ent != null) {
-                final int _slotid = 1;
-                final ItemStack _setstack = new ItemStack(Blocks.SLIME_BLOCK);
-                _setstack.setCount(16);
-                _ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-                    if (capability instanceof IItemHandlerModifiable)
-                        ((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
-                });
-            }
-        }
-    }
+
     @Override
     public Component getDisplayName() {
         return new TextComponent("EU TO MUITO DOIDIO!");

@@ -1,5 +1,8 @@
 package com.minersdream.block.entity.custom;
 
+import com.minersdream.block.ModBlocks;
+import com.minersdream.block.custom.MinerMK1;
+import com.minersdream.block.custom.Overclock;
 import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.screen.MinerMK1.MinerMK1Menu;
 import com.minersdream.item.ModItems;
@@ -18,8 +21,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionUtils;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -36,6 +37,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 
@@ -51,7 +53,9 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
 
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 72;
+    //private int maxProgress = 72;
+    //modificado
+    private int maxProgress = 120;
 
     public MinerMK1BlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.MINER_MK1_BLOCK_ENTITY.get(), pPos, pBlockState);
@@ -107,6 +111,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
     }
 
+
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
@@ -139,19 +144,24 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
 
         BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
         if (_ent != null) {
+            // base 16 items
             final int _slotid = 0;
-            final ItemStack _setstack = new ItemStack(resource);
-            _setstack.setCount(16);
-            _ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-                if (capability instanceof IItemHandlerModifiable)
-                    ((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
-            });
+            final int slotCount = entity.itemHandler.getStackInSlot(0).getCount();
+            final ItemStack _setstack = new ItemStack(Items.RAW_IRON); // Todo tAGs : ores
+                if (entity.itemHandler.getStackInSlot(0).getCount() == 0 || entity.itemHandler.getStackInSlot(0).getCount() < entity.itemHandler.getSlotLimit(0) && entity.itemHandler.getStackInSlot(0).getItem() == Items.RAW_IRON) {
+                    _setstack.setCount(slotCount + 1);
+                    _ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+                        if (capability instanceof IItemHandlerModifiable)
+                            ((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
+                    });
+                }
         }
         entity.resetProgress();
     }
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, MinerMK1BlockEntity pBlockEntity) {
         Block resource = pLevel.getBlockState(new BlockPos(pPos.getX(), pPos.getY()-1, pPos.getZ())).getBlock();
+
 
         if (resource != Blocks.AIR && resource == Blocks.AMETHYST_CLUSTER) { // TODO TAGs : Clusters
             pBlockEntity.progress++;
@@ -167,9 +177,13 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
 
     private static int hasUpgrades(MinerMK1BlockEntity entity) {
         int upgrades = 0;
+        //modificado
+        entity.maxProgress = 120;
         for (int i = 1; i <= 3; i++) {
-            if (entity.itemHandler.getStackInSlot(i).getItem() == ModItems.ASNIUM_PICKAXE.get()) {
+            if (entity.itemHandler.getStackInSlot(i).getItem() == ModBlocks.OVERCLOCK.get().asItem()) {
                 upgrades++;
+                //modificado
+                entity.maxProgress -= 30;
             }
         }
         return upgrades;

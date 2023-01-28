@@ -39,9 +39,6 @@ public class MinersDream {
     public static final String MOD_ID = "minersdream";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    //TesteGui - apagar
-    public static MenuType<?> TesteGui;
-    //
     public MinersDream() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 

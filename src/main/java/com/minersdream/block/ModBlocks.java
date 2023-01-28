@@ -43,6 +43,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> ASPHALT = registerBlock("asphalt",
          () -> new SpeedyBlock(BlockBehaviour.Properties.of(Material.STONE)
                  .strength(1f).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.asphalt");
+    public static final RegistryObject<Block> IRON_RESOURCE_NODE = registerBlock("iron_resource_node",
+         () -> new IronResourceNode(BlockBehaviour.Properties.of(Material.STONE)
+                 .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.iron_resource_node");
 
     //Custom
     public static final RegistryObject<Block> BLOCK_TESTE = registerBlock("block_teste",

@@ -22,6 +22,9 @@
   "block.minersdream.asphalt": "Asfalto",
   "tooltip.minersdream.asphalt": "§3Este bloco concede efeito de Velocidade II quando sobre ele.",
 
+  "block.minersdream.iron_resource_node": "Nodo de minerio de ferro.",
+  "tooltip.minersdream.iron_resource_node": "§3Coloque uma mineradora acima e tenha recurso infinito",
+
   "block.minersdream.block_teste": "Decantador",
   "tooltip.minersdream.block_teste": "Ninguém sabe para que serve esse bloco",
 

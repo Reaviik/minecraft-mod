@@ -22,6 +22,9 @@
   "block.minersdream.asphalt": "Asphalt",
   "tooltip.minersdream.asphalt": "§3This block grants Speed II effect when on it.",
 
+  "block.minersdream.iron_resource_node": "Resource node Iron",
+  "tooltip.minersdream.iron_resource_node": "§3Place a Miner above this to get infinity resources.",
+
   "block.minersdream.block_teste": "Decanter",
   "tooltip.minersdream.block_teste": "No one know what this block is for",
 

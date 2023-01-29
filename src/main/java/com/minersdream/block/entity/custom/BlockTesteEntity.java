@@ -21,7 +21,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
@@ -39,9 +38,7 @@ import java.util.Random;
 public class BlockTesteEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
       @Override
-      protected void onContentsChanged(int slot) {
-          setChanged();
-      }
+      protected void onContentsChanged(int slot) {setChanged();}
     };
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
@@ -103,7 +100,6 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
     }
-
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
@@ -204,5 +200,6 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
         return inventory.getItem(3).getMaxStackSize() > inventory.getItem(3).getCount();
     }
+
 
 }

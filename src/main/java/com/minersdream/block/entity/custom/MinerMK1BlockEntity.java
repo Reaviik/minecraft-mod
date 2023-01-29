@@ -57,6 +57,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
     //modificado
     private int maxProgress = 120;
 
+
     public MinerMK1BlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.MINER_MK1_BLOCK_ENTITY.get(), pPos, pBlockState);
         this.data = new ContainerData() {

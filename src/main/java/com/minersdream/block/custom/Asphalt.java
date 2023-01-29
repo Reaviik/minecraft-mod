@@ -9,8 +9,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class SpeedyBlock extends Block {
-        public SpeedyBlock(Properties properties) {
+public class Asphalt extends Block {
+        public Asphalt(Properties properties) {
             super(properties);
         }
         @Override

@@ -1,15 +1,17 @@
 package com.minersdream.block.entity.custom;
 
+import com.minersdream.MinersDream;
 import com.minersdream.block.ModBlocks;
-import com.minersdream.block.custom.MinerMK1;
 import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.screen.MinerMK1.MinerMK1Menu;
+import com.minersdream.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraft.sounds.SoundEvent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -18,24 +20,16 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
@@ -45,6 +39,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
+import java.util.logging.Logger;
+
 public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
         @Override
@@ -159,15 +155,15 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
                         if (capability instanceof IItemHandlerModifiable)
                             ((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
                     });
-                    world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(Blocks.AMETHYST_BLOCK.defaultBlockState()));
+                    //place block in world
+                    //world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(ModBlocks.IRON_RESOURCE_NODE.get().defaultBlockState()));
                 } else {
-/*                    if (world instanceof Level _level && !_level.isClientSide()) {
+
+                   if (world instanceof Level _level && !_level.isClientSide()) {
                         ItemEntity entityToSpawn = new ItemEntity(_level, x, y+1, z, new ItemStack(Items.RAW_IRON));
                         entityToSpawn.setPickUpDelay(1);
                         _level.addFreshEntity(entityToSpawn);
-
-
-                    }*/
+                    }
                 }
             }
         }
@@ -178,7 +174,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         Block resource = pLevel.getBlockState(new BlockPos(pPos.getX(), pPos.getY()-1, pPos.getZ())).getBlock();
 
 
-        if (resource != Blocks.AIR && resource == Blocks.AMETHYST_CLUSTER) { // TODO TAGs : Clusters
+        if (resource != Blocks.AIR && resource == ModBlocks.IRON_RESOURCE_NODE.get()) { // TODO TAGs : Clusters
             pBlockEntity.progress++;
             setChanged(pLevel, pPos, pState);
             if(pBlockEntity.progress > pBlockEntity.maxProgress) {

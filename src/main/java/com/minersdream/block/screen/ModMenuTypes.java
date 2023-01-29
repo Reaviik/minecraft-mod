@@ -16,7 +16,6 @@ public class ModMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENUS =
             DeferredRegister.create(ForgeRegistries.CONTAINERS, MinersDream.MOD_ID);
 
-
     public static final RegistryObject<MenuType<BlockTesteMenu>> BLOCK_TESTE_MENU =
             registerMenuType(BlockTesteMenu::new, "block_teste_menu");
 

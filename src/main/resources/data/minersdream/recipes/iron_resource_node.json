@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#d#",
+    "###"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "minersdream:iron_resource_node"
+    },
+    "d":
+    {
+      "tag": "minersdream:gems"
+    },
+    "result":
+    {
+      "item": "minersdream:iron_resource_node",
+      "count": 2
+    }
+  }
+}

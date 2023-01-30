@@ -94,7 +94,7 @@ public class ModBlocks {
                     .strength(1.5f)),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> MINER_MK1_GERENCIADOR_PARTE2 = registerBlock("miner_mk1_gerenciador_parte2",
             () -> new MinerMk1GerenciadorParte2(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
-                    .strength(1.5f)), null);
+                    .strength(1.5f)), ModCreativeModeTab.MinersDream_TAB);
 
 
     //Tooltip

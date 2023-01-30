@@ -115,29 +115,31 @@ public class MinerMK1  extends BaseEntityBlock{ // APAGA A LUZ APAGA TUDO QUE IS
     }
         @SubscribeEvent
         public static void onBlockPlace(BlockEvent.EntityPlaceEvent event) {
-            execute(event, event.getWorld(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ());
+         BlockPos pPos = event.getPos();
+         BlockState pState = event.getState();
+
+            execute(event, event.getWorld(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), pPos, pState);
         }
 
-        public static void execute(LevelAccessor world, double x, double y, double z) {
-            execute(null, world, x, y, z);
-        }
+//        public static void execute(LevelAccessor world, double x, double y, double z) {
+//            execute(null, world, x, y, z);
+//        }
 
-        private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z) {
+        private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, BlockPos pPos, BlockState pState) {
         //CAPETA DE JAVA, VAI TOMA NO CU, Tu tambem, mas com carinho.
-          /*if ((world.getBlockState(new BlockPos(x, y, z))).getBlock() == ModBlocks.MINER_MK1.get()) {
-                    switch (world.getBlockState(new BlockPos(x, y, z)).getValue(FACING)) {
-                        case EAST:
-                            world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(pState, world, pPos, Rotation.CLOCKWISE_90), 0);
-                        case SOUTH:
-                            world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(pState, world, pPos, Rotation.CLOCKWISE_180), 0);
-                        case WEST:
-                            world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(pState, world, pPos, Rotation.COUNTERCLOCKWISE_90), 0);
-                        default:
-                            world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(pState, world, pPos, Rotation.NONE), 0);
-                    }
-                }
-            */
-            }
+          if ((world.getBlockState(new BlockPos(x, y, z))).getBlock() == ModBlocks.MINER_MK1.get()) {
+              switch (world.getBlockState(new BlockPos(x, y, z)).getValue(FACING)) {
+                  case EAST:
+                      world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(pState, world, pPos, Rotation.CLOCKWISE_90), 0);
+                  case SOUTH:
+                      world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(pState, world, pPos, Rotation.CLOCKWISE_180), 0);
+                  case WEST:
+                      world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(pState, world, pPos, Rotation.COUNTERCLOCKWISE_90), 0);
+                  default:
+                      world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(pState, world, pPos, Rotation.NONE), 0);
+              }
+          }
+        }
 
 
     @Nullable

@@ -1,0 +1,8 @@
+{
+  "variants":{
+    "facing=north":{"model": "minersdream:block/miner_mk1_vacum"},
+    "facing=east":{"model": "minersdream:block/miner_mk1_vacum", "y": 90},
+    "facing=south":{"model": "minersdream:block/miner_mk1_vacum", "y": 180},
+    "facing=west":{"model": "minersdream:block/miner_mk1_vacum", "y": 270}
+  }
+}

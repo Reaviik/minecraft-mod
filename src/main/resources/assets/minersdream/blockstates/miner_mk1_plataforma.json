@@ -1,0 +1,8 @@
+{
+  "variants":{
+    "facing=north":{"model": "minersdream:block/miner_mk1_plataforma"},
+    "facing=east":{"model": "minersdream:block/miner_mk1_plataforma", "y": 90},
+    "facing=south":{"model": "minersdream:block/miner_mk1_plataforma", "y": 180},
+    "facing=west":{"model": "minersdream:block/miner_mk1_plataforma", "y": 270}
+  }
+}

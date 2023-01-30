@@ -1,0 +1,8 @@
+{
+  "variants":{
+    "facing=north":{"model": "minersdream:block/miner_mk1_motor"},
+    "facing=east":{"model": "minersdream:block/miner_mk1_motor", "y": 90},
+    "facing=south":{"model": "minersdream:block/miner_mk1_motor", "y": 180},
+    "facing=west":{"model": "minersdream:block/miner_mk1_motor", "y": 270}
+  }
+}

@@ -129,40 +129,40 @@ public class MinerMK1  extends BaseEntityBlock { // APAGA A LUZ APAGA TUDO QUE I
         execute(event, event.getWorld(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), pPos, pState);
     }
 
-//        public static void execute(LevelAccessor world, double x, double y, double z) {
-//            execute(null, world, x, y, z);
-//        }
-    public void setMinerMk1(LevelAccessor world, double x, double y, double z, Object block,Rotation rot, int flag){
-        world.setBlock(new BlockPos(x , y, z), block, world,
-                new BlockPos(x , y, z), rot), flag);
+    public static boolean hasAir(LevelAccessor world, BlockPos pPos) {
+        if (world.getBlockState(pPos).getBlock() == Blocks.AIR) {
+            return true;
+        }
+        return false;
+    }
+
+    public static void setMultiblockBlock(LevelAccessor world, double x, double y, double z, Block pBlock, Rotation pRotation, int pFlag){
+        if (hasAir(world, new BlockPos(x, y, z))) {
+            world.setBlock(new BlockPos(x, y, z), pBlock.defaultBlockState().rotate(world,
+                    new BlockPos(x, y, z), pRotation), pFlag);
+        }
     }
 
     private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, BlockPos pPos, BlockState pState) {
         //CAPETA DE JAVA, VAI TOMA NO CU, Tu tambem, mas com carinho.
         if ((world.getBlockState(new BlockPos(x, y, z))).getBlock() == ModBlocks.MINER_MK1.get()) {
-            LOGGER.info(String.valueOf(pState.getValue(FACING)));
+            LOGGER.info(String.valueOf(pState.getValue(FACING))); // PRINT
             if (pState.getValue(FACING) == Direction.EAST) {
-                world.setBlock(new BlockPos(x, y, z - 1), ModBlocks.MINER_MK1_BACK.get().rotate(ModBlocks.MINER_MK1_BACK.get().defaultBlockState(), world,
-                        new BlockPos(x, y, z - 1), Rotation.CLOCKWISE_90), 3);
-                LOGGER.info(String.valueOf(pState.getValue(FACING)));
+                setMultiblockBlock(world, x, y, z - 1, ModBlocks.MINER_MK1_BACK.get(), Rotation.CLOCKWISE_90, 3);
+
 
             }else if (pState.getValue(FACING) == Direction.SOUTH) {
-                    world.setBlock(new BlockPos(x + 1, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(ModBlocks.MINER_MK1_BACK.get().defaultBlockState(), world,
-                            new BlockPos(x + 1, y, z), Rotation.CLOCKWISE_180), 3);
-                    LOGGER.info(String.valueOf(pState.getValue(FACING)));
+
+                setMultiblockBlock(world, x + 1, y, z, ModBlocks.MINER_MK1_BACK.get(), Rotation.CLOCKWISE_90, 3);
+
 
             }else if (pState.getValue(FACING) == Direction.WEST) {
-                    world.setBlock(new BlockPos(x, y, z + 1), ModBlocks.MINER_MK1_BACK.get().rotate(ModBlocks.MINER_MK1_BACK.get().defaultBlockState(), world,
-                            new BlockPos(x, y, z + 1), Rotation.COUNTERCLOCKWISE_90), 3);
-                    LOGGER.info(String.valueOf(pState.getValue(FACING)));
+                    setMultiblockBlock(world, x, y, z + 1, ModBlocks.MINER_MK1_BACK.get(), Rotation.COUNTERCLOCKWISE_90, 3);
+
             }else{
-                    world.setBlock(new BlockPos(x - 1, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(ModBlocks.MINER_MK1_BACK.get().defaultBlockState(), world,
-                            new BlockPos(x - 1, y, z), Rotation.NONE), 3);
-                    LOGGER.info(String.valueOf(pState.getValue(FACING)));
+                    setMultiblockBlock(world, x - 1, y, z, ModBlocks.MINER_MK1_BACK.get(), Rotation.NONE, 3);
+
                 }
-//                  default:
-//                      world.setBlock(new BlockPos(x, y, z-1), ModBlocks.ASNIUM_BLOCK.get().rotate(ModBlocks.ASNIUM_BLOCK.get().defaultBlockState(), world,
-//                              new BlockPos(x, y, z-1), Rotation.CLOCKWISE_180), 3);
             }
         }
 

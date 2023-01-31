@@ -161,7 +161,7 @@ public class MinerMK1  extends BaseEntityBlock{
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level plevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
         return createTickerHelper(pBlockEntityType, ModBlockEntities.MINER_MK1_BLOCK_ENTITY.get(),
                 MinerMK1BlockEntity::tick);
-    }
+    }}
 
 //        public void placeStructure (LevelAccessor world, BlockState pState, BlockPos pPos){
 //            switch (pState.getValue(FACING)) {

@@ -56,7 +56,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
     private int progress = 0;
     //private int maxProgress = 72;
     //modificado
-    private int maxProgress = 120;
+    private int maxProgress = 1;
 
 
     public MinerMK1BlockEntity(BlockPos pPos, BlockState pBlockState) {
@@ -157,6 +157,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
                     _ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
                         if (capability instanceof IItemHandlerModifiable)
                             ((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
+                        world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(Blocks.IRON_ORE.defaultBlockState()));
                     });
                     //place block in world
                     //world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(ModBlocks.IRON_RESOURCE_NODE.get().defaultBlockState()));
@@ -166,6 +167,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
                         ItemEntity entityToSpawn = new ItemEntity(_level, x, y+1, z, new ItemStack(Items.RAW_IRON));
                         entityToSpawn.setPickUpDelay(1);
                         _level.addFreshEntity(entityToSpawn);
+                       world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(Blocks.IRON_ORE.defaultBlockState()));
                     }
                 }
             }

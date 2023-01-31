@@ -28,6 +28,7 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -38,6 +39,11 @@ import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
 
@@ -122,7 +128,7 @@ public class MinerMK1  extends BaseEntityBlock { // APAGA A LUZ APAGA TUDO QUE I
     }
 
     @SubscribeEvent
-    public static void onBlockPlace(BlockEvent.EntityPlaceEvent event) {
+    public static void onBlockPlace(BlockEvent.EntityPlaceEvent event)   {
         BlockPos pPos = event.getPos();
         BlockState pState = event.getState();
 
@@ -140,6 +146,7 @@ public class MinerMK1  extends BaseEntityBlock { // APAGA A LUZ APAGA TUDO QUE I
         if (hasAir(world, new BlockPos(x, y, z))) {
             world.setBlock(new BlockPos(x, y, z), pBlock.defaultBlockState().rotate(world,
                     new BlockPos(x, y, z), pRotation), pFlag);
+            world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(Blocks.CHORUS_FLOWER.defaultBlockState()));
         }
     }
 
@@ -148,21 +155,82 @@ public class MinerMK1  extends BaseEntityBlock { // APAGA A LUZ APAGA TUDO QUE I
         if ((world.getBlockState(new BlockPos(x, y, z))).getBlock() == ModBlocks.MINER_MK1.get()) {
             LOGGER.info(String.valueOf(pState.getValue(FACING))); // PRINT
             if (pState.getValue(FACING) == Direction.EAST) {
+                //Ok
                 setMultiblockBlock(world, x, y, z - 1, ModBlocks.MINER_MK1_BACK.get(), Rotation.CLOCKWISE_90, 3);
+
+                setMultiblockBlock(world, x, y, z + 1, ModBlocks.MINER_MK1_VACUM.get(), Rotation.CLOCKWISE_90, 3);
+
+                setMultiblockBlock(world, x, y, z + 2, ModBlocks.MINER_MK1_SEPARADOR.get(), Rotation.CLOCKWISE_90, 3);
+
+                setMultiblockBlock(world, x, y + 1, z, ModBlocks.MINER_MK1_MOTOR.get(), Rotation.CLOCKWISE_90, 3);
+
+                setMultiblockBlock(world, x, y + 2, z, ModBlocks.MINER_MK1_PLATAFORMA.get(), Rotation.CLOCKWISE_90, 3);
+
+                setMultiblockBlock(world, x, y + 3, z, ModBlocks.MINER_MK1_GERENCIADOR_PARTE1.get(), Rotation.CLOCKWISE_90, 3);
+
+                setMultiblockBlock(world, x, y + 4, z, ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get(), Rotation.CLOCKWISE_90, 3);
+
+                setMultiblockBlock(world, x, y, z, ModBlocks.MINER_MK1_BROCA.get(), Rotation.CLOCKWISE_90, 3);
 
 
             }else if (pState.getValue(FACING) == Direction.SOUTH) {
+                // Ok
+                setMultiblockBlock(world, x + 1, y, z, ModBlocks.MINER_MK1_BACK.get(), Rotation.CLOCKWISE_180, 3);
 
-                setMultiblockBlock(world, x + 1, y, z, ModBlocks.MINER_MK1_BACK.get(), Rotation.CLOCKWISE_90, 3);
+                setMultiblockBlock(world, x - 1, y, z, ModBlocks.MINER_MK1_VACUM.get(), Rotation.CLOCKWISE_180, 3);
+
+                setMultiblockBlock(world, x - 2, y, z, ModBlocks.MINER_MK1_SEPARADOR.get(), Rotation.CLOCKWISE_180, 3);
+
+                setMultiblockBlock(world, x, y + 1, z, ModBlocks.MINER_MK1_MOTOR.get(), Rotation.CLOCKWISE_180, 3);
+
+                setMultiblockBlock(world, x, y + 2, z, ModBlocks.MINER_MK1_PLATAFORMA.get(), Rotation.CLOCKWISE_180, 3);
+
+                setMultiblockBlock(world, x, y + 3, z, ModBlocks.MINER_MK1_GERENCIADOR_PARTE1.get(), Rotation.CLOCKWISE_180, 3);
+
+                setMultiblockBlock(world, x, y + 4, z, ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get(), Rotation.CLOCKWISE_180, 3);
+
+                setMultiblockBlock(world, x, y, z, ModBlocks.MINER_MK1_BROCA.get(), Rotation.CLOCKWISE_180, 3);
 
 
             }else if (pState.getValue(FACING) == Direction.WEST) {
-                    setMultiblockBlock(world, x, y, z + 1, ModBlocks.MINER_MK1_BACK.get(), Rotation.COUNTERCLOCKWISE_90, 3);
+                //
+                setMultiblockBlock(world, x, y, z + 1, ModBlocks.MINER_MK1_BACK.get(), Rotation.COUNTERCLOCKWISE_90, 3);
+
+                setMultiblockBlock(world, x, y, z - 1, ModBlocks.MINER_MK1_VACUM.get(), Rotation.COUNTERCLOCKWISE_90, 3);
+
+                setMultiblockBlock(world, x, y, z - 2, ModBlocks.MINER_MK1_SEPARADOR.get(), Rotation.COUNTERCLOCKWISE_90, 3);
+
+                setMultiblockBlock(world, x, y + 1, z, ModBlocks.MINER_MK1_MOTOR.get(), Rotation.COUNTERCLOCKWISE_90, 3);
+
+                setMultiblockBlock(world, x, y + 2, z, ModBlocks.MINER_MK1_PLATAFORMA.get(), Rotation.COUNTERCLOCKWISE_90, 3);
+
+                setMultiblockBlock(world, x, y + 3, z, ModBlocks.MINER_MK1_GERENCIADOR_PARTE1.get(), Rotation.COUNTERCLOCKWISE_90, 3);
+
+                setMultiblockBlock(world, x, y + 4, z, ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get(), Rotation.COUNTERCLOCKWISE_90, 3);
+
+                setMultiblockBlock(world, x, y, z, ModBlocks.MINER_MK1_BROCA.get(), Rotation.CLOCKWISE_90, 3);
 
             }else{
-                    setMultiblockBlock(world, x - 1, y, z, ModBlocks.MINER_MK1_BACK.get(), Rotation.NONE, 3);
+                setMultiblockBlock(world, x - 1, y, z, ModBlocks.MINER_MK1_BACK.get(), Rotation.NONE, 3);
+
+                setMultiblockBlock(world, x + 1, y, z, ModBlocks.MINER_MK1_VACUM.get(), Rotation.NONE, 3);
+
+                setMultiblockBlock(world, x + 2, y, z, ModBlocks.MINER_MK1_SEPARADOR.get(), Rotation.NONE, 3);
+
+                setMultiblockBlock(world, x, y + 1, z, ModBlocks.MINER_MK1_MOTOR.get(), Rotation.NONE, 3);
+
+                setMultiblockBlock(world, x, y + 2, z, ModBlocks.MINER_MK1_PLATAFORMA.get(), Rotation.NONE, 3);
+
+                setMultiblockBlock(world, x, y + 3, z, ModBlocks.MINER_MK1_GERENCIADOR_PARTE1.get(), Rotation.NONE, 3);
+
+                setMultiblockBlock(world, x, y + 4, z, ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get(), Rotation.NONE, 3);
+
+                setMultiblockBlock(world, x, y, z, ModBlocks.MINER_MK1_BROCA.get(), Rotation.NONE, 3);
 
                 }
+//                  default:
+//                      world.setBlock(new BlockPos(x, y, z-1), ModBlocks.ASNIUM_BLOCK.get().rotate(ModBlocks.ASNIUM_BLOCK.get().defaultBlockState(), world,
+//                              new BlockPos(x, y, z-1), Rotation.CLOCKWISE_180), 3);
             }
         }
 

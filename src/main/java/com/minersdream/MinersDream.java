@@ -57,8 +57,8 @@ public class MinersDream {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_ZERO.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_MK1.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.OVERCLOCK.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_MK1_SEPARADOR.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_MK1_VACUM.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_MK1_SEPARADOR.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_MK1_VACUM.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_MK1_BROCA.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_MK1_BACK.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_MK1_MOTOR.get(), RenderType.cutout());

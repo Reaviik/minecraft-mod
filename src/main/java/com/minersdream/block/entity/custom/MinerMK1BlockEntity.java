@@ -2,6 +2,7 @@ package com.minersdream.block.entity.custom;
 
 import com.minersdream.MinersDream;
 import com.minersdream.block.ModBlocks;
+import com.minersdream.block.custom.MinerMK1;
 import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.screen.MinerMK1.MinerMK1Menu;
 import com.minersdream.item.ModItems;
@@ -140,6 +141,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
+    // pState / pPos > place?
     public static void execute(LevelAccessor world, double x, double y, double z, MinerMK1BlockEntity entity, Block resource) {
 
         BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));

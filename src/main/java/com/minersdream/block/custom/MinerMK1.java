@@ -6,14 +6,12 @@ import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.entity.custom.MinerMK1BlockEntity;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.context.DirectionalPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -25,9 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.event.world.BlockEvent;
@@ -65,6 +61,7 @@ public class MinerMK1  extends BaseEntityBlock{
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
+    //IMPORTANT
     }
 
     @Override
@@ -165,4 +162,17 @@ public class MinerMK1  extends BaseEntityBlock{
         return createTickerHelper(pBlockEntityType, ModBlockEntities.MINER_MK1_BLOCK_ENTITY.get(),
                 MinerMK1BlockEntity::tick);
     }
-}
+
+//        public void placeStructure (LevelAccessor world, BlockState pState, BlockPos pPos){
+//            switch (pState.getValue(FACING)) {
+//                case EAST:
+//                    world.setBlock(new BlockPos(pPos.getX(), pPos.getY(), pPos.getZ()), ModBlocks.MINER_MK1_BACK.get().rotate(pState, Rotation.CLOCKWISE_90), 3);
+//                case SOUTH:
+//                    world.setBlock(new BlockPos(pPos.getX(), pPos.getY(), pPos.getZ()), ModBlocks.MINER_MK1_BACK.get().rotate(pState, Rotation.CLOCKWISE_180), 3);
+//                case WEST:
+//                    world.setBlock(new BlockPos(pPos.getX(), pPos.getY(), pPos.getZ()), ModBlocks.MINER_MK1_BACK.get().rotate(pState, Rotation.COUNTERCLOCKWISE_90), 3);
+//                default:
+//                    world.setBlock(new BlockPos(pPos.getX(), pPos.getY(), pPos.getZ()), ModBlocks.MINER_MK1_BACK.get().rotate(pState, Rotation.NONE), 3);
+//            }
+//        }
+//    }

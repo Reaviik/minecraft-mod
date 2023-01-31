@@ -133,30 +133,30 @@ public class MinerMK1  extends BaseEntityBlock { // APAGA A LUZ APAGA TUDO QUE I
 //            execute(null, world, x, y, z);
 //        }
     public void setMinerMk1(LevelAccessor world, double x, double y, double z, Object block,Rotation rot, int flag){
-        world.setBlock(new BlockPos(x , y, z), block, world,
-                new BlockPos(x , y, z), rot), flag);
-    }
+        world.setBlock(new BlockPos(x , y, z), block.get().defaultBlockState().rotate( world,
+                new BlockPos(x, y, z + 1);
+   }
 
     private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, BlockPos pPos, BlockState pState) {
         //CAPETA DE JAVA, VAI TOMA NO CU, Tu tambem, mas com carinho.
         if ((world.getBlockState(new BlockPos(x, y, z))).getBlock() == ModBlocks.MINER_MK1.get()) {
             LOGGER.info(String.valueOf(pState.getValue(FACING)));
             if (pState.getValue(FACING) == Direction.EAST) {
-                world.setBlock(new BlockPos(x, y, z - 1), ModBlocks.MINER_MK1_BACK.get().rotate(ModBlocks.MINER_MK1_BACK.get().defaultBlockState(), world,
+                world.setBlock(new BlockPos(x, y, z - 1), ModBlocks.MINER_MK1_BACK.get().defaultBlockState().rotate( world,
                         new BlockPos(x, y, z - 1), Rotation.CLOCKWISE_90), 3);
                 LOGGER.info(String.valueOf(pState.getValue(FACING)));
 
             }else if (pState.getValue(FACING) == Direction.SOUTH) {
-                    world.setBlock(new BlockPos(x + 1, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(ModBlocks.MINER_MK1_BACK.get().defaultBlockState(), world,
+                    world.setBlock(new BlockPos(x + 1, y, z), ModBlocks.MINER_MK1_BACK.get().defaultBlockState().rotate( world,
                             new BlockPos(x + 1, y, z), Rotation.CLOCKWISE_180), 3);
                     LOGGER.info(String.valueOf(pState.getValue(FACING)));
 
             }else if (pState.getValue(FACING) == Direction.WEST) {
-                    world.setBlock(new BlockPos(x, y, z + 1), ModBlocks.MINER_MK1_BACK.get().rotate(ModBlocks.MINER_MK1_BACK.get().defaultBlockState(), world,
+                    world.setBlock(new BlockPos(x, y, z + 1), ModBlocks.MINER_MK1_BACK.get().defaultBlockState().rotate( world,
                             new BlockPos(x, y, z + 1), Rotation.COUNTERCLOCKWISE_90), 3);
                     LOGGER.info(String.valueOf(pState.getValue(FACING)));
             }else{
-                    world.setBlock(new BlockPos(x - 1, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(ModBlocks.MINER_MK1_BACK.get().defaultBlockState(), world,
+                    world.setBlock(new BlockPos(x - 1, y, z), ModBlocks.MINER_MK1_BACK.get().defaultBlockState().rotate( world,
                             new BlockPos(x - 1, y, z), Rotation.NONE), 3);
                     LOGGER.info(String.valueOf(pState.getValue(FACING)));
                 }

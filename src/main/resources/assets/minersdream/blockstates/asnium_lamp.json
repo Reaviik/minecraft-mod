@@ -1,0 +1,6 @@
+{
+  "variants":{
+    "lit=true": {"model": "minersdream:block/asnium_lamp_on"},
+    "lit=false": {"model": "minersdream:block/asnium_lamp_off"}
+  }
+}

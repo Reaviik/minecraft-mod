@@ -93,7 +93,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return new MinerMK1Menu(pContainerId, pPlayerInventory, this);
+        return new MinerMK1Menu(pContainerId, pPlayerInventory, this, this.data);
     }
 
     @Nullable

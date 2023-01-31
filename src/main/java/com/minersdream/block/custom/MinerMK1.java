@@ -4,13 +4,16 @@ import com.minersdream.MinersDream;
 import com.minersdream.block.ModBlocks;
 import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.entity.custom.MinerMK1BlockEntity;
+import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.context.DirectionalPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -22,7 +25,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.event.world.BlockEvent;
@@ -32,13 +37,14 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
 
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 
 @Mod.EventBusSubscriber
-public class MinerMK1  extends BaseEntityBlock{ // APAGA A LUZ APAGA TUDO QUE ISSO AMORRR SEI COMO RESOLVER SEUS PROBLEMAS, LIGUE JÁ PARA HAHAHA ERROU
+public class MinerMK1  extends BaseEntityBlock{
     // https://www.youtube.com/watch?v=7zjJZrM3q_8 CHAAAMAAA
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
@@ -108,6 +114,8 @@ public class MinerMK1  extends BaseEntityBlock{ // APAGA A LUZ APAGA TUDO QUE IS
         return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
 
+    private static final Logger LOGGER = LogUtils.getLogger();
+
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
@@ -115,8 +123,8 @@ public class MinerMK1  extends BaseEntityBlock{ // APAGA A LUZ APAGA TUDO QUE IS
     }
         @SubscribeEvent
         public static void onBlockPlace(BlockEvent.EntityPlaceEvent event) {
-         BlockPos pPos = event.getPos();
-         BlockState pState = event.getState();
+            BlockPos pPos = event.getPos();
+            BlockState pState = event.getState();
 
             execute(event, event.getWorld(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), pPos, pState);
         }
@@ -128,15 +136,24 @@ public class MinerMK1  extends BaseEntityBlock{ // APAGA A LUZ APAGA TUDO QUE IS
         private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, BlockPos pPos, BlockState pState) {
         //CAPETA DE JAVA, VAI TOMA NO CU, Tu tambem, mas com carinho.
           if ((world.getBlockState(new BlockPos(x, y, z))).getBlock() == ModBlocks.MINER_MK1.get()) {
-              switch (world.getBlockState(new BlockPos(x, y, z)).getValue(FACING)) {
+              LOGGER.info(String.valueOf(pState.getValue(FACING)));
+              switch (pState.getValue(FACING)) {
+
                   case EAST:
-                      world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(pState, world, pPos, Rotation.CLOCKWISE_90), 0);
+                      world.setBlock(new BlockPos(x, y, z-1), ModBlocks.MINER_MK1_BACK.get().rotate(ModBlocks.MINER_MK1_BACK.get().defaultBlockState(), world,
+                              new BlockPos(x, y, z-1), Rotation.CLOCKWISE_90), 3);
                   case SOUTH:
-                      world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(pState, world, pPos, Rotation.CLOCKWISE_180), 0);
+                      world.setBlock(new BlockPos(x, y, z-1), ModBlocks.MINER_MK1_BACK.get().rotate(ModBlocks.MINER_MK1_BACK.get().defaultBlockState(), world,
+                              new BlockPos(x, y, z-1), Rotation.CLOCKWISE_180), 3);
                   case WEST:
-                      world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(pState, world, pPos, Rotation.COUNTERCLOCKWISE_90), 0);
-                  default:
-                      world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BACK.get().rotate(pState, world, pPos, Rotation.NONE), 0);
+                      world.setBlock(new BlockPos(x, y, z-1), ModBlocks.MINER_MK1_BACK.get().rotate(ModBlocks.MINER_MK1_BACK.get().defaultBlockState(), world,
+                              new BlockPos(x, y, z-1), Rotation.COUNTERCLOCKWISE_90), 3);
+                  case NORTH:
+                      world.setBlock(new BlockPos(x, y, z-1), ModBlocks.MINER_MK1_BACK.get().rotate(ModBlocks.MINER_MK1_BACK.get().defaultBlockState(), world,
+                              new BlockPos(x, y, z-1), Rotation.NONE), 3);
+//                  default:
+//                      world.setBlock(new BlockPos(x, y, z-1), ModBlocks.ASNIUM_BLOCK.get().rotate(ModBlocks.ASNIUM_BLOCK.get().defaultBlockState(), world,
+//                              new BlockPos(x, y, z-1), Rotation.CLOCKWISE_180), 3);
               }
           }
         }

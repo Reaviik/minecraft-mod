@@ -33,8 +33,7 @@ public class ModItems {
     public static final RegistryObject<Item> PALEBERRY = ITEMS.register("paleberry",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).food(ModFoods.BERYL_NUT).stacksTo(128)
                     .rarity(Rarity.UNCOMMON)));
-
-    // FUEL
+    //Fuel
     public static final RegistryObject<Item> COAL = ITEMS.register("coal",
             () -> new Coal(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).rarity(Rarity.UNCOMMON)));
 

@@ -22,7 +22,6 @@ public class MinerMK1Menu extends AbstractContainerMenu {
 
     public MinerMK1Menu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
         this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
-
     }
 
     public MinerMK1Menu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
@@ -48,7 +47,9 @@ public class MinerMK1Menu extends AbstractContainerMenu {
         });
     }
 
-    public boolean isCrafting() {
+
+
+public boolean isCrafting() {
         return data.get(0) > 0;
     }
 

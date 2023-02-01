@@ -170,9 +170,10 @@ public class MinerMK1  extends BaseEntityBlock { // APAGA A LUZ APAGA TUDO QUE I
 
                 setMultiblockBlock(world, x, y + 4, z, ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get(), Rotation.CLOCKWISE_90, 3);
 
-                setMultiblockBlock(world, x, y, z, ModBlocks.MINER_MK1_BROCA.get(), Rotation.CLOCKWISE_90, 3);
 
-
+                world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BROCA.get().defaultBlockState().rotate(world,
+                        new BlockPos(x, y, z), Rotation.CLOCKWISE_90), 3);
+                world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(Blocks.CHORUS_FLOWER.defaultBlockState()));
             }else if (pState.getValue(FACING) == Direction.SOUTH) {
                 // Ok
                 setMultiblockBlock(world, x + 1, y, z, ModBlocks.MINER_MK1_BACK.get(), Rotation.CLOCKWISE_180, 3);
@@ -189,9 +190,10 @@ public class MinerMK1  extends BaseEntityBlock { // APAGA A LUZ APAGA TUDO QUE I
 
                 setMultiblockBlock(world, x, y + 4, z, ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get(), Rotation.CLOCKWISE_180, 3);
 
-                setMultiblockBlock(world, x, y, z, ModBlocks.MINER_MK1_BROCA.get(), Rotation.CLOCKWISE_180, 3);
 
-
+                world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BROCA.get().defaultBlockState().rotate(world,
+                        new BlockPos(x, y, z), Rotation.CLOCKWISE_180), 3);
+                world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(Blocks.CHORUS_FLOWER.defaultBlockState()));
             }else if (pState.getValue(FACING) == Direction.WEST) {
                 //
                 setMultiblockBlock(world, x, y, z + 1, ModBlocks.MINER_MK1_BACK.get(), Rotation.COUNTERCLOCKWISE_90, 3);
@@ -208,8 +210,10 @@ public class MinerMK1  extends BaseEntityBlock { // APAGA A LUZ APAGA TUDO QUE I
 
                 setMultiblockBlock(world, x, y + 4, z, ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get(), Rotation.COUNTERCLOCKWISE_90, 3);
 
-                setMultiblockBlock(world, x, y, z, ModBlocks.MINER_MK1_BROCA.get(), Rotation.CLOCKWISE_90, 3);
 
+                world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BROCA.get().defaultBlockState().rotate(world,
+                        new BlockPos(x, y, z), Rotation.COUNTERCLOCKWISE_90), 3);
+                world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(Blocks.CHORUS_FLOWER.defaultBlockState()));
             }else{
                 setMultiblockBlock(world, x - 1, y, z, ModBlocks.MINER_MK1_BACK.get(), Rotation.NONE, 3);
 
@@ -225,12 +229,16 @@ public class MinerMK1  extends BaseEntityBlock { // APAGA A LUZ APAGA TUDO QUE I
 
                 setMultiblockBlock(world, x, y + 4, z, ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get(), Rotation.NONE, 3);
 
-                setMultiblockBlock(world, x, y, z, ModBlocks.MINER_MK1_BROCA.get(), Rotation.NONE, 3);
 
-                }
+                world.setBlock(new BlockPos(x, y, z), ModBlocks.MINER_MK1_BROCA.get().defaultBlockState().rotate(world,
+                        new BlockPos(x, y, z), Rotation.NONE), 3);
+                world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(Blocks.CHORUS_FLOWER.defaultBlockState()));
+            }
 //                  default:
 //                      world.setBlock(new BlockPos(x, y, z-1), ModBlocks.ASNIUM_BLOCK.get().rotate(ModBlocks.ASNIUM_BLOCK.get().defaultBlockState(), world,
 //                              new BlockPos(x, y, z-1), Rotation.CLOCKWISE_180), 3);
+
+
             }
         }
 

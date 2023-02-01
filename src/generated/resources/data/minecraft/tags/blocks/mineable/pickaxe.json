@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "minersdream:asnium_block",
+    "minersdream:asnium_ore",
+    "minersdream:deepslate_asnium_ore",
+    "minersdream:asphalt",
+    "minersdream:asnium_lamp",
+    "minersdream:iron_resource_node",
+    "minersdream:block_teste",
+    "minersdream:fence",
+    "minersdream:foundation",
+    "minersdream:miner_zero",
+    "minersdream:miner_mk1",
+    "minersdream:overclock",
+    "minersdream:miner_mk1_separador",
+    "minersdream:miner_mk1_vacum",
+    "minersdream:miner_mk1_broca",
+    "minersdream:miner_mk1_back",
+    "minersdream:miner_mk1_motor",
+    "minersdream:miner_mk1_plataforma",
+    "minersdream:miner_mk1_gerenciador_parte1",
+    "minersdream:miner_mk1_gerenciador_parte2"
+  ]
+}

@@ -1,6 +1,7 @@
 package com.minersdream.datagen;
 
 import com.minersdream.MinersDream;
+import com.minersdream.util.TagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,5 +19,8 @@ public class DataGenerators {
         generator.addProvider(new ModLootTableProvider(generator));
         generator.addProvider(new ModBlocksStateProvider(generator, existingFileHelper));
         generator.addProvider(new ModItemModelProvider(generator, existingFileHelper));
+        generator.addProvider(new TagsProvider.Blocks(generator, MinersDream.MOD_ID, existingFileHelper));
+        generator.addProvider(new TagsProvider.Items(generator, (new TagsProvider.Blocks(generator, MinersDream.MOD_ID, existingFileHelper)),
+                MinersDream.MOD_ID, existingFileHelper));
     }
 }

@@ -1,10 +1,10 @@
 {
-  "type": "minecraft:smelting",
+  "type": "minecraft:blasting",
   "group": "asnium_ingot",
   "ingredient": {
-    "item": "minersdream:raw_asnium"
+    "item": "minersdream:asnium_ore"
   },
   "result": "minersdream:asnium_ingot",
   "experience": 1.2,
-  "cookingtime": 200
+  "cookingtime": 100
 }

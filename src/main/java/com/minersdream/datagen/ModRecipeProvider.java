@@ -4,11 +4,14 @@ import com.google.common.collect.ImmutableList;
 import com.minersdream.block.ModBlocks;
 import com.minersdream.datagen.custom.BlockTesteRecipeBuilder;
 import com.minersdream.item.ModItems;
+import com.minersdream.util.ITags;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.BlastingRecipe;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.function.Consumer;
@@ -55,7 +58,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         // ORE MELTING RECIPES
 
-        oreSmelting(pFinishedRecipeConsumer, ASNIUM_SMELTABLES, ModItems.ASNIUM_INGOT.get(), 0.7F, 200, "asnium_ingot");
+        oreSmelting(pFinishedRecipeConsumer, ASNIUM_SMELTABLES, ModItems.ASNIUM_INGOT.get(), 1.2F, 200, "asnium_ingot");
+        oreBlasting(pFinishedRecipeConsumer, ASNIUM_SMELTABLES, ModItems.ASNIUM_INGOT.get(), 1.2F, 100, "asnium_ingot");
 
         // BLOCK TESTE ASNIUM
 

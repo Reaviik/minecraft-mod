@@ -4,6 +4,7 @@ import com.minersdream.block.ModBlocks;
 import com.minersdream.item.ModItems;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -20,6 +21,23 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(ModBlocks.FENCE.get());
         this.dropSelf(ModBlocks.MINER_MK1.get());
         this.dropSelf(ModBlocks.OVERCLOCK.get());
+        this.dropSelf(ModBlocks.ASNIUM_LAMP.get());
+
+        this.dropSelf(ModBlocks.IRON_RESOURCE_NODE.get());
+
+        this.dropSelf(ModBlocks.MINER_MK1_SEPARADOR.get());
+        this.dropSelf(ModBlocks.MINER_MK1_GERENCIADOR_PARTE1.get());
+        this.dropSelf(ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get());
+        this.dropSelf(ModBlocks.MINER_MK1_VACUM.get());
+        this.dropSelf(ModBlocks.MINER_MK1_BACK.get());
+        this.dropSelf(ModBlocks.MINER_MK1_BROCA.get());
+        this.dropSelf(ModBlocks.MINER_MK1_MOTOR.get());
+        this.dropSelf(ModBlocks.MINER_MK1_PLATAFORMA.get());
+
+
+
+//        this.add(ModBlocks.IRON_RESOURCE_NODE.get(),
+//                (block) -> createSingleItemTableWithSilkTouch(Blocks.AIR, Blocks.AIR));
 
         // DROP ORES
         this.add(ModBlocks.ASNIUM_ORE.get(),

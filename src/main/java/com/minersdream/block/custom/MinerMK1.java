@@ -151,7 +151,6 @@ public class MinerMK1  extends BaseEntityBlock { // APAGA A LUZ APAGA TUDO QUE I
     }
 
     private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, BlockPos pPos, BlockState pState) {
-        //CAPETA DE JAVA, VAI TOMA NO CU, Tu tambem, mas com carinho.
         if ((world.getBlockState(new BlockPos(x, y, z))).getBlock() == ModBlocks.MINER_MK1.get()) {
             LOGGER.info(String.valueOf(pState.getValue(FACING))); // PRINT
             if (pState.getValue(FACING) == Direction.EAST) {

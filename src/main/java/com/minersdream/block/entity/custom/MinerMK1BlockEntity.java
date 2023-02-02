@@ -6,6 +6,7 @@ import com.minersdream.block.custom.MinerMK1;
 import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.screen.MinerMK1.MinerMK1Menu;
 import com.minersdream.item.ModItems;
+import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -38,9 +39,9 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
 
 import javax.annotation.Nonnull;
-import java.util.logging.Logger;
 
 public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
@@ -132,6 +133,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
     }
 
+    private static final Logger LOGGER = LogUtils.getLogger();
     public void drops() {
         SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
         for (int i = 0; i < itemHandler.getSlots(); i++) {
@@ -141,14 +143,17 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
-    // pState / pPos > place?
-    public static void execute(LevelAccessor world, double x, double y, double z, MinerMK1BlockEntity entity, Block resource) {
 
+    // pState / pPos > place?
+    public static void execute(LevelAccessor world, double x, double y, double z, MinerMK1BlockEntity entity, Block resource, BlockPos pPos) {
+        //pegar a tag do bloco
+        //LOGGER.info(world.getBlockState(new BlockPos(x, y-1, z)).getBlock().getDescriptionId());
         BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
         if (_ent != null) {
             // base 16 items
             final int _slotid = 0;
             hasUpgrades(entity);
+            ResourceLocation qunatitiy = new ResourceLocation("minersdream:config/minerdrop");
             final int slotCount = entity.itemHandler.getStackInSlot(0).getCount();
             final ItemStack _setstack = new ItemStack(Items.RAW_IRON); // Todo tAGs : ores
             if(world instanceof Level _lvl_isPow ? _lvl_isPow.hasNeighborSignal(new BlockPos(x, y, z)) : false){
@@ -183,7 +188,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
             pBlockEntity.progress++;
             setChanged(pLevel, pPos, pState);
             if(pBlockEntity.progress > pBlockEntity.maxProgress) {
-                execute(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), pBlockEntity, resource);
+                execute(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), pBlockEntity, resource, pPos);
             }
         } else {
             pBlockEntity.resetProgress();

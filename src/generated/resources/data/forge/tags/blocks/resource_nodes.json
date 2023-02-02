@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#forge:ores/asnium"
+    "minersdream:iron_resource_node"
   ]
 }

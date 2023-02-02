@@ -24,6 +24,8 @@ public class TagsProvider {
             tag(ITags.Blocks.ASNIUM_ORE).add(ModBlocks.ASNIUM_ORE.get()).add(ModBlocks.DEEPSLATE_ASNIUM_ORE.get());
             tag(ORES).addTag(ITags.Blocks.ASNIUM_ORE);
 
+            tag(ITags.Blocks.RESOURCE_NODES).add(ModBlocks.IRON_RESOURCE_NODE.get());
+
 //            tag(ITags.Blocks.ICES).addTag(ITags.Blocks.ICES_ICE).addTag(ITags.Blocks.ICES_PACKED).addTag(ITags.Blocks.ICES_BLUE);
 //            tag(ITags.Blocks.ICES_ICE).add(net.minecraft.world.level.block.Blocks.ICE);
 //            tag(ITags.Blocks.ICES_PACKED).add(net.minecraft.world.level.block.Blocks.PACKED_ICE);
@@ -38,12 +40,15 @@ public class TagsProvider {
 //            tag(STORAGE_BLOCKS).add(Blcks.URANINITE.get());
 //            tag(ITags.Blocks.URANINITE_BLOCK).add(Blcks.URANINITE.get());
 
+            tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ITags.Blocks.ASNIUM_ORE);
+
             // All of our blocks are mineable with a pickaxe
-            for (var block : Registry.BLOCK) {
-                if (Registry.BLOCK.getKey(block).getNamespace().equals(MinersDream.MOD_ID)) {
-                    tag(BlockTags.MINEABLE_WITH_PICKAXE).add(block);
-                }
-            }
+//            for (var block : Registry.BLOCK) {
+//                if (Registry.BLOCK.getKey(block).getNamespace().equals(MinersDream.MOD_ID)) {
+//                    tag(BlockTags.MINEABLE_WITH_PICKAXE).add(block);
+//                }
+//            }
+
             // However the uraninite ores require at least an iron pickaxe
             tag(BlockTags.NEEDS_IRON_TOOL).addTag(ITags.Blocks.ASNIUM_ORE);
         }
@@ -59,6 +64,8 @@ public class TagsProvider {
 
             tag(ITags.Items.ASNIUM_ORE).add(ModBlocks.ASNIUM_ORE.get().asItem()).add(ModBlocks.DEEPSLATE_ASNIUM_ORE.get().asItem());
             tag(Tags.Items.ORES).addTag(ITags.Items.ASNIUM_ORE);
+
+            tag(ITags.Items.RESOURCE_NODES).add(ModBlocks.IRON_RESOURCE_NODE.get().asItem());
 
             // Remove non-dry ice if Forge handles them in the future
 //            tag(ITags.Items.ICES).addTag(ITags.Items.ICES_ICE).addTag(ITags.Items.ICES_PACKED).addTag(ITags.Items.ICES_BLUE);

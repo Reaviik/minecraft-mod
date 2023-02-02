@@ -67,6 +67,7 @@ public class MinersDream {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_MK1_GERENCIADOR_PARTE1.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_RESOURCE_NODE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.HORIZONTAL_CONVEIOR.get(), RenderType.translucent());
 
         MenuScreens.register(ModMenuTypes.BLOCK_TESTE_MENU.get(), BlockTesteScreen::new);
         MenuScreens.register(ModMenuTypes.MINER_MK1_MENU.get(), MinerMK1Screen::new);

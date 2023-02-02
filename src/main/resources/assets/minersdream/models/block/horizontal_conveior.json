@@ -1,0 +1,85 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [512, 512],
+	"textures": {
+		"1": "minersdream:block/miner_mk1_full",
+		"particle": "minersdream:block/miner_mk1_full"
+	},
+	"elements": [
+		{
+			"from": [0, 6.36522, 12.92074],
+			"to": [16, 9.11522, 13.92074],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 8.11522, 13.42074]},
+			"faces": {
+				"north": {"uv": [1.06563, 2.5625, 1.99688, 2.25], "rotation": 180, "texture": "#1"},
+				"east": {"uv": [1.09375, 1.9375, 1.21875, 1.96563], "rotation": 180, "texture": "#1"},
+				"south": {"uv": [1.0625, 1.9375, 2, 2.25], "rotation": 180, "texture": "#1"},
+				"west": {"uv": [1.09375, 1.9375, 1.21875, 1.96875], "rotation": 180, "texture": "#1"},
+				"up": {"uv": [1.09375, 1.9375, 1.96875, 1.96563], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [1.09375, 1.9375, 1.96875, 1.96875], "rotation": 180, "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 7, 2.78701],
+			"to": [16, 7.75, 13.28701],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0.30709, 0.03701]},
+			"faces": {
+				"north": {"uv": [0, 0, 0.5, 0.02344], "texture": "#1"},
+				"east": {"uv": [1.90625, 2.59375, 1.92969, 3.0625], "rotation": 270, "texture": "#1"},
+				"south": {"uv": [0, 0, 0.5, 0.02344], "texture": "#1"},
+				"west": {"uv": [1.06875, 2.59375, 1.09375, 3.0625], "rotation": 270, "texture": "#1"},
+				"up": {"uv": [1.06563, 2.59375, 1.93438, 3.0625], "texture": "#1"},
+				"down": {"uv": [1.9375, 2.59375, 1.0625, 3.0625], "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 9.80937, 1.39417],
+			"to": [16, 12.55937, 2.39417],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 11.55937, 10.89417]},
+			"faces": {
+				"north": {"uv": [1.06563, 2.25, 1.99688, 1.9375], "rotation": 180, "texture": "#1"},
+				"east": {"uv": [1.09375, 1.9375, 1.21875, 1.96563], "rotation": 180, "texture": "#1"},
+				"south": {"uv": [1.06563, 2.5625, 1.99688, 2.25], "rotation": 180, "texture": "#1"},
+				"west": {"uv": [1.09375, 1.9375, 1.21875, 1.96875], "rotation": 180, "texture": "#1"},
+				"up": {"uv": [1.09375, 1.9375, 1.96875, 1.96563], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [1.09375, 1.9375, 1.96875, 1.96875], "rotation": 180, "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, -1.75, -2.25],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 180, 0],
+			"translation": [0, -1.75, -2.25],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_righthand": {
+			"translation": [0, 0.25, -2.25],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 180, 0],
+			"translation": [0, 0.25, -2.25],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"gui": {
+			"rotation": [30, -140, 0],
+			"translation": [0, -2.5, 0],
+			"scale": [0.71, 0.71, 0.71]
+		},
+		"fixed": {
+			"rotation": [-90, 0, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "horizontal_conveior",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1, 2]
+		}
+	]
+}

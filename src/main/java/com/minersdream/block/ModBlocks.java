@@ -10,7 +10,6 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -22,8 +21,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.function.Supplier;
-
-import static org.openjdk.nashorn.api.tree.Parser.create;
 
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
@@ -101,6 +98,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> MINER_MK1_GERENCIADOR_PARTE2 = registerBlock("miner_mk1_gerenciador_parte2",
             () -> new MinerMk1GerenciadorParte2(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
                     .strength(1.5f).lightLevel(LUZ -> {return 1;})), ModCreativeModeTab.MinersDream_TAB);
+    public static final RegistryObject<Block> HORIZONTAL_CONVEIOR = registerBlock("horizontal_conveior",
+            () -> new HorizontalConveior(BlockBehaviour.Properties.of(Material.WOOL).noOcclusion()
+                    .strength(1.5f)), ModCreativeModeTab.MinersDream_TAB);
 
 
     //Tooltip

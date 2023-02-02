@@ -12,6 +12,9 @@ public class ITags {
         public static final TagKey<Block> ASNIUM_ORE = tag("ores/asnium");
         //public static final TagKey<Block> ASNIUM_BLOCK = tag("storage_blocks/asnium");
 
+        public static TagKey<Block> RESOURCE_NODES = tag("resource_nodes");
+
+
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation("forge", name));
         }
@@ -21,6 +24,8 @@ public class ITags {
         public static final TagKey<Item> ASNIUM_ORE = tag("ores/asnium");
         //public static final TagKey<Item> ASNIUM_BLOCK = tag("storage_blocks/asnium");
         public static final TagKey<Item> ASNIUM_RAW = tag("raw_materials/asnium");
+
+        public static TagKey<Item> RESOURCE_NODES = tag("resource_nodes");
 
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation("forge", name));

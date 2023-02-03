@@ -1,14 +1,11 @@
 package com.minersdream.block.custom;
 
-import com.minersdream.block.entity.custom.ConveiorMove;
 import com.minersdream.util.SendMessage;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -17,7 +14,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.slf4j.Logger;
@@ -29,8 +25,8 @@ public class HorizontalConveior extends Block {
         public HorizontalConveior(Properties properties) {
             super(properties);
         }
-    public static final VoxelShape SHAPE_W = Block.box(2, 0, 0, 14, 8, 16);
-    public static final VoxelShape SHAPE_N = Block.box(0, 0, 2, 16, 8, 14);
+    public static final VoxelShape SHAPE_W = Block.box(2, 0, 0, 14, 14, 16);
+    public static final VoxelShape SHAPE_N = Block.box(0, 0, 2, 16, 14, 14);
 
     private static final Logger LOGGER = LogUtils.getLogger();
     @Override
@@ -77,6 +73,7 @@ public class HorizontalConveior extends Block {
         public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
             if(!pLevel.isClientSide()){
                 if(pEntity instanceof ItemEntity){
+
                     LOGGER.info(pState.getValue(FACING).toString());
                     pEntity.setXRot(0);
                     pEntity.setYRot(0);

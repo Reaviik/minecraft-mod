@@ -1,82 +1,53 @@
 {
 	"credit": "Made with Blockbench",
-	"texture_size": [32, 256],
+	"texture_size": [32, 32],
 	"textures": {
-		"0": "minersdream:block/horizontal_conveior.json",
-		"particle": "minersdream:block/horizontal_conveior.json"
+		"0": "minersdream:block/horizontal_conveior",
+		"particle": "minersdream:block/horizontal_conveior"
 	},
 	"elements": [
 		{
-			"from": [0, 13, 12.77723],
-			"to": [16, 15.75, 13.77723],
-			"rotation": {"angle": 0, "axis": "y", "origin": [-8, 5.76877, 13.27723]},
+			"from": [0, 12, 3],
+			"to": [16, 13, 13],
 			"faces": {
-				"north": {"uv": [0, 0.51091, 16, 1.12083], "texture": "#0"},
-				"east": {"uv": [0.85, 1.06359, 3.51667, 1.12708], "texture": "#0"},
-				"south": {"uv": [0, 0, 16, 0.56091], "texture": "#0"},
-				"west": {"uv": [0.85, 1.06359, 3.51667, 1.12708], "texture": "#0"},
-				"up": {"uv": [0, 1.06672, 16, 1.13021], "texture": "#0"},
-				"down": {"uv": [0, 1.06672, 16, 1.13021], "texture": "#0"}
+				"north": {"uv": [0, 4.0625, 16, 4.5], "texture": "#0"},
+				"east": {"uv": [15.5, 8.5625, 16, 16], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [0, 4.0625, 16, 4.5], "texture": "#0"},
+				"west": {"uv": [0, 8.5625, 0.5, 16], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [0, 8.5625, 16, 16], "texture": "#0"},
+				"down": {"uv": [16, 8.5625, 0, 16], "texture": "#0"}
 			}
 		},
 		{
-			"from": [0, 13, 3.21201],
-			"to": [16, 14, 12.78701],
-			"rotation": {"angle": 0, "axis": "y", "origin": [-16, -1.69291, 0.03701]},
+			"from": [0, 12, 2],
+			"to": [16, 14.5, 3],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 12.5, 8]},
 			"faces": {
-				"north": {"uv": [0, 0, 0.5, 0.02344], "texture": "#0"},
-				"east": {"uv": [15.5, 1.99821, 15.98333, 1.05833], "rotation": 90, "texture": "#0"},
-				"south": {"uv": [0, 0, 0.5, 0.02344], "texture": "#0"},
-				"west": {"uv": [15.51667, 1.99821, 16, 1.05833], "rotation": 90, "texture": "#0"},
-				"up": {"uv": [0, 1.05833, 16, 1.99821], "texture": "#0"},
-				"down": {"uv": [16, 1.05833, 0, 1.99821], "texture": "#0"}
+				"north": {"uv": [0, 0, 16, 4], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [0, 8.5625, 2, 9], "texture": "#0"},
+				"south": {"uv": [0, 4, 16, 8.5], "texture": "#0"},
+				"west": {"uv": [0, 8.5625, 2, 9], "texture": "#0"},
+				"up": {"uv": [0, 4.0625, 16, 4.375], "texture": "#0"},
+				"down": {"uv": [0, 4.0625, 16, 4.375], "texture": "#0"}
 			}
 		},
 		{
-			"from": [0, 13, 2.22276],
-			"to": [16, 15.75, 3.22276],
-			"rotation": {"angle": 0, "axis": "y", "origin": [-8, 5.76876, 2.72276]},
+			"from": [0, 12, 13],
+			"to": [16, 14.5, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 13.25, 1.5]},
 			"faces": {
-				"north": {"uv": [0, 0, 16, 0.56091], "texture": "#0"},
-				"east": {"uv": [0.85, 1.06359, 3.51667, 1.12708], "texture": "#0"},
-				"south": {"uv": [0, 0.51091, 16, 1.12083], "texture": "#0"},
-				"west": {"uv": [0.85, 1.06359, 3.51667, 1.12708], "texture": "#0"},
-				"up": {"uv": [0, 1.06672, 16, 1.13021], "texture": "#0"},
-				"down": {"uv": [0, 1.06672, 16, 1.13021], "texture": "#0"}
+				"north": {"uv": [0, 4, 16, 8.5], "texture": "#0"},
+				"east": {"uv": [0, 8.5625, 2, 9], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 4], "rotation": 180, "texture": "#0"},
+				"west": {"uv": [0, 8.5625, 2, 9], "texture": "#0"},
+				"up": {"uv": [0, 4.0625, 16, 4.375], "texture": "#0"},
+				"down": {"uv": [0, 4.0625, 16, 4.375], "texture": "#0"}
 			}
 		}
 	],
-	"display": {
-		"thirdperson_righthand": {
-			"translation": [0, -1.75, -2.25],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [0, 180, 0],
-			"translation": [0, -1.75, -2.25],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"firstperson_righthand": {
-			"translation": [0, 0.25, -2.25],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, 180, 0],
-			"translation": [0, 0.25, -2.25],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"gui": {
-			"rotation": [30, -140, 0],
-			"translation": [0, -2.5, 0],
-			"scale": [0.71, 0.71, 0.71]
-		},
-		"fixed": {
-			"rotation": [-90, 0, 0]
-		}
-	},
 	"groups": [
 		{
-			"name": "horizontal_conveior",
+			"name": "group",
 			"origin": [0, 0, 0],
 			"color": 0,
 			"children": [0, 1, 2]

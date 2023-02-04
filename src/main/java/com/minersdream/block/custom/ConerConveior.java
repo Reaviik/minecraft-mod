@@ -28,10 +28,10 @@ public class ConerConveior extends Block {
         public ConerConveior(Properties properties) {
             super(properties);
         }
-    public static final VoxelShape SHAPE_W = Block.box(0, 12, 0, 14, 13, 14);
-    public static final VoxelShape SHAPE_E = Block.box(0, 12, 0, 14, 13, 14);
-    public static final VoxelShape SHAPE_S = Block.box(0, 12, 0, 14, 13, 14);
-    public static final VoxelShape SHAPE_N = Block.box(0, 12, 0, 14, 13, 14);
+    public static final VoxelShape SHAPE_W = Block.box(0, 0, 0, 14, 4, 14);
+    public static final VoxelShape SHAPE_E = Block.box(0, 0, 0, 14, 4, 14);
+    public static final VoxelShape SHAPE_S = Block.box(0, 0, 0, 14, 4, 14);
+    public static final VoxelShape SHAPE_N = Block.box(0, 0, 0, 14, 4, 14);
 
     private static final Logger LOGGER = LogUtils.getLogger();
     @Override

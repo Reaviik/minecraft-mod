@@ -29,8 +29,8 @@ public class HorizontalConveior extends Block {
         public HorizontalConveior(Properties properties) {
             super(properties);
         }
-    public static final VoxelShape SHAPE_N = Block.box(2, 12, 0, 14, 13, 16);
-    public static final VoxelShape SHAPE_W = Block.box(0, 12, 2, 16, 13, 14);
+    public static final VoxelShape SHAPE_N = Block.box(2, 0, 0, 14, 4, 16);
+    public static final VoxelShape SHAPE_W = Block.box(0, 0, 2, 16, 4, 14);
 
     private static final Logger LOGGER = LogUtils.getLogger();
     @Override

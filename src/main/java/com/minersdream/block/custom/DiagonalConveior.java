@@ -35,95 +35,51 @@ public class DiagonalConveior extends Block {
             super(properties);
         }
     private static final VoxelShape SHAPE_N = Stream.of(
-            Block.box(2, -4, 0, 14, -3, 1),
-            Block.box(2, -3, 1, 14, -2, 2),
-            Block.box(2, -2, 2, 14, -1, 3),
-            Block.box(2, 1, 5, 14, 2, 6),
-            Block.box(2, 0, 4, 14, 1, 5),
-            Block.box(2, -1, 3, 14, 0, 4),
-            Block.box(2, 2, 6, 14, 3, 7),
-            Block.box(2, 6, 10, 14, 7, 11),
-            Block.box(2, 5, 9, 14, 6, 10),
-            Block.box(2, 4, 8, 14, 5, 9),
-            Block.box(2, 3, 7, 14, 4, 8),
-            Block.box(2, 9, 13, 14, 10, 14),
-            Block.box(2, 8, 12, 14, 9, 13),
-            Block.box(2, 7, 11, 14, 8, 12),
-            Block.box(2, 10, 14, 14, 11, 15),
-            Block.box(2, 12, 16, 14, 13, 17),
-            Block.box(2, 11, 15, 14, 12, 16),
-            Block.box(2, 8, 12, 14, 9, 13),
-            Block.box(2, 7, 11, 14, 8, 12),
-            Block.box(2, 10, 14, 14, 11, 15)
+            Block.box(2, 0, 0, 14, 1, 2),
+            Block.box(2, 13, 14, 14, 15, 16),
+            Block.box(2, 15, 16, 14, 17, 17),
+            Block.box(2, 11, 12, 14, 13, 14),
+            Block.box(2, 7, 8, 14, 9, 10),
+            Block.box(2, 9, 10, 14, 11, 12),
+            Block.box(2, 5, 6, 14, 7, 8),
+            Block.box(2, 3, 4, 14, 5, 6),
+            Block.box(2, 1, 2, 14, 3, 4)
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
     private static final VoxelShape SHAPE_E = Stream.of(
-            Block.box(15, -4, 2, 16, -3, 14),
-            Block.box(14, -3, 2, 15, -2, 14),
-            Block.box(13, -2, 2, 14, -1, 14),
-            Block.box(10, 1, 2, 11, 2, 14),
-            Block.box(11, 0, 2, 12, 1, 14),
-            Block.box(12, -1, 2, 13, 0, 14),
-            Block.box(9, 2, 2, 10, 3, 14),
-            Block.box(5, 6, 2, 6, 7, 14),
-            Block.box(6, 5, 2, 7, 6, 14),
-            Block.box(7, 4, 2, 8, 5, 14),
-            Block.box(8, 3, 2, 9, 4, 14),
-            Block.box(2, 9, 2, 3, 10, 14),
-            Block.box(3, 8, 2, 4, 9, 14),
-            Block.box(4, 7, 2, 5, 8, 14),
-            Block.box(1, 10, 2, 2, 11, 14),
-            Block.box(-1, 12, 2, 0, 13, 14),
-            Block.box(0, 11, 2, 1, 12, 14),
-            Block.box(3, 8, 2, 4, 9, 14),
-            Block.box(4, 7, 2, 5, 8, 14),
-            Block.box(1, 10, 2, 2, 11, 14)
+            Block.box(14, 0, 2, 16, 1, 14),
+            Block.box(0, 13, 2, 2, 15, 14),
+            Block.box(-1, 15, 2, 0, 17, 14),
+            Block.box(2, 11, 2, 4, 13, 14),
+            Block.box(6, 7, 2, 8, 9, 14),
+            Block.box(4, 9, 2, 6, 11, 14),
+            Block.box(8, 5, 2, 10, 7, 14),
+            Block.box(10, 3, 2, 12, 5, 14),
+            Block.box(12, 1, 2, 14, 3, 14)
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
     private static final VoxelShape SHAPE_S = Stream.of(
-            Block.box(2, -4, 15, 14, -3, 16),
-            Block.box(2, -3, 14, 14, -2, 15),
-            Block.box(2, -2, 13, 14, -1, 14),
-            Block.box(2, 1, 10, 14, 2, 11),
-            Block.box(2, 0, 11, 14, 1, 12),
-            Block.box(2, -1, 12, 14, 0, 13),
-            Block.box(2, 2, 9, 14, 3, 10),
-            Block.box(2, 6, 5, 14, 7, 6),
-            Block.box(2, 5, 6, 14, 6, 7),
-            Block.box(2, 4, 7, 14, 5, 8),
-            Block.box(2, 3, 8, 14, 4, 9),
-            Block.box(2, 9, 2, 14, 10, 3),
-            Block.box(2, 8, 3, 14, 9, 4),
-            Block.box(2, 7, 4, 14, 8, 5),
-            Block.box(2, 10, 1, 14, 11, 2),
-            Block.box(2, 12, -1, 14, 13, 0),
-            Block.box(2, 11, 0, 14, 12, 1),
-            Block.box(2, 8, 3, 14, 9, 4),
-            Block.box(2, 7, 4, 14, 8, 5),
-            Block.box(2, 10, 1, 14, 11, 2)
+            Block.box(2, 0, 14, 14, 1, 16),
+            Block.box(2, 13, 0, 14, 15, 2),
+            Block.box(2, 15, -1, 14, 17, 0),
+            Block.box(2, 11, 2, 14, 13, 4),
+            Block.box(2, 7, 6, 14, 9, 8),
+            Block.box(2, 9, 4, 14, 11, 6),
+            Block.box(2, 5, 8, 14, 7, 10),
+            Block.box(2, 3, 10, 14, 5, 12),
+            Block.box(2, 1, 12, 14, 3, 14)
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
     private static final VoxelShape SHAPE_W = Stream.of(
-            Block.box(0, -4, 2, 1, -3, 14),
-            Block.box(1, -3, 2, 2, -2, 14),
-            Block.box(2, -2, 2, 3, -1, 14),
-            Block.box(5, 1, 2, 6, 2, 14),
-            Block.box(4, 0, 2, 5, 1, 14),
-            Block.box(3, -1, 2, 4, 0, 14),
-            Block.box(6, 2, 2, 7, 3, 14),
-            Block.box(10, 6, 2, 11, 7, 14),
-            Block.box(9, 5, 2, 10, 6, 14),
-            Block.box(8, 4, 2, 9, 5, 14),
-            Block.box(7, 3, 2, 8, 4, 14),
-            Block.box(13, 9, 2, 14, 10, 14),
-            Block.box(12, 8, 2, 13, 9, 14),
-            Block.box(11, 7, 2, 12, 8, 14),
-            Block.box(14, 10, 2, 15, 11, 14),
-            Block.box(16, 12, 2, 17, 13, 14),
-            Block.box(15, 11, 2, 16, 12, 14),
-            Block.box(12, 8, 2, 13, 9, 14),
-            Block.box(11, 7, 2, 12, 8, 14),
-            Block.box(14, 10, 2, 15, 11, 14)
+            Block.box(0, 0, 2, 2, 1, 14),
+            Block.box(14, 13, 2, 16, 15, 14),
+            Block.box(16, 15, 2, 17, 17, 14),
+            Block.box(12, 11, 2, 14, 13, 14),
+            Block.box(8, 7, 2, 10, 9, 14),
+            Block.box(10, 9, 2, 12, 11, 14),
+            Block.box(6, 5, 2, 8, 7, 14),
+            Block.box(4, 3, 2, 6, 5, 14),
+            Block.box(2, 1, 2, 4, 3, 14)
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
     private static final Logger LOGGER = LogUtils.getLogger();
     @Override
@@ -183,8 +139,15 @@ public class DiagonalConveior extends Block {
                     ((ItemEntity) pEntity).setPickUpDelay(10);
 
                     if(pState.getValue(FACING) == Direction.EAST) {
-                        pEntity.push(- 0.02D, 0f, 0f);
-                        pEntity.push(- 0f, 0.2D, 0f);
+                        //pEntity.push(0D,0.24D,0D);
+                        if(eX < pX-0.5) {
+                            //pEntity.setPos(pX - 0.1, pY + 1.3,pZ + 0.5);
+                            pEntity.push(-0.3D,0.5D,0D);
+                        }else{
+                            pEntity.push(-0.12D,0.21D,0D);
+                        }
+                        //pEntity.setPos(eX - 0.24, eY + 0.4, pZ+ 0.5);
+
                         SendMessage.send(pLevel, "Conveior East");
 
 

@@ -7,8 +7,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -17,7 +15,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.slf4j.Logger;
@@ -29,8 +26,8 @@ public class HorizontalConveior extends Block {
         public HorizontalConveior(Properties properties) {
             super(properties);
         }
-    public static final VoxelShape SHAPE_N = Block.box(2, 0, 0, 14, 4, 16);
-    public static final VoxelShape SHAPE_W = Block.box(0, 0, 2, 16, 4, 14);
+    public static final VoxelShape SHAPE_W = Block.box(0, 6, 2, 16, 8, 14);
+    public static final VoxelShape SHAPE_N = Block.box(2, 6, 0, 14, 8, 16);
 
     private static final Logger LOGGER = LogUtils.getLogger();
     @Override

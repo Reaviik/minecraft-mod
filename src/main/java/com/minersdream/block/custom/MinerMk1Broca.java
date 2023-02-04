@@ -61,8 +61,6 @@ public class MinerMk1Broca extends Block {
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext){
         switch (pState.getValue(FACING)) {
-            case NORTH:
-                return SHAPE_N;
             case EAST:
                 return SHAPE_E;
             case SOUTH:

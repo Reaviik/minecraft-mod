@@ -101,6 +101,12 @@ public class ModBlocks {
     public static final RegistryObject<Block> HORIZONTAL_CONVEIOR = registerBlock("horizontal_conveior",
             () -> new HorizontalConveior(BlockBehaviour.Properties.of(Material.WOOL).noOcclusion()
                     .strength(1.5f)), ModCreativeModeTab.MinersDream_TAB);
+    public static final RegistryObject<Block> DIAGONAL_CONVEIOR = registerBlock("diagonal_conveior",
+            () -> new DiagonalConveior(BlockBehaviour.Properties.of(Material.WOOL).noOcclusion()
+                    .strength(1.5f)), ModCreativeModeTab.MinersDream_TAB);
+    public static final RegistryObject<Block> CONER_CONVEIOR = registerBlock("coner_conveior",
+            () -> new ConerConveior(BlockBehaviour.Properties.of(Material.WOOL).noOcclusion()
+                    .strength(1.5f)), ModCreativeModeTab.MinersDream_TAB);
 
 
     //Tooltip

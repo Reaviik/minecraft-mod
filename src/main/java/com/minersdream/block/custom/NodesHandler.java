@@ -2,15 +2,14 @@ package com.minersdream.block.custom;
 
 import com.minersdream.block.ModBlocks;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 
 public class NodesHandler {
 
     public static Item getParallelItem(Block pBlock){
-        //Retornar sound effect
-        if(pBlock == ModBlocks.IRON_RESOURCE_NODE.get()){
+        // TODO Retornar sound effect
+        if(pBlock == ModBlocks.IRON_RESOURCE_NODE.get()) {
             return Items.RAW_IRON;
         }else if(pBlock == ModBlocks.COPPER_RESOURCE_NODE.get()){
             return Items.RAW_COPPER;

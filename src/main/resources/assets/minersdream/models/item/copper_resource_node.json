@@ -1,3 +1,3 @@
 {
-  "parent": "minecraft:block/copper_ore"
+  "parent": "minersdream:block/copper_resource_node"
 }

@@ -54,6 +54,27 @@ public class ModBlockLootTables extends BlockLoot {
         // SOURCE NODES
         this.add(ModBlocks.IRON_RESOURCE_NODE.get(),
                 (block) -> createSingleItemTable(Items.RAW_IRON));
+        this.add(ModBlocks.COPPER_RESOURCE_NODE.get(),
+                (block) -> createSingleItemTable(Items.RAW_COPPER));
+        this.add(ModBlocks.GOLD_RESOURCE_NODE.get(),
+                (block) -> createSingleItemTable(Items.RAW_GOLD));
+        this.add(ModBlocks.COAL_RESOURCE_NODE.get(),
+                (block) -> createSingleItemTable(Items.COAL));
+        this.add(ModBlocks.REDSTONE_RESOURCE_NODE.get(),
+                (block) -> createSingleItemTable(Items.REDSTONE));
+        this.add(ModBlocks.LAPIS_RESOURCE_NODE.get(),
+                (block) -> createSingleItemTable(Items.LAPIS_LAZULI));
+        this.add(ModBlocks.DIAMOND_RESOURCE_NODE.get(),
+                (block) -> createSingleItemTable(Items.DIAMOND));
+        this.add(ModBlocks.EMERALD_RESOURCE_NODE.get(),
+                (block) -> createSingleItemTable(Items.EMERALD));
+        this.add(ModBlocks.QUARTZ_RESOURCE_NODE.get(),
+                (block) -> createSingleItemTable(Items.QUARTZ));
+        this.add(ModBlocks.GLOWSTONE_RESOURCE_NODE.get(),
+                (block) -> createSingleItemTable(Items.GLOWSTONE_DUST));
+        this.add(ModBlocks.ANCIENT_DEBRIS_RESOURCE_NODE.get(),
+                (block) -> createSingleItemTable(Items.NETHERITE_SCRAP));
+
 
 
 

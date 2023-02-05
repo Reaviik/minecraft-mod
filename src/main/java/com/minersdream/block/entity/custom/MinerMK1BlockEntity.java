@@ -167,7 +167,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
                 } else {
 
                    if (world instanceof Level _level && !_level.isClientSide()) {
-                        ItemEntity entityToSpawn = new ItemEntity(_level, x, y+1, z, new ItemStack(Items.RAW_IRON));
+                        ItemEntity entityToSpawn = new ItemEntity(_level, x, y+1, z, new ItemStack(_setstack.getItem()));
                         entityToSpawn.setPickUpDelay(1);
                         _level.addFreshEntity(entityToSpawn);
                        world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(Blocks.IRON_ORE.defaultBlockState()));

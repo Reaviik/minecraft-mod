@@ -24,7 +24,9 @@ public class TagsProvider {
             tag(ITags.Blocks.ASNIUM_ORE).add(ModBlocks.ASNIUM_ORE.get()).add(ModBlocks.DEEPSLATE_ASNIUM_ORE.get());
             tag(ORES).addTag(ITags.Blocks.ASNIUM_ORE);
 
-            tag(ITags.Blocks.RESOURCE_NODES).add(ModBlocks.IRON_RESOURCE_NODE.get());
+            tag(ITags.Blocks.RESOURCE_NODES).add(ModBlocks.IRON_RESOURCE_NODE.get()).add(ModBlocks.REDSTONE_RESOURCE_NODE.get()).add(ModBlocks.COAL_RESOURCE_NODE.get())
+                    .add(ModBlocks.LAPIS_RESOURCE_NODE.get()).add(ModBlocks.GOLD_RESOURCE_NODE.get()).add(ModBlocks.COPPER_RESOURCE_NODE.get()).add(ModBlocks.DIAMOND_RESOURCE_NODE.get())
+                    .add(ModBlocks.EMERALD_RESOURCE_NODE.get()).add(ModBlocks.QUARTZ_RESOURCE_NODE.get()).add(ModBlocks.GLOWSTONE_RESOURCE_NODE.get()).add(ModBlocks.ANCIENT_DEBRIS_RESOURCE_NODE.get());
 
 //            tag(ITags.Blocks.ICES).addTag(ITags.Blocks.ICES_ICE).addTag(ITags.Blocks.ICES_PACKED).addTag(ITags.Blocks.ICES_BLUE);
 //            tag(ITags.Blocks.ICES_ICE).add(net.minecraft.world.level.block.Blocks.ICE);
@@ -65,7 +67,9 @@ public class TagsProvider {
             tag(ITags.Items.ASNIUM_ORE).add(ModBlocks.ASNIUM_ORE.get().asItem()).add(ModBlocks.DEEPSLATE_ASNIUM_ORE.get().asItem());
             tag(Tags.Items.ORES).addTag(ITags.Items.ASNIUM_ORE);
 
-            tag(ITags.Items.RESOURCE_NODES).add(ModBlocks.IRON_RESOURCE_NODE.get().asItem());
+            tag(ITags.Items.RESOURCE_NODES).add(ModBlocks.IRON_RESOURCE_NODE.get().asItem()).add(ModBlocks.REDSTONE_RESOURCE_NODE.get().asItem()).add(ModBlocks.COAL_RESOURCE_NODE.get().asItem())
+                    .add(ModBlocks.LAPIS_RESOURCE_NODE.get().asItem()).add(ModBlocks.GOLD_RESOURCE_NODE.get().asItem()).add(ModBlocks.COPPER_RESOURCE_NODE.get().asItem()).add(ModBlocks.DIAMOND_RESOURCE_NODE.get().asItem())
+                    .add(ModBlocks.EMERALD_RESOURCE_NODE.get().asItem()).add(ModBlocks.QUARTZ_RESOURCE_NODE.get().asItem()).add(ModBlocks.GLOWSTONE_RESOURCE_NODE.get().asItem()).add(ModBlocks.ANCIENT_DEBRIS_RESOURCE_NODE.get().asItem());
 
             // Remove non-dry ice if Forge handles them in the future
 //            tag(ITags.Items.ICES).addTag(ITags.Items.ICES_ICE).addTag(ITags.Items.ICES_PACKED).addTag(ITags.Items.ICES_BLUE);

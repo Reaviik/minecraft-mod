@@ -26,7 +26,7 @@ public class NodesHandler {
         }else if(pBlock == ModBlocks.EMERALD_RESOURCE_NODE.get()){
             return Items.EMERALD;
         }else if(pBlock == ModBlocks.GLOWSTONE_RESOURCE_NODE.get()){
-            return Items.GLOWSTONE;
+            return Items.GLOWSTONE_DUST;
         }else if(pBlock == ModBlocks.QUARTZ_RESOURCE_NODE.get()){
             return Items.QUARTZ;
         }else if(pBlock == ModBlocks.ANCIENT_DEBRIS_RESOURCE_NODE.get()){

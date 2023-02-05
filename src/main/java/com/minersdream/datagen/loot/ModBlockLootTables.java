@@ -60,6 +60,8 @@ public class ModBlockLootTables extends BlockLoot {
                 (block) -> createSingleItemTable(Items.RAW_GOLD));
         this.add(ModBlocks.COAL_RESOURCE_NODE.get(),
                 (block) -> createSingleItemTable(Items.COAL));
+        this.add(ModBlocks.FLINT_RESOURCE_NODE.get(),
+                (block) -> createSingleItemTable(Items.FLINT));
         this.add(ModBlocks.REDSTONE_RESOURCE_NODE.get(),
                 (block) -> createSingleItemTable(Items.REDSTONE));
         this.add(ModBlocks.LAPIS_RESOURCE_NODE.get(),

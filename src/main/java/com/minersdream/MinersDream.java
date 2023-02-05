@@ -53,6 +53,7 @@ public class MinersDream {
     }
     public void clientSetup(final FMLClientSetupEvent event){
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOCK_TESTE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.FENCE_VERTICAL.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.FENCE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_ZERO.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.OVERCLOCK.get(), RenderType.translucent());

@@ -74,19 +74,23 @@ public class ModBlocks {
          () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                  .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.quartz_resource_node");
    public static final RegistryObject<Block> GLOWSTONE_RESOURCE_NODE = registerBlock("glowstone_resource_node",
-         () -> new Block(BlockBehaviour.Properties.of(Material.GLASS)
-                 .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.glowstone_resource_node");
+         () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                 .strength(10f).lightLevel(LUZ -> {return 10;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.glowstone_resource_node");
     public static final RegistryObject<Block> ANCIENT_DEBRIS_RESOURCE_NODE = registerBlock("ancient_debris_resource_node",
-            () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL)
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.ancient_debris_resource_node");
     public static final RegistryObject<Block> FLINT_RESOURCE_NODE = registerBlock("flint_resource_node",
-            () -> new Block(BlockBehaviour.Properties.of(Material.DIRT)
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.flint_resource_node");
 
     //Custom
     public static final RegistryObject<Block> BLOCK_TESTE = registerBlock("block_teste",
             () -> new BlockTeste(BlockBehaviour.Properties.of(Material.STONE).noOcclusion()
                     .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.block_teste");
+
+    public static final RegistryObject<Block> FENCE_VERTICAL = registerBlock("fence_vertical",
+            () -> new FenceVertical(BlockBehaviour.Properties.of(Material.STONE).noOcclusion().dynamicShape()
+                    .strength(0.1f)),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.fence_vertical");
 
     public static final RegistryObject<Block> FENCE = registerBlock("fence",
             () -> new Fence(BlockBehaviour.Properties.of(Material.STONE).noOcclusion().dynamicShape()

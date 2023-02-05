@@ -1,0 +1,10 @@
+{
+  "replace": false,
+
+  "_comment": "This biome tag can specify the biome directly. Or spectly another biome tag by starting whith #",
+  "values": [
+    "#minecraft:is_forest",
+    "minecraft:plains",
+    "minecraft:savanna"
+  ]
+}

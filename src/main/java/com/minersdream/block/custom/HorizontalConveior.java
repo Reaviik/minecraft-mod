@@ -78,7 +78,7 @@ public class HorizontalConveior extends Block {
     @Override
         public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
             if(!pLevel.isClientSide()) {
-                //if (pEntity instanceof ItemEntity) {
+                if (pEntity instanceof ItemEntity) {
 
 
                     LOGGER.info(pState.getValue(FACING).toString());
@@ -113,7 +113,7 @@ public class HorizontalConveior extends Block {
                         SendMessage.send(pLevel, "Conveior North");
                     }
                 }
-            //}
+            }
         super.stepOn(pLevel, pPos, pState, pEntity);
     }
 }

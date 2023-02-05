@@ -21,7 +21,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -152,7 +151,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
             hasUpgrades(entity);
             ResourceLocation qunatitiy = new ResourceLocation("minersdream:config/minerdrop");
             final int slotCount = entity.itemHandler.getStackInSlot(0).getCount();
-            final ItemStack _setstack = new ItemStack(NodesHandler.NodesHandler(resource));
+            final ItemStack _setstack = new ItemStack(NodesHandler.getParallelItem(resource));
             if(_setstack != null && world instanceof Level _lvl_isPow && _lvl_isPow.hasNeighborSignal(new BlockPos(x, y, z))){
 
                 if (entity.itemHandler.getStackInSlot(0).getCount() == 0
@@ -164,18 +163,17 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
                     _ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
                         if (capability instanceof IItemHandlerModifiable)
                             ((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
-                        world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(Blocks.IRON_ORE.defaultBlockState()));
+                        world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(resource.defaultBlockState()));
 
                     });
                     //place block in world
-                    //world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(ModBlocks.IRON_RESOURCE_NODE.get().defaultBlockState()));
                 } else {
 
                    if (world instanceof Level _level && !_level.isClientSide()) {
                         ItemEntity entityToSpawn = new ItemEntity(_level, x, y+1, z, new ItemStack(_setstack.getItem()));
                         entityToSpawn.setPickUpDelay(1);
                         _level.addFreshEntity(entityToSpawn);
-                       world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(Blocks.IRON_ORE.defaultBlockState()));
+                       world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(resource.defaultBlockState()));
                     }
                 }
             }

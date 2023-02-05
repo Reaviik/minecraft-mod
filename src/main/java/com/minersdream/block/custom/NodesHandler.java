@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.Block;
 
 public class NodesHandler {
 
-    public static Item NodesHandler(Block pBlock){
+    public static Item getParallelItem(Block pBlock){
 
         if(pBlock == ModBlocks.IRON_RESOURCE_NODE.get()){
             return Items.RAW_IRON;

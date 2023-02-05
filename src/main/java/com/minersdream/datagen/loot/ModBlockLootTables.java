@@ -78,8 +78,6 @@ public class ModBlockLootTables extends BlockLoot {
                 (block) -> createSingleItemTable(Items.NETHERITE_SCRAP));
 
 
-
-
         // DROP ORES
         this.add(ModBlocks.ASNIUM_ORE.get(),
                 (block) -> createOreDrop(ModBlocks.ASNIUM_ORE.get(), ModItems.RAW_ASNIUM.get()));

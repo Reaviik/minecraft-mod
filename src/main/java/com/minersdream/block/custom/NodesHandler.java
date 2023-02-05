@@ -31,6 +31,8 @@ public class NodesHandler {
             return Items.QUARTZ;
         }else if(pBlock == ModBlocks.ANCIENT_DEBRIS_RESOURCE_NODE.get()){
             return Items.NETHERITE_SCRAP;
+        }else if(pBlock == ModBlocks.FLINT_RESOURCE_NODE.get()){
+            return Items.FLINT;
         }
         return null;
     }

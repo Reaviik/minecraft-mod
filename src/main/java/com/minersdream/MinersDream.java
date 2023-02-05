@@ -72,6 +72,7 @@ public class MinersDream {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_RESOURCE_NODE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOLD_RESOURCE_NODE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.COAL_RESOURCE_NODE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.FLINT_RESOURCE_NODE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.REDSTONE_RESOURCE_NODE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.LAPIS_RESOURCE_NODE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.DIAMOND_RESOURCE_NODE.get(), RenderType.translucent());

@@ -78,7 +78,7 @@ public class HorizontalConveior extends Block {
     @Override
         public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
             if(!pLevel.isClientSide()) {
-                if (pEntity instanceof ItemEntity) {
+                //if (pEntity instanceof ItemEntity) {
 
 
                     LOGGER.info(pState.getValue(FACING).toString());
@@ -94,7 +94,7 @@ public class HorizontalConveior extends Block {
 
                     if(pState.getValue(FACING) == Direction.EAST) {
                         pEntity.setPos(eX, eY, pZ + 0.5);
-                        pEntity.absMoveTo(+ 0.01D, 0f, 0f);
+                        pEntity.push(+ 0.01D, 0f, 0f);
                         SendMessage.send(pLevel, "Conveior East");
 
                     }else if(pState.getValue(FACING) == Direction.SOUTH) {
@@ -113,7 +113,7 @@ public class HorizontalConveior extends Block {
                         SendMessage.send(pLevel, "Conveior North");
                     }
                 }
-            }
+            //}
         super.stepOn(pLevel, pPos, pState, pEntity);
     }
 }

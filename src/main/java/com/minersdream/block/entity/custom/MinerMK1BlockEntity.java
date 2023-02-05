@@ -154,7 +154,12 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
             final int slotCount = entity.itemHandler.getStackInSlot(0).getCount();
             final ItemStack _setstack = new ItemStack(NodesHandler.NodesHandler(resource));
             if(_setstack != null && world instanceof Level _lvl_isPow && _lvl_isPow.hasNeighborSignal(new BlockPos(x, y, z))){
-                if (entity.itemHandler.getStackInSlot(0).getCount() == 0 || entity.itemHandler.getStackInSlot(0).getCount() < entity.itemHandler.getSlotLimit(0) && entity.itemHandler.getStackInSlot(0).getItem() == _setstack.getItem()) {
+
+                if (entity.itemHandler.getStackInSlot(0).getCount() == 0
+                        || entity.itemHandler.getStackInSlot(0).getCount() < entity.itemHandler.getSlotLimit(0)
+                        && entity.itemHandler.getStackInSlot(0).getItem() == _setstack.getItem()) {
+
+
                     _setstack.setCount(slotCount + 1);
                     _ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
                         if (capability instanceof IItemHandlerModifiable)

@@ -1,13 +1,6 @@
 {
   "itemGroup.minersdream": "Sonho de Mineração",
-
   "tooltip.minersdream.pressShift": "Pressione §e[Shift]§f para descrições",
-
-  "item.minersdream.beryl_nut": "Berilo",
-  "item.minersdream.paleberry": "Baga pálida",
-
-  "item.minersdream.coal": "Carvão",
-  "tooltip.minersdream.coal": "§8Tempo de queima 6400 t §b|§f 32 itens",
 
   "item.minersdream.asnium_ingot": "Lingote de Asnium",
 
@@ -19,11 +12,56 @@
 
   "block.minersdream.deepslate_asnium_ore": "Minério de Asnium de Aredósia Profunda",
 
+  "block.minersdream.asnium_lamp": "§bAsnium Lamp",
+
+  "item.minersdream.beryl_nut": "Berilo",
+  "item.minersdream.paleberry": "Baga pálida",
+
+  "item.minersdream.coal": "Carvão",
+  "tooltip.minersdream.coal": "§8Tempo de queima 6400 t §b|§f 32 itens",
+
   "block.minersdream.asphalt": "Asfalto",
   "tooltip.minersdream.asphalt": "§3Este bloco concede efeito de Velocidade II quando sobre ele.",
 
-  "block.minersdream.iron_resource_node": "Nodo de minerio de ferro.",
-  "tooltip.minersdream.iron_resource_node": "§3Coloque uma mineradora acima e tenha recurso infinito",
+  "block.minersdream.iron_resource_node": "Nodo de minerio de Ferro.",
+  "tooltip.minersdream.iron_resource_node": "§fTier §b1",
+
+  "block.minersdream.copper_resource_node": "Nodo de minerio de Cobre.",
+  "tooltip.minersdream.copper_resource_node": "§fTier §b2",
+
+  "block.minersdream.gold_resource_node": "Nodo de minerio de Ouro.",
+  "tooltip.minersdream.gold_resource_node": "§fTier §c3",
+
+  "block.minersdream.coal_resource_node": "Nodo de minerio de Carvão.",
+  "tooltip.minersdream.coal_resource_node": "§fTier §b1",
+
+  "block.minersdream.flint_resource_node": "Nodo de minerio de Pederneira.",
+  "tooltip.minersdream.flint_resource_node": "§fTier §80",
+
+  "block.minersdream.redstone_resource_node": "Nodo de minerio de Redstone.",
+  "tooltip.minersdream.redstone_resource_node": "§fTier §b2",
+
+  "block.minersdream.lapis_resource_node": "Nodo de minerio de Lápis Lazuli.",
+  "tooltip.minersdream.lapis_resource_node": "§fTier §b2",
+
+  "block.minersdream.diamond_resource_node": "Nodo de minerio de Diamante.",
+  "tooltip.minersdream.diamond_resource_node": "§fTier §43",
+
+  "block.minersdream.emerald_resource_node": "Nodo de minerio de Esmeralda.",
+  "tooltip.minersdream.emerald_resource_node": "§fTier §43",
+
+  "block.minersdream.glowstone_resource_node": "Nodo de minerio de Pedra Luminosa.",
+  "tooltip.minersdream.glowstone_resource_node": "§fTier §43",
+
+  "block.minersdream.quartz_resource_node": "Nodo de minerio de Quartzo do Nether.",
+  "tooltip.minersdream.quartz_resource_node": "§fTier §43",
+
+  "block.minersdream.ancient_debris_resource_node": "Nodo de minerio de detritos de minerio ancestral.",
+  "tooltip.minersdream.ancient_debris_resource_node": "§fTier §55",
+
+  "block.minersdream.horizontal_conveior": "Esteira horizontal",
+  "block.minersdream.coner_conveior": "Esteira curva",
+  "block.minersdream.vertical_conveior": "Esteira vertical",
 
   "block.minersdream.block_teste": "Decantador",
   "tooltip.minersdream.block_teste": "Ninguém sabe para que serve esse bloco",
@@ -34,18 +72,14 @@
   "block.minersdream.foundation": "Bloco de fundação",
   "tooltip.minersdream.foundation": "Nunca é bom deixar suas maquinas em contato com a terra",
 
-  "block.minersdream.asnium_lamp": "§bAsnium Lamp",
-
   "block.minersdream.miner_zero": "Mineiradora ZERO",
   "tooltip.minersdream.miner_zero": "Sei lá",
 
   "block.minersdream.miner_mk1": "Mineradora MK1",
-  "tooltip.minersdream.mine_rmk1": "Mineradora mas, não minera, limitado 3 §e3§f",
+  "tooltip.minersdream.miner_mk1": "Mineradora mas, não minera, limitado 3 §e3§f",
 
   "block.minersdream.overclock": "Overclock",
   "tooltip.minersdream.overclock": "Almenta em §e50%§f a velocidade de mineração",
-
-  "block.minersdream.miner_mk1_back": "Miner Mk1 Costas",
 
   "item.minersdream.asnium_pickaxe": "Picareta de Asnium",
   "tooltip.minersdream.asnium_pickaxe": "§5Esta picareta traz uma grande fortuna!"

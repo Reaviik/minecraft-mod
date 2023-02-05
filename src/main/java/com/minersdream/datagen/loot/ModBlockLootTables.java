@@ -3,6 +3,7 @@ package com.minersdream.datagen.loot;
 import com.minersdream.block.ModBlocks;
 import com.minersdream.item.ModItems;
 import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fml.common.Mod;
@@ -22,8 +23,9 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(ModBlocks.MINER_MK1.get());
         this.dropSelf(ModBlocks.OVERCLOCK.get());
         this.dropSelf(ModBlocks.ASNIUM_LAMP.get());
-
-        this.dropSelf(ModBlocks.IRON_RESOURCE_NODE.get());
+        this.dropSelf(ModBlocks.HORIZONTAL_CONVEIOR.get());
+        this.dropSelf(ModBlocks.DIAGONAL_CONVEIOR.get());
+        this.dropSelf(ModBlocks.CONER_CONVEIOR.get());
 
         this.dropSelf(ModBlocks.MINER_MK1_SEPARADOR.get());
         this.dropSelf(ModBlocks.MINER_MK1_GERENCIADOR_PARTE1.get());
@@ -38,6 +40,12 @@ public class ModBlockLootTables extends BlockLoot {
 
 //        this.add(ModBlocks.IRON_RESOURCE_NODE.get(),
 //                (block) -> createSingleItemTableWithSilkTouch(Blocks.AIR, Blocks.AIR));
+
+        // SOURCE NODES
+        this.add(ModBlocks.IRON_RESOURCE_NODE.get(),
+                (block) -> createSingleItemTable(Items.RAW_IRON));
+
+
 
         // DROP ORES
         this.add(ModBlocks.ASNIUM_ORE.get(),

@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:raw_iron"
+          "name": "minersdream:coner_conveior"
         }
       ],
       "conditions": [

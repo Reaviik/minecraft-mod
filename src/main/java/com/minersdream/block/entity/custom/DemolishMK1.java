@@ -2,7 +2,6 @@
 package com.minersdream.block.entity.custom;
 
 import com.minersdream.block.ModBlocks;
-import com.minersdream.block.custom.MinerMk1Broca;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelAccessor;
@@ -16,8 +15,8 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import javax.annotation.Nullable;
 
 @EventBusSubscriber
-public class BrocaBreak extends MinerMk1Broca {
-    public BrocaBreak(Properties pProperties) {
+public class DemolishMK1 {
+    public DemolishMK1(Properties pProperties) {
         super(pProperties);
     }
     public static boolean hasMinerBlock(LevelAccessor world, BlockPos pPos) {
@@ -36,7 +35,8 @@ public class BrocaBreak extends MinerMk1Broca {
     }
     public static void breack(LevelAccessor world, double x, double y, double z){
         if (hasMinerBlock(world, new BlockPos(x, y, z))) {
-            world.destroyBlock(new BlockPos(x, y, z), false);
+            world.setBlock(new BlockPos(x, y, z), Blocks.AIR.defaultBlockState(), 3);
+            //world.destroyBlock(new BlockPos(x, y, z), false);
         }
     }
     @SubscribeEvent

@@ -137,14 +137,7 @@ public class MinerMK1  extends BaseEntityBlock { // APAGA A LUZ APAGA TUDO QUE I
         BlockState pState = event.getState();
         LevelAccessor world = event.getWorld();
 
-        if (!hasAir(world, new BlockPos(pPos.getX(), pPos.getY()+1, pPos.getZ()))) {
-            if (world instanceof Level _level && !_level.isClientSide()) {
-                world.setBlock(pPos, Blocks.AIR.defaultBlockState(), 3);
-                ItemEntity entityToSpawn = new ItemEntity(_level, pPos.getX(), pPos.getY(), pPos.getZ(), new ItemStack(ModBlocks.MINER_MK1.get()));
-                entityToSpawn.setPickUpDelay(1);
-                _level.addFreshEntity(entityToSpawn);
-            }
-        } else {
+        if (hasAir(world, new BlockPos(pPos.getX(), pPos.getY() + 1, pPos.getZ()))) {
             execute(event, world, event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), pPos, pState);
         }
     }

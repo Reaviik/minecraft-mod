@@ -74,13 +74,13 @@ public class ModBlocks {
          () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                  .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.quartz_resource_node");
    public static final RegistryObject<Block> GLOWSTONE_RESOURCE_NODE = registerBlock("glowstone_resource_node",
-         () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+         () -> new Block(BlockBehaviour.Properties.of(Material.GLASS)
                  .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.glowstone_resource_node");
     public static final RegistryObject<Block> ANCIENT_DEBRIS_RESOURCE_NODE = registerBlock("ancient_debris_resource_node",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new Block(BlockBehaviour.Properties.of(Material.HEAVY_METAL)
                     .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.ancient_debris_resource_node");
     public static final RegistryObject<Block> FLINT_RESOURCE_NODE = registerBlock("flint_resource_node",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new Block(BlockBehaviour.Properties.of(Material.DIRT)
                     .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.flint_resource_node");
 
     //Custom

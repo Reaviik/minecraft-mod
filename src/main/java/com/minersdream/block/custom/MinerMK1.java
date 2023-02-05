@@ -4,14 +4,18 @@ import com.minersdream.MinersDream;
 import com.minersdream.block.ModBlocks;
 import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.entity.custom.MinerMK1BlockEntity;
+import com.minersdream.item.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -131,15 +135,22 @@ public class MinerMK1  extends BaseEntityBlock { // APAGA A LUZ APAGA TUDO QUE I
     public static void onBlockPlace(BlockEvent.EntityPlaceEvent event)   {
         BlockPos pPos = event.getPos();
         BlockState pState = event.getState();
+        LevelAccessor world = event.getWorld();
 
-        execute(event, event.getWorld(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), pPos, pState);
+        if (!hasAir(world, new BlockPos(pPos.getX(), pPos.getY()+1, pPos.getZ()))) {
+            if (world instanceof Level _level && !_level.isClientSide()) {
+                world.setBlock(pPos, Blocks.AIR.defaultBlockState(), 3);
+                ItemEntity entityToSpawn = new ItemEntity(_level, pPos.getX(), pPos.getY(), pPos.getZ(), new ItemStack(ModBlocks.MINER_MK1.get()));
+                entityToSpawn.setPickUpDelay(1);
+                _level.addFreshEntity(entityToSpawn);
+            }
+        } else {
+            execute(event, world, event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), pPos, pState);
+        }
     }
 
     public static boolean hasAir(LevelAccessor world, BlockPos pPos) {
-        if (world.getBlockState(pPos).getBlock() == Blocks.AIR) {
-            return true;
-        }
-        return false;
+        return world.getBlockState(pPos).getBlock() == Blocks.AIR;
     }
 
     public static void setMultiblockBlock(LevelAccessor world, double x, double y, double z, Block pBlock, Rotation pRotation, int pFlag){

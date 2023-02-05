@@ -1,22 +1,17 @@
 package com.minersdream.block.entity.custom;
 
-import com.minersdream.MinersDream;
 import com.minersdream.block.ModBlocks;
-import com.minersdream.block.custom.MinerMK1;
-import com.minersdream.block.custom.resourceNodes.NodesHandler;
+import com.minersdream.block.custom.NodesHandler;
 import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.screen.MinerMK1.MinerMK1Menu;
-import com.minersdream.item.ModItems;
 import com.minersdream.util.ITags;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -25,10 +20,8 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -155,12 +148,11 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
         if (_ent != null) {
             // base 16 items
-            // TODO Setar Tag IRON_ORE no IRON_RESOURCE_NODE, Pegar DROP IRON_ORE
             final int _slotid = 0;
             hasUpgrades(entity);
             ResourceLocation qunatitiy = new ResourceLocation("minersdream:config/minerdrop");
             final int slotCount = entity.itemHandler.getStackInSlot(0).getCount();
-            final ItemStack _setstack = new ItemStack(NodesHandler.NodesHandler(resource)); // TODO resolver como pegar o Drop do Node
+            final ItemStack _setstack = new ItemStack(NodesHandler.NodesHandler(resource));
             if(_setstack != null && world instanceof Level _lvl_isPow && _lvl_isPow.hasNeighborSignal(new BlockPos(x, y, z))){
                 if (entity.itemHandler.getStackInSlot(0).getCount() == 0 || entity.itemHandler.getStackInSlot(0).getCount() < entity.itemHandler.getSlotLimit(0) && entity.itemHandler.getStackInSlot(0).getItem() == _setstack.getItem()) {
                     _setstack.setCount(slotCount + 1);

@@ -1,4 +1,4 @@
-package com.minersdream.block.custom.resourceNodes;
+package com.minersdream.block.custom;
 
 import com.minersdream.block.ModBlocks;
 import net.minecraft.world.item.Item;

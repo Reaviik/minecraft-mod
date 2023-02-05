@@ -2,7 +2,6 @@ package com.minersdream.block;
 
 import com.minersdream.MinersDream;
 import com.minersdream.block.custom.*;
-import com.minersdream.block.custom.resourceNodes.IronResourceNode;
 import com.minersdream.item.ModCreativeModeTab;
 import com.minersdream.item.ModItems;
 import net.minecraft.client.gui.screens.Screen;
@@ -48,7 +47,7 @@ public class ModBlocks {
                     .strength(1f).requiresCorrectToolForDrops()
                     .lightLevel(state -> state.getValue(AsniumLamp.LIT) ? 15 : 0)), ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> IRON_RESOURCE_NODE = registerBlock("iron_resource_node",
-         () -> new IronResourceNode(BlockBehaviour.Properties.of(Material.STONE)
+         () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                  .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.iron_resource_node");
 
     //Custom
@@ -77,28 +76,28 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> MINER_MK1_SEPARADOR = registerBlock("miner_mk1_separador",
             () -> new MinerMk1Separador(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
-                    .strength(1.5f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
+                    .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> MINER_MK1_VACUM = registerBlock("miner_mk1_vacum",
             () -> new MinerMk1Vacum(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
-                    .strength(1.5f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
+                    .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> MINER_MK1_BROCA = registerBlock("miner_mk1_broca",
             () -> new MinerMk1Broca(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
-                    .strength(1.5f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
+                    .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> MINER_MK1_BACK = registerBlock("miner_mk1_back",
             () -> new MinerMk1Back(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
-                    .strength(1.5f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
+                    .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> MINER_MK1_MOTOR = registerBlock("miner_mk1_motor",
             () -> new MinerMk1Motor(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
                     .strength(1.5f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> MINER_MK1_PLATAFORMA = registerBlock("miner_mk1_plataforma",
             () -> new MinerMk1Plataforma(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
-                    .strength(1.5f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
+                    .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> MINER_MK1_GERENCIADOR_PARTE1 = registerBlock("miner_mk1_gerenciador_parte1",
             () -> new MinerMk1GerenciadorParte1(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
-                    .strength(1.5f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
+                    .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> MINER_MK1_GERENCIADOR_PARTE2 = registerBlock("miner_mk1_gerenciador_parte2",
             () -> new MinerMk1GerenciadorParte2(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
-                    .strength(1.5f).lightLevel(LUZ -> {return 1;})), ModCreativeModeTab.MinersDream_TAB);
+                    .strength(10f).lightLevel(LUZ -> {return 1;})), ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> HORIZONTAL_CONVEIOR = registerBlock("horizontal_conveior",
             () -> new HorizontalConveior(BlockBehaviour.Properties.of(Material.WOOL).noOcclusion()
                     .strength(1.5f)), ModCreativeModeTab.MinersDream_TAB);

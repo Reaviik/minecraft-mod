@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minersdream:miner_mk1_motor"
+          "name": "minersdream:miner_mk1"
         }
       ],
       "conditions": [

@@ -1,0 +1,5 @@
+{
+  "variants":{
+    "": {"model": "minersdream:block/redstone_resource_node"}
+  }
+}

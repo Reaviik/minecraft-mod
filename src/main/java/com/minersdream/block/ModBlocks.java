@@ -49,6 +49,36 @@ public class ModBlocks {
     public static final RegistryObject<Block> IRON_RESOURCE_NODE = registerBlock("iron_resource_node",
          () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                  .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.iron_resource_node");
+    public static final RegistryObject<Block> COPPER_RESOURCE_NODE = registerBlock("copper_resource_node",
+         () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                 .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.copper_resource_node");
+    public static final RegistryObject<Block> GOLD_RESOURCE_NODE = registerBlock("gold_resource_node",
+         () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                 .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.gold_resource_node");
+    public static final RegistryObject<Block> REDSTONE_RESOURCE_NODE = registerBlock("redstone_resource_node",
+         () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                 .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.redstone_resource_node");
+    public static final RegistryObject<Block> LAPIS_RESOURCE_NODE = registerBlock("lapis_resource_node",
+         () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                 .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.lapis_resource_node");
+    public static final RegistryObject<Block> COAL_RESOURCE_NODE = registerBlock("coal_resource_node",
+         () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                 .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.coal_resource_node");
+    public static final RegistryObject<Block> DIAMOND_RESOURCE_NODE = registerBlock("diamond_resource_node",
+         () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                 .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.diamond_resource_node");
+    public static final RegistryObject<Block> EMERALD_RESOURCE_NODE = registerBlock("emerald_resource_node",
+         () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                 .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.emerald_resource_node");
+    public static final RegistryObject<Block> QUARTZ_RESOURCE_NODE = registerBlock("quartz_resource_node",
+         () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                 .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.quartz_resource_node");
+    public static final RegistryObject<Block> ANCIENT_DEBRIS_RESOURCE_NODE = registerBlock("ancient_debris_resource_node",
+         () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                 .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.ancient_debris_resource_node");
+   public static final RegistryObject<Block> GLOWSTONE_RESOURCE_NODE = registerBlock("glowstone_resource_node",
+         () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                 .strength(10f).lightLevel(LUZ -> {return 1;}).requiresCorrectToolForDrops()),ModCreativeModeTab.MinersDream_TAB, "tooltip.minersdream.glowstone_resource_node");
 
     //Custom
     public static final RegistryObject<Block> BLOCK_TESTE = registerBlock("block_teste",
@@ -88,7 +118,7 @@ public class ModBlocks {
                     .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> MINER_MK1_MOTOR = registerBlock("miner_mk1_motor",
             () -> new MinerMk1Motor(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
-                    .strength(1.5f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
+                    .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> MINER_MK1_PLATAFORMA = registerBlock("miner_mk1_plataforma",
             () -> new MinerMk1Plataforma(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
                     .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);

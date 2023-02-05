@@ -69,6 +69,17 @@ public class MinersDream {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get(), RenderType.cutout());
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_RESOURCE_NODE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_RESOURCE_NODE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOLD_RESOURCE_NODE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.COAL_RESOURCE_NODE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.REDSTONE_RESOURCE_NODE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.LAPIS_RESOURCE_NODE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.DIAMOND_RESOURCE_NODE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.EMERALD_RESOURCE_NODE.get(), RenderType.translucent());
+
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLOWSTONE_RESOURCE_NODE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.QUARTZ_RESOURCE_NODE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ANCIENT_DEBRIS_RESOURCE_NODE.get(), RenderType.translucent());
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.HORIZONTAL_CONVEIOR.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.DIAGONAL_CONVEIOR.get(), RenderType.translucent());

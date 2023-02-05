@@ -2,6 +2,7 @@ package com.minersdream.block;
 
 import com.minersdream.MinersDream;
 import com.minersdream.block.custom.*;
+import com.minersdream.block.custom.resourceNodes.IronResourceNode;
 import com.minersdream.item.ModCreativeModeTab;
 import com.minersdream.item.ModItems;
 import net.minecraft.client.gui.screens.Screen;

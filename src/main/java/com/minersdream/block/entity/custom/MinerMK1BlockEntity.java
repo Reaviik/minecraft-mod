@@ -1,17 +1,22 @@
 package com.minersdream.block.entity.custom;
 
+import com.minersdream.MinersDream;
 import com.minersdream.block.ModBlocks;
-import com.minersdream.block.custom.IronResourceNode;
+import com.minersdream.block.custom.MinerMK1;
+import com.minersdream.block.custom.resourceNodes.NodesHandler;
 import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.screen.MinerMK1.MinerMK1Menu;
+import com.minersdream.item.ModItems;
 import com.minersdream.util.ITags;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -20,6 +25,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
@@ -29,7 +35,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.common.util.LazyOptional;
@@ -155,21 +160,22 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
             hasUpgrades(entity);
             ResourceLocation qunatitiy = new ResourceLocation("minersdream:config/minerdrop");
             final int slotCount = entity.itemHandler.getStackInSlot(0).getCount();
-            final ItemStack _setstack = new ItemStack(Items.RAW_IRON); // TODO resolver como pegar o Drop do Node
-            if(world instanceof Level _lvl_isPow && _lvl_isPow.hasNeighborSignal(new BlockPos(x, y, z))){
+            final ItemStack _setstack = new ItemStack(NodesHandler.NodesHandler(resource)); // TODO resolver como pegar o Drop do Node
+            if(_setstack != null && world instanceof Level _lvl_isPow && _lvl_isPow.hasNeighborSignal(new BlockPos(x, y, z))){
                 if (entity.itemHandler.getStackInSlot(0).getCount() == 0 || entity.itemHandler.getStackInSlot(0).getCount() < entity.itemHandler.getSlotLimit(0) && entity.itemHandler.getStackInSlot(0).getItem() == _setstack.getItem()) {
                     _setstack.setCount(slotCount + 1);
                     _ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
                         if (capability instanceof IItemHandlerModifiable)
                             ((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
                         world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(Blocks.IRON_ORE.defaultBlockState()));
+
                     });
                     //place block in world
                     //world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(ModBlocks.IRON_RESOURCE_NODE.get().defaultBlockState()));
                 } else {
 
                    if (world instanceof Level _level && !_level.isClientSide()) {
-                        ItemEntity entityToSpawn = new ItemEntity(_level, x, y+1, z, _setstack);
+                        ItemEntity entityToSpawn = new ItemEntity(_level, x, y+1, z, new ItemStack(Items.RAW_IRON));
                         entityToSpawn.setPickUpDelay(1);
                         _level.addFreshEntity(entityToSpawn);
                        world.levelEvent(2001, new BlockPos(x, y, z), Block.getId(Blocks.IRON_ORE.defaultBlockState()));

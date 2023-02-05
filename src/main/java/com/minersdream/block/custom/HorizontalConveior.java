@@ -10,6 +10,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -70,10 +71,15 @@ public class HorizontalConveior extends Block {
         return RenderShape.MODEL;
     }
 
+
+
+
+
     @Override
         public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
-            if(!pLevel.isClientSide()){
-                if(pEntity instanceof ItemEntity){
+            if(!pLevel.isClientSide()) {
+                if (pEntity instanceof ItemEntity) {
+
 
                     LOGGER.info(pState.getValue(FACING).toString());
                     pEntity.setXRot(0);
@@ -88,7 +94,7 @@ public class HorizontalConveior extends Block {
 
                     if(pState.getValue(FACING) == Direction.EAST) {
                         pEntity.setPos(eX, eY, pZ + 0.5);
-                        pEntity.push(+ 0.01D, 0f, 0f);
+                        pEntity.absMoveTo(+ 0.01D, 0f, 0f);
                         SendMessage.send(pLevel, "Conveior East");
 
                     }else if(pState.getValue(FACING) == Direction.SOUTH) {
@@ -106,10 +112,8 @@ public class HorizontalConveior extends Block {
                         pEntity.push(0f, 0f, - 0.01D);
                         SendMessage.send(pLevel, "Conveior North");
                     }
-                } else if (pEntity instanceof LivingEntity) {
-                    pEntity.absMoveTo(0f, 0f, - 0.03D);
                 }
             }
-            super.stepOn(pLevel, pPos, pState, pEntity);
-        }
+        super.stepOn(pLevel, pPos, pState, pEntity);
+    }
 }

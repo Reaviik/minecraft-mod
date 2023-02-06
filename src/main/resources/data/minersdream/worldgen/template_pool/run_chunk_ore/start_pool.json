@@ -15,14 +15,14 @@
     {
 
       // Qual a probabilidade de todos os elementos para este ser escolhido.
-      "weight": 1,
+      "weight": 10,
       "element": {
 
         // O Identificador do próprio arquivo nbt da peça da estrutura.
         // Observe que isso verificará automaticamente a pasta 'structures' do arquivo nbt.
-        // O caminho final seria parecido com 'resources/data/tutorialmod/structures/chunk_ore.nbt'
+        // O caminho final seria parecido com 'resources/data/tutorialmod/structures/gold_chunk_ore.nbt'
         // O bloco Jigsaw na estrutura apontará para side_pool.json para gerar a outra metade da casa.
-        "location": "minersdream:chunk_ore",
+        "location": "minersdream:flint_chunk_ore",
 
         // Os arquivos JSON do processador podem ser usados para randomizar ou substituir blocos dinamicamente. Aqui não fazemos nada disso.
         "processors": "minecraft:empty",
@@ -40,12 +40,82 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 8,
       "element": {
 
-        "location": "minersdream:chunk_ore",
+        "location": "minersdream:copper_chunk_ore",
         "processors": "minecraft:empty",
-        "projection": "terrain_matching",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 8,
+      "element": {
+
+        "location": "minersdream:coal_chunk_ore",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+
+        "location": "minersdream:iron_chunk_ore",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+
+        "location": "minersdream:redstone_chunk_ore",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+
+        "location": "minersdream:lapis_chunk_ore",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+
+        "location": "minersdream:gold_chunk_ore",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+
+        "location": "minersdream:diamond_chunk_ore",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+
+        "location": "minersdream:emerald_chunk_ore",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
     }

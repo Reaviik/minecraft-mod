@@ -13,11 +13,11 @@
 
 
     // A distância média em blocos para tentativas de geração
-    "spacing": 24,
+    "spacing": 12,
 
     // Distância mínima em pedaços para tentativas de spawn
     // SEMPRE DEVE SER MENOR QUE O ESPAÇAMENTO ACIMA
-    "separation": 4,
+    "separation": 2,
 
     // O tipo de posicionamento a ser usado. O outro tipo é baseado em anel, como o uso de fortalezas.
     "type": "minecraft:random_spread"

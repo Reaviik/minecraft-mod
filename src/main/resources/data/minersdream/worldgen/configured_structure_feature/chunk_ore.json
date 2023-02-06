@@ -1,6 +1,6 @@
 {
   // A classe de estrutura base a ser usada para o comportamento da estrutura. (Como verificações de terreno extra e tal)
-  "type": "minecraft:village",
+  "type": "minersdream:sky_structures",
 
   "config": {
     // o caminho para o arquivo json do conjunto de modelos a ser usado
@@ -16,7 +16,7 @@
   "biomes": "#minersdream:has_structure/chunk_ore",
 
   // Se verdadeiro, o terreno será adicionado ao redor da parte inferior da estrutura. (Com base no valor y da peça inicial)
-  "adapt_noise": true,
+  "adapt_noise": false,
 
   // Quais mobs podem aparecer ao longo do tempo na estrutura.
   // Certifique-se de adicionar o mob à categoria correta (monstro, criatura, etc)

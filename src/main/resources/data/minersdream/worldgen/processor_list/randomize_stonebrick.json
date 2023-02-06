@@ -12,7 +12,7 @@
           // O bloco a ser procurado no arquivo nbt
           // Isso tem 50% de chance de permitir que o bloco de tijolos de pedra encontrado seja substituído
           "input_predicate": {
-            "block": "minecraft:stone_bricks",
+            "block": "minecraft:andesite",
             "probability": 0.5,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -23,12 +23,156 @@
           },
           // O bloco real a ser colocado se as condições acima retornarem true
           "output_state": {
-            "Name": "minecraft:infested_stone_bricks"
+            "Name": "minersdream:flint_resource_node"
+          }
+        },
+        //Remover esse depois \|/
+        {
+          "input_predicate": {
+            "block": "minecraft:gold_block",
+            "probability": 1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:red_wool"
           }
         },
         {
           "input_predicate": {
-            "block": "minecraft:stone_bricks",
+            "block": "minecraft:andesite",
+            "probability": 0.5,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minersdream:iron_resource_node"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:andesite",
+            "probability": 0.4,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minersdream:coal_resource_node"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:andesite",
+            "probability": 0.4,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minersdream:copper_resource_node"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:andesite",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minersdream:redstone_resource_node"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:andesite",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minersdream:glowstone_resource_node"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:andesite",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minersdream:lapis_resource_node"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:andesite",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minersdream:gold_resource_node"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:andesite",
+            "probability": 0.2,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minersdream:diamond_resource_node"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:andesite",
+            "probability": 0.2,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minersdream:quartz_resource_node"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:andesite",
+            "probability": 0.1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minersdream:emerald_resource_node"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:andesite",
             "probability": 0.05,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -36,24 +180,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:emerald_ore"
-          }
-        },
-        {
-          "input_predicate": {
-            "block": "minecraft:cobbled_deepslate",
-            "probability": 0.1,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          // Se um bloco output_state tiver propriedades, você deve definir TODAS as propriedades do bloco!
-          "output_state": {
-            "Name": "minecraft:deepslate_redstone_ore",
-            "Properties": {
-              "lit": false
-            }
+            "Name": "minersdream:ancient_debris_resource_node"
           }
         }
       ]

@@ -19,12 +19,13 @@
         // O Identificador do próprio arquivo nbt da peça da estrutura.
         // Observe que isso verificará automaticamente a pasta 'structures' do arquivo nbt.
         // O caminho final seria parecido com 'resources/data/tutorialmod/structures/run_down_house_left_side.nbt'
-        "location": "minersdream:iron_chunk_ore",
+        "location": "minersdream:chunk_node",
 
         // Especifica a execução desta lista de processadores json para o arquivo nbt acima ao colocá-lo no mundo
         // As listas de processador são ótimas para randomizar blocos e fazer com que as estruturas pareçam mais naturais!
         // Observe que isso verificará automaticamente a pasta 'worldgen/processor_list' para o arquivo json.
         // O caminho final seria parecido com 'resources/data/tutorialmod/worldgen/processor_list/randomize_stonebrick.json'
+        // minecraft:empty remove a necessidade de criar um randomizer
         "processors": "minersdream:randomize_stonebrick",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

@@ -1,6 +1,6 @@
 {
-  // What structures to pick to try and spawn if a spot passes the placement check.
-  // If two or more structures in this list can spawn in a biome at a spot, a random one based on weight is chosen to spawn
+  // Quais estruturas escolher para tentar gerar se um local passar na verificação de posicionamento.
+  // Se duas ou mais estruturas nesta lista puderem aparecer em um bioma em um local, uma estrutura aleatória com base no peso é escolhida para gerar
   "structures": [
     {
       "structure": "minersdream:chunk_ore",
@@ -8,17 +8,18 @@
     }
   ],
   "placement": {
-    // Make sure this is unique and does not match any other structure set's salt
-    "salt": 1642136474,
+    // Certifique-se de que isso seja único e não corresponda ao sal de nenhum outro conjunto de estrutura
+    "salt": 1646927480,
 
-    // The average distance apart in chunks for spawn attempts
-    "spacing": 20,
 
-    // Minimum distance apart in chunks for spawn attempts
-    // MUST ALWAYS BE SMALLER THAN spacing ABOVE
-    "separation": 6,
+    // A distância média em blocos para tentativas de geração
+    "spacing": 24,
 
-    // The kind of placement to use. The other kind is ring based like strongholds use.
+    // Distância mínima em pedaços para tentativas de spawn
+    // SEMPRE DEVE SER MENOR QUE O ESPAÇAMENTO ACIMA
+    "separation": 4,
+
+    // O tipo de posicionamento a ser usado. O outro tipo é baseado em anel, como o uso de fortalezas.
     "type": "minecraft:random_spread"
   }
 }

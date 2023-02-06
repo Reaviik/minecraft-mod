@@ -1,25 +1,43 @@
 {
-  // The base structure class to use for the behavior of the structure. (Like extra terrain checks and such)
+  // A classe de estrutura base a ser usada para o comportamento da estrutura. (Como verificações de terreno extra e tal)
   "type": "minecraft:village",
 
   "config": {
-    // the path to the template pool json file to use
-    "start_pool": "minersdream:run_asnium_chunk_ore/start_pool",
+    // o caminho para o arquivo json do conjunto de modelos a ser usado
+    "start_pool": "minersdream:run_chunk_ore/start_pool",
 
-    // This is how many pieces away from the starting piece a piece of the structure can spawn
-    // Think of it like the length of the branch of the structure
+
+    // Este é o número de peças a partir da peça inicial que uma peça da estrutura pode gerar
+    // Pense nisso como o comprimento do ramo da estrutura
     "size": 2
   },
 
-  // The biome tag to use for what biomes that this structure can spawn in"
+  // A tag de bioma a ser usada para quais biomas essa estrutura pode gerar"
   "biomes": "#minersdream:has_structure/chunk_ore",
 
-  // If true, land will be add around the bottom of the structure. (Based on the starting piece's y value)
+  // Se verdadeiro, o terreno será adicionado ao redor da parte inferior da estrutura. (Com base no valor y da peça inicial)
   "adapt_noise": true,
 
-  // What mobs can spawn over time in the structure.
-  // Make sure you add the mob to the right category (monster, creature, etc)
+  // Quais mobs podem aparecer ao longo do tempo na estrutura.
+  // Certifique-se de adicionar o mob à categoria correta (monstro, criatura, etc)
   "spawn_overrides": {
+    "monster": {
+      "bounding_box": "piece",
+      "spawns": [
+        {
+          "type": "minecraft:illusioner",
+          "weight": 1,
+          "minCount": 1,
+          "maxCount": 2
+        },
+        {
+          "type": "minecraft:pillager",
+          "weight": 2,
+          "minCount": 1,
+          "maxCount": 4
+        }
+      ]
+    },
     "creature": {
       "bounding_box": "piece",
       "spawns": [

@@ -1,39 +1,51 @@
 {
-  // More info on template pools can be found here: https://minecraft.gamepedia.com/Custom_world_generation#JSON_format_8
-  // Yes, worldgen json files can have comments. Minecraft does "lenient" parsing of these json files.
+  // Mais informações sobre pools de modelos podem ser encontradas aqui: https://minecraft.gamepedia.com/Custom_world_generation#JSON_format_8
+  // Sim, os arquivos json worldgen podem ter comentários. O Minecraft faz uma análise "leniente" desses arquivos json.
 
-  // This is the name of the template pool itself. I tend to just put the file path and file name here with modid.
-  "name": "minersdream:chunk_ore/start_pool",
+  // Este é o nome do pool de modelos em si. Costumo apenas colocar o caminho do arquivo e o nome do arquivo aqui com modid.
+  "name": "minersdream:run_chunk_ore/start_pool",
 
-  // The template pool to refer to if the entries in 'elements' fails to generate.
+  // Aqui você pode listar quantos arquivos nbt ou recursos colocados para gerar.
+  // Observe que os recursos colocados precisam de um material de entrada de elemento especial.
   "fallback": "minecraft:empty",
 
-  // Here you can list as many nbt files or placed features to spawn.
-  // Do note that placed features needs a special element entry stuff.
+  // Aqui você pode listar quantos arquivos nbt ou recursos colocados para gerar.
+  // Observe que os recursos colocados precisam de um material de entrada de elemento especial.
   "elements": [
     {
 
-      // How likely out of all the element for this one to be chosen.
+      // Qual a probabilidade de todos os elementos para este ser escolhido.
       "weight": 1,
       "element": {
 
-        // The Identifier of the nbt file itself of the structure piece.
-        // Note, this will automatically check into the 'structures' folder for the nbt file.
-        // The final path would look like 'resources/data/tutorialmod/structures/run_down_house_left_side.nbt'
-        // The Jigsaw block in the structure will point to side_pool.json to spawn the other half of the house.
+        // O Identificador do próprio arquivo nbt da peça da estrutura.
+        // Observe que isso verificará automaticamente a pasta 'structures' do arquivo nbt.
+        // O caminho final seria parecido com 'resources/data/tutorialmod/structures/chunk_ore.nbt'
+        // O bloco Jigsaw na estrutura apontará para side_pool.json para gerar a outra metade da casa.
         "location": "minersdream:chunk_ore",
 
-        // Processor JSON files can be used to randomize or replace blocks dynamically. Here, we don't do any of that.
+        // Os arquivos JSON do processador podem ser usados para randomizar ou substituir blocos dinamicamente. Aqui não fazemos nada disso.
         "processors": "minecraft:empty",
 
-        // If set to 'terrain_matching', the house would be deformed to fit the change in land.
-        // That's best for roads so lets stay 'rigid' for now.
-        "projection": "rigid",
 
-        // The kind of element we are spawning. This one is most likely what you want.
-        // There's 'minecraft:legacy_single_pool_element' but that swaps the behavior of
-        // Air and Structure Void in your piece as well as change the attachment mechanism.
-        // It's only for old Vanilla Jigsaw Structures so don't use it. Stick with non-legacy.
+        // Se definido como 'terrain_matching', a casa seria deformada para se ajustar à mudança de terreno.
+        // Isso é melhor para estradas, então vamos ficar 'rigid' por enquanto.
+        "projection": "terrain_matching",
+
+        // O tipo de elemento que estamos gerando. Este é provavelmente o que você deseja.
+        // Há 'minecraft:legacy_single_pool_element' mas isso troca o comportamento de
+        // Ar e Estrutura Vazio em sua peça, bem como alterar o mecanismo de fixação.
+        // É apenas para estruturas Vanilla Jigsaw antigas, então não use. Fique com o não legado.
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "minersdream:chunk_ore",
+        "processors": "minecraft:empty",
+        "projection": "terrain_matching",
         "element_type": "minecraft:single_pool_element"
       }
     }

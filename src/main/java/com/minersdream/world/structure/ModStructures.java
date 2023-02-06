@@ -31,5 +31,4 @@ public class ModStructures {
     public static void register(IEventBus eventBus) {
         DEFERRED_REGISTRY_STRUCTURE.register(eventBus);
     }
-
 }

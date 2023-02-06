@@ -1,7 +1,6 @@
 package com.minersdream.world.structure;
 
-import com.minersdream.MinersDream;
-import com.minersdream.util.SendMessage;
+import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -14,10 +13,14 @@ import net.minecraft.world.level.levelgen.structure.PostPlacementProcessor;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pools.JigsawPlacement;
+import org.apache.logging.log4j.Level;
+import org.slf4j.Logger;
 
 import java.util.Optional;
 
 public class SkyStructures extends StructureFeature<JigsawConfiguration> {
+
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public SkyStructures() {
         // Create the pieces layout of the structure and give it to the game
@@ -85,7 +88,7 @@ public class SkyStructures extends StructureFeature<JigsawConfiguration> {
         // Find the top Y value of the land and then offset our structure to 60 blocks above that.
         // WORLD_SURFACE_WG will stop at top water so we don't accidentally put our structure into the ocean if it is a super deep ocean.
         int topLandY = context.chunkGenerator().getFirstFreeHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
-        blockpos = blockpos.above(topLandY + 60);
+        blockpos = blockpos.above(topLandY +80);
 
         Optional<PieceGenerator<JigsawConfiguration>> structurePiecesGenerator =
                 JigsawPlacement.addPieces(
@@ -110,6 +113,7 @@ public class SkyStructures extends StructureFeature<JigsawConfiguration> {
         if(structurePiecesGenerator.isPresent()) {
             // I use to debug and quickly find out if the structure is spawning or not and where it is.
             // This is returning the coordinates of the center starting piece.
+            LOGGER.info("Sky Structrues at {}", blockpos, Level.DEBUG);
         }
 
         // Return the pieces generator that is now set up so that the game runs it when it needs to create the layout of structure pieces.

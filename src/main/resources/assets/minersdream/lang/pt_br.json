@@ -10,6 +10,9 @@
 
   "block.minersdream.asnium_ore": "Minério de Asnium",
 
+  "item.minersdream:locate_rod.notfound": "Nada encontrado",
+  "item.minersdream:locate_rod_found": "Encontrado",
+
   "block.minersdream.deepslate_asnium_ore": "Minério de Asnium de Aredósia Profunda",
 
   "block.minersdream.asnium_lamp": "§bAsnium Lamp",

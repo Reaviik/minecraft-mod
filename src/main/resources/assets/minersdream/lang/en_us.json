@@ -10,6 +10,9 @@
 
   "block.minersdream.asnium_ore": "Asnium Ore",
 
+  "item.minersdream:locate_rod.notfound": "Nothing Found",
+  "item.minersdream:locate_rod_found": "Found",
+
   "block.minersdream.deepslate_asnium_ore": "Deepslate Asnium Ore",
 
   "block.minersdream.asnium_lamp": "§bAsnium Lamp",

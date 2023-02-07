@@ -3,6 +3,7 @@ package com.minersdream.item;
 import com.minersdream.MinersDream;
 import com.minersdream.item.custom.AsniumPickaxe;
 import com.minersdream.item.custom.Coal;
+import com.minersdream.item.custom.LocateRod;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -25,6 +26,8 @@ public class ModItems {
     public static final RegistryObject<Item> ASNIUM_PICKAXE = ITEMS.register("asnium_pickaxe",
             () -> new AsniumPickaxe(ModTiers.ASNIUM, 1, 1.0f,
                     new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> LOCATE_ROD = ITEMS.register("locate_rod",
+            () -> new LocateRod(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).rarity(Rarity.EPIC).rarity(Rarity.RARE)));
 
     // FOODS
     public static final RegistryObject<Item> BERYL_NUT = ITEMS.register("beryl_nut",

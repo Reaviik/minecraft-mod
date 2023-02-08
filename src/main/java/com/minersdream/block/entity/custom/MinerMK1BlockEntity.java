@@ -51,7 +51,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
     protected final ContainerData data;
-    private int progress = 10;
+    private int progress = 0;
     private int maxProgress = 1;
 
     //Alguma coisa relacionada ao tick do bloco, sla
@@ -179,14 +179,13 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
                     //Adiciona a quantidade existente no slot de saida + 1
                     //Todo >> deve dar pra melhorar esse setCount
                     _setstack.setCount(slotCount + 1);
+                    //Faz barulhindo de quebrar bloco
+                    //Todo >> resource.defaultBlockState() teoricamente deveria pegar o material do bloco para fazer o son correspondente
+                    world.levelEvent(2001, new BlockPos(x, -2, z), Block.getId(resource.defaultBlockState()));
                     //Todo >> não sei se isso serve para algo nesse caso
                     _ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
                         if (capability instanceof IItemHandlerModifiable)
                             ((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
-                        //Faz barulhindo de quebrar bloco
-                        //Todo >> resource.defaultBlockState() teoricamente deveria pegar o material do bloco para fazer o son correspondente
-                        world.levelEvent(2001, new BlockPos(x, -2, z), Block.getId(resource.defaultBlockState()));
-
                     });
                     //Caso o slat de saida do bloco esteja cheio
                 } else {
@@ -221,38 +220,39 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         if (verifyTags(new ItemStack(resource, 1)) && pLevel.hasNeighborSignal(new BlockPos(pPos.getX(), pPos.getY(), pPos.getZ()))) {
             //Adiciona 1 a progress (por tick)
             pBlockEntity.progress++;
-            SendMessage.send(pLevel, "Progresso: "+pBlockEntity.progress);
+            SendMessage.send(pLevel, "Progresso: " + pBlockEntity.progress);
             //Não sei
             setChanged(pLevel, pPos, pState);
             //Verifica se o Progresso atingiu seu maximo
-            if(pBlockEntity.progress > pBlockEntity.maxProgress) {
+            if (pBlockEntity.progress >= pBlockEntity.maxProgress) {
                 //Chama a função que vai gerar o iten no slot de saida
                 execute(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), pBlockEntity, resource, pPos);
+            } else {
+                //Reseta o progresso do bloco
+                //pBlockEntity.progress = pBlockEntity.progress;
+                //Não sei denovo
+                setChanged(pLevel, pPos, pState);
             }
-        } else {
-            //Reseta o progresso do bloco
-            pBlockEntity.resetProgress();
-            //Não sei denovo
-            setChanged(pLevel, pPos, pState);
         }
     }
 
     //Verificar a se e qual a quantidade de Overclocks tem nos slots de overclock
     private static void hasUpgrades(MinerMK1BlockEntity entity) {
         //Reseta a quantidade para não escalonar
-        int upgrades = 0;
+        //int upgrades = 0;
         //Reseta o MaxProgress do bloco
         entity.maxProgress = 120;
         //Verifica todos os slots de 1 a 3
         for (int i = 1; i <= 3; i++) {
             //Se tiver Overclock no slot, adiciona 1 a variavel
             if (entity.itemHandler.getStackInSlot(i).getItem() == ModBlocks.OVERCLOCK.get().asItem()) {
-                upgrades++;
+                entity.maxProgress -= entity.maxProgress * 0.5;
+                //upgrades++;
             }
         }
         //Seta a velocidade que o bloco vai trabalhar (Em ticks)
         //
-        entity.maxProgress = entity.maxProgress - upgrades * 30;
+        //entity.maxProgress = entity.maxProgress - upgrades * 33;
     }
     private void resetProgress() {
         this.progress = 0;

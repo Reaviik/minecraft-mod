@@ -3,6 +3,7 @@ package com.minersdream.item.custom;
 import com.minersdream.block.custom.NodesHandler;
 import com.minersdream.util.ITags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionResult;
@@ -13,12 +14,14 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 
 
 public class LocateRod extends Item {
     public LocateRod(Properties pProperties) {
         super(pProperties);
     }
+
 
     public static boolean verifyTags(ItemStack item) {
         return item.is(ITags.Items.RESOURCE_NODES);
@@ -32,9 +35,7 @@ public class LocateRod extends Item {
             boolean foundBlock = false;
             //Loop tridimensional, transdimensional, anal reverso de polaridade oposta
             for(int x = positionClicked.getX() - 32; x <= positionClicked.getX() + 32; x++) {
-
                 for(int y = positionClicked.getY() - 32; y <= positionClicked.getY() + 32; y++) {
-
                     for(int z = positionClicked.getZ() - 32; z <= positionClicked.getZ() + 32; z++) {
                         Block blockBelow = pContext.getLevel().getBlockState(new BlockPos(x, y, z)).getBlock();
                         if(verifyTags(new ItemStack(blockBelow, 1))) {

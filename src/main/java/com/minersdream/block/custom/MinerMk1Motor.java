@@ -1,25 +1,35 @@
 package com.minersdream.block.custom;
 
+import com.minersdream.block.entity.ModBlockEntities;
+import com.minersdream.block.entity.custom.MinerMK1BlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.Stream;
 
 
-public class MinerMk1Motor extends Block {
+public class MinerMk1Motor extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     private static final VoxelShape SHAPE_N = Stream.of(
@@ -62,14 +72,14 @@ public class MinerMk1Motor extends Block {
             Block.box(4, 0.5, 4, 12, 15.5, 12)
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
+
+    //Essencial
     public MinerMk1Motor(Properties pProperties) {
         super(pProperties);
     }
-
+    //Molde Hitbox
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext){
         switch (pState.getValue(FACING)) {
-            case NORTH:
-                return SHAPE_N;
             case EAST:
                 return SHAPE_E;
             case SOUTH:
@@ -83,22 +93,64 @@ public class MinerMk1Motor extends Block {
 
     //Facing//
     @SuppressWarnings("deprecated")
+    //Essencial
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext){
         return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
     }
+    //Essencial
     @Override
     public BlockState rotate(BlockState pState, Rotation pRotation){
         return pState.setValue(FACING, pRotation.rotate(pState.getValue(FACING)));
     }
+    //Essencial
     @Override
     public BlockState mirror(BlockState pState, Mirror pMirror){
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
+    //Essencial
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder){
         pBuilder.add(FACING);
     }
+    //BLOCK ENTITY \|/
+    @Override
+    public RenderShape getRenderShape(BlockState pState){
+        return RenderShape.MODEL;
+    }@Override
+    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
+        if (pState.getBlock() != pNewState.getBlock()) {
+            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
+            if (blockEntity instanceof MinerMK1BlockEntity) {
+                ((MinerMK1BlockEntity) blockEntity).drops();
+            }
+        }
+        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+    }
+    //Quando o Player clica no bloco
+    @Override
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (!pLevel.isClientSide()) {
+            BlockEntity entity = pLevel.getBlockEntity(pPos);
+            if (entity instanceof MinerMK1BlockEntity) {
+                NetworkHooks.openGui(((ServerPlayer) pPlayer), (MinerMK1BlockEntity) entity, pPos);
+            } else {
+                throw new IllegalStateException("Our Container provider is missing!");
+            }
+        }
 
+        return InteractionResult.sidedSuccess(pLevel.isClientSide());
+    }
+    //Define o bloco como entidade
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+        return new MinerMK1BlockEntity(pPos, pState);
+    }
+    //Pega o tick atual do bloco
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker getTicker(Level plevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+        return createTickerHelper(pBlockEntityType, ModBlockEntities.MINER_MK1_BLOCK_ENTITY.get(), MinerMK1BlockEntity::tick);
+    }
 }

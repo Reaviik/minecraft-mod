@@ -13,6 +13,8 @@ public class ModRecipes {
 
     public static final RegistryObject<RecipeSerializer<BlockTesteRecipe>> BLOCK_TESTE_SERIALIZER =
             SERIALIZERS.register("block_teste", () -> BlockTesteRecipe.Serializer.INSTANCE);
+    public static final RegistryObject<RecipeSerializer<MinerMk1Recipe>> MINER_MK1_SERIALIZER =
+            SERIALIZERS.register("miner_mk1", () -> MinerMk1Recipe.Serializer.INSTANCE);
 
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);

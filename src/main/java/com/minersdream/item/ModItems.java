@@ -27,7 +27,7 @@ public class ModItems {
             () -> new AsniumPickaxe(ModTiers.ASNIUM, 1, 1.0f,
                     new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> LOCATE_ROD = ITEMS.register("locate_rod",
-            () -> new LocateRod(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).rarity(Rarity.EPIC).rarity(Rarity.RARE)));
+            () -> new LocateRod(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).rarity(Rarity.EPIC).rarity(Rarity.RARE).durability(250)));
 
     // FOODS
     public static final RegistryObject<Item> BERYL_NUT = ITEMS.register("beryl_nut",

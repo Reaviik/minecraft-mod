@@ -20,6 +20,7 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(ModBlocks.FOUNDATION.get());
         this.dropSelf(ModBlocks.MINER_ZERO.get());
         this.dropSelf(ModBlocks.FENCE.get());
+        this.dropSelf(ModBlocks.FENCE_VERTICAL.get());
         this.dropSelf(ModBlocks.MINER_MK1.get());
         this.dropSelf(ModBlocks.OVERCLOCK.get());
         this.dropSelf(ModBlocks.ASNIUM_LAMP.get());

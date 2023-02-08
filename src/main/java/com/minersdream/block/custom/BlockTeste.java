@@ -4,12 +4,9 @@ import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.entity.custom.BlockTesteEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.Container;
-import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -27,7 +24,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.stream.Stream;
 
 public class BlockTeste extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -36,14 +32,15 @@ public class BlockTeste extends BaseEntityBlock {
         super(proprieties);
     }
 
-    //Collision Box//
+    //Define a colisão do bloco
     public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 8, 16);
 
+    //Seta a colisão no bloco
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext){
         return SHAPE;
     }
 
-    //Facing//
+    //Retorna a direçã o horizontal em que está o norte do bloco
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext){
         return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
@@ -68,6 +65,7 @@ public class BlockTeste extends BaseEntityBlock {
         return RenderShape.MODEL;
     }
 
+    //Dropa os items do inventario do bloco caso ele seja destruido
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
@@ -79,6 +77,7 @@ public class BlockTeste extends BaseEntityBlock {
         super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
     }
 
+    //Quando clicado com o botão direito no bloco
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {

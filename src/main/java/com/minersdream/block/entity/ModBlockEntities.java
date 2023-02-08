@@ -22,7 +22,7 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<MinerMK1BlockEntity>> MINER_MK1_BLOCK_ENTITY =
             BLOCK_ENTITIES.register("miner_mk1_block_entity", () ->
                     BlockEntityType.Builder.of(MinerMK1BlockEntity::new,
-                            ModBlocks.MINER_MK1.get()).build(null));
+                            ModBlocks.MINER_MK1_MOTOR.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

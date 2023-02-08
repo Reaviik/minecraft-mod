@@ -36,7 +36,10 @@ import java.util.Optional;
 import java.util.Random;
 
 public class BlockTesteEntity extends BlockEntity implements MenuProvider {
+
+    //Manipulador de Stack/slot
     private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
+        //IMPORTANTE notifica quando o inventário é manipulado/modificado
       @Override
       protected void onContentsChanged(int slot) {setChanged();}
     };
@@ -74,9 +77,10 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
         };
     }
 
+    //Nome do bloco que aparece na GUI
     @Override
     public Component getDisplayName() {
-        return new TextComponent("EU TO MUITO DOIDIO!");
+        return new TextComponent("Doido eu to muito");
     }
 
     @Nullable
@@ -85,6 +89,8 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
         return new BlockTesteMenu(pContainerId, pPlayerInventory, this, this.data);
     }
 
+
+    //Permite que outros mods consigão ler/adicionar/remover items desse bloco/entidade
     @Nullable
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
@@ -94,6 +100,7 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
 
         return super.getCapability(cap, side);
     };
+
 
     @Override
     public void onLoad() {
@@ -106,6 +113,7 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
         lazyItemHandler.invalidate();
     }
 
+    //Salva o conteudo do inventario do bloco
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag) {
         tag.put("inventory", itemHandler.serializeNBT());
@@ -113,7 +121,7 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
         super.saveAdditional(tag);
     }
 
-
+    //Carega o conteudo inventario do bloco quando o mundo carrega
         @Override
     public void load(CompoundTag nbt) {
         super.load(nbt);
@@ -121,6 +129,7 @@ public class BlockTesteEntity extends BlockEntity implements MenuProvider {
 
     }
 
+    //Dropa o conteudo do inventario do bloco quando ele é quebrado
     public void drops() {
         SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
         for (int i = 0; i < itemHandler.getSlots(); i++) {

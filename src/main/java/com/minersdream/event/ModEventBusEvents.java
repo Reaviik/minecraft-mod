@@ -3,6 +3,7 @@ package com.minersdream.event;
 import com.minersdream.MinersDream;
 import com.minersdream.event.loot.BerylFromGrassAdditionModifier;
 import com.minersdream.recipe.BlockTesteRecipe;
+import com.minersdream.recipe.MinerMk1Recipe;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -28,5 +29,6 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerRecipeTypes(final RegistryEvent.Register<RecipeSerializer<?>> event) {
         Registry.register(Registry.RECIPE_TYPE, BlockTesteRecipe.Type.ID, BlockTesteRecipe.Type.INSTANCE);
+        Registry.register(Registry.RECIPE_TYPE, MinerMk1Recipe.Type.ID, MinerMk1Recipe.Type.INSTANCE);
     }
 }

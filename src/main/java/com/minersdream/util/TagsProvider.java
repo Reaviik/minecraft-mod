@@ -37,6 +37,15 @@ public class TagsProvider {
                     .add(ModBlocks.QUARTZ_RESOURCE_NODE.get())
                     .add(ModBlocks.GLOWSTONE_RESOURCE_NODE.get())
                     .add(ModBlocks.ANCIENT_DEBRIS_RESOURCE_NODE.get());
+            tag(ITags.Blocks.MINER_MK1)
+                    .add(ModBlocks.MINER_MK1_BACK.get())
+                    .add(ModBlocks.MINER_MK1_BROCA.get())
+                    .add(ModBlocks.MINER_MK1_VACUM.get())
+                    .add(ModBlocks.MINER_MK1_SEPARADOR.get())
+                    .add(ModBlocks.MINER_MK1_MOTOR.get())
+                    .add(ModBlocks.MINER_MK1_PLATAFORMA.get())
+                    .add(ModBlocks.MINER_MK1_GERENCIADOR_PARTE1.get())
+                    .add(ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get());
 
 //            tag(ITags.Blocks.ICES).addTag(ITags.Blocks.ICES_ICE).addTag(ITags.Blocks.ICES_PACKED).addTag(ITags.Blocks.ICES_BLUE);
 //            tag(ITags.Blocks.ICES_ICE).add(net.minecraft.world.level.block.Blocks.ICE);
@@ -90,6 +99,15 @@ public class TagsProvider {
                     .add(ModBlocks.QUARTZ_RESOURCE_NODE.get().asItem())
                     .add(ModBlocks.GLOWSTONE_RESOURCE_NODE.get().asItem())
                     .add(ModBlocks.ANCIENT_DEBRIS_RESOURCE_NODE.get().asItem());
+            tag(ITags.Items.MINER_MK1)
+                    .add(ModBlocks.MINER_MK1_BACK.get().asItem())
+                    .add(ModBlocks.MINER_MK1_BROCA.get().asItem())
+                    .add(ModBlocks.MINER_MK1_VACUM.get().asItem())
+                    .add(ModBlocks.MINER_MK1_SEPARADOR.get().asItem())
+                    .add(ModBlocks.MINER_MK1_MOTOR.get().asItem())
+                    .add(ModBlocks.MINER_MK1_PLATAFORMA.get().asItem())
+                    .add(ModBlocks.MINER_MK1_GERENCIADOR_PARTE1.get().asItem())
+                    .add(ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get().asItem());
 
             // Remove non-dry ice if Forge handles them in the future
 //            tag(ITags.Items.ICES).addTag(ITags.Items.ICES_ICE).addTag(ITags.Items.ICES_PACKED).addTag(ITags.Items.ICES_BLUE);

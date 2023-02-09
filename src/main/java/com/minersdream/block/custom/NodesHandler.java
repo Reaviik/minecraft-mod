@@ -1,12 +1,23 @@
 package com.minersdream.block.custom;
 
 import com.minersdream.block.ModBlocks;
+import com.mojang.logging.LogUtils;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-import org.jetbrains.annotations.Nullable;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.slf4j.Logger;
 
-public class NodesHandler {
+public class NodesHandler extends Item{
+
+    public static final Logger LOGGER = LogUtils.getLogger();
+
+    public NodesHandler(Properties pProperties) {
+        super(pProperties);
+    }
 
     public static Item getParallelItem(Block pBlock){
         // TODO Retornar sound effect
@@ -34,6 +45,14 @@ public class NodesHandler {
             return Items.NETHERITE_SCRAP;
         }else if(pBlock == ModBlocks.FLINT_RESOURCE_NODE.get()){
             return Items.FLINT;
+        }
+        return null;
+    }
+    public static ItemStack tagToItem(String key) {
+        Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(key));
+        if (item != null) {
+            LOGGER.info(new ItemStack(item).toString());
+            return new ItemStack(item);
         }
         return null;
     }

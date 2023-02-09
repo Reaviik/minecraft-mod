@@ -2,14 +2,19 @@ package com.minersdream.block.custom;
 
 import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.entity.custom.MinerMK1BlockEntity;
+import com.minersdream.util.ITags;
+import com.minersdream.util.SendMessage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -23,6 +28,7 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
@@ -72,12 +78,12 @@ public class MinerMk1Motor extends BaseEntityBlock {
             Block.box(4, 0.5, 4, 12, 15.5, 12)
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
-
     //Essencial
     public MinerMk1Motor(Properties pProperties) {
         super(pProperties);
     }
     //Molde Hitbox
+    @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext){
         switch (pState.getValue(FACING)) {
             case EAST:

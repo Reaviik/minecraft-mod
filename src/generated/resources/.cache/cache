@@ -6,9 +6,11 @@ b8b34ef6d34dfd2ea26671df2bdba028ecb72344 assets/minersdream/models/block/asphalt
 1e8e407f72ca936f7c0421d5f5fc794d0717b223 assets/minersdream/models/block/deepslate_asnium_ore.json
 aad51e9b3d5dd66f9bececb16544f359864ccda4 assets/minersdream/models/item/asnium_ingot.json
 4e26e3466f310ea6e04f6d4a722db4e8a6c3c792 assets/minersdream/models/item/raw_asnium.json
+a4eda29fc12a8c9bb28ec0ff8f419cb598ccfd09 data/forge/tags/blocks/miner_mk1.json
 8a65159fb0b3f35b87d5945ee11b23a4a7e111bb data/forge/tags/blocks/ores.json
 0311be68f67d54205caa39d536a6e651ffcfa300 data/forge/tags/blocks/ores/asnium.json
 1aa51f3af7c6d82a1027526c407db87ea2389f77 data/forge/tags/blocks/resource_nodes.json
+a4eda29fc12a8c9bb28ec0ff8f419cb598ccfd09 data/forge/tags/items/miner_mk1.json
 8a65159fb0b3f35b87d5945ee11b23a4a7e111bb data/forge/tags/items/ores.json
 0311be68f67d54205caa39d536a6e651ffcfa300 data/forge/tags/items/ores/asnium.json
 1aa51f3af7c6d82a1027526c407db87ea2389f77 data/forge/tags/items/resource_nodes.json

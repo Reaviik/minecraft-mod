@@ -1,9 +1,7 @@
 package com.minersdream.item.custom;
 
-import com.minersdream.block.custom.NodesHandler;
 import com.minersdream.util.ITags;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionResult;
@@ -14,7 +12,6 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 
 
 public class LocateRod extends Item {
@@ -69,7 +66,6 @@ public class LocateRod extends Item {
         int distanceRounded = (int) Math.round(distance);
         player.sendMessage(new TextComponent( "" + distanceRounded), player.getUUID());
         pLevel.levelEvent(2001, new BlockPos(blockPos.getX(), blockPos.getY(), blockPos.getZ()), Block.getId(Blocks.AMETHYST_BLOCK.defaultBlockState()));
-
 
         //oldMessage Bi The Ibagems Abilton
         //player.sendMessage(new TextComponent("Found " + blockBelow.asItem().getRegistryName().toString() + " at " +

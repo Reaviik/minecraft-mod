@@ -36,7 +36,10 @@ public class MinerMk1Recipe  implements Recipe<SimpleContainer> {
     public ItemStack assemble(SimpleContainer pContainer) {
         return null;
     }
-
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return recipeItems;
+    }
     @Override
     public boolean canCraftInDimensions(int pWidth, int pHeight) {
         return true;

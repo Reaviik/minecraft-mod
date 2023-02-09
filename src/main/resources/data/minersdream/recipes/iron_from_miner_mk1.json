@@ -2,10 +2,10 @@
   "type": "minersdream:miner_mk1",
   "ingredients": [
     {
-      "item": "minersdream:raw_asnium"
+      "item": "minersdream:iron_resource_node"
     }
   ],
   "output": {
-    "item": "minersdream:asnium_ingot"
+    "item": "minecraft:raw_iron"
   }
 }

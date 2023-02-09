@@ -191,11 +191,12 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
                     _setstack.setCount(slotCount + 1);
                     //Faz barulhindo de quebrar bloco
                     //Todo >> resource.defaultBlockState() teoricamente deveria pegar o material do bloco para fazer o son correspondente
-                    world.levelEvent(2001, new BlockPos(x, -2, z), Block.getId(resource.defaultBlockState()));
+                    world.levelEvent(2001, new BlockPos(x, y - 2, z), Block.getId(resource.defaultBlockState()));
                     //Todo >> não sei se isso serve para algo nesse caso
                     _ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
                         if (capability instanceof IItemHandlerModifiable)
                             ((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
+
                     });
                     //Caso o slat de saida do bloco esteja cheio
                 } else {
@@ -251,7 +252,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         //Reseta a quantidade para não escalonar
         //int upgrades = 0;
         //Reseta o MaxProgress do bloco
-        entity.maxProgress = 120;
+        entity.maxProgress = 180;
         //Verifica todos os slots de 1 a 3
         for (int i = 1; i <= 3; i++) {
             //Se tiver Overclock no slot, adiciona 1 a variavel

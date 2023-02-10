@@ -14,6 +14,7 @@ public class ITags {
 
         public static TagKey<Block> RESOURCE_NODES = tag("resource_nodes");
         public static TagKey<Block> MINER_MK1 = tag("miner_mk1");
+        public static TagKey<Block> CONVEYOR_BELT = tag("conveyor_belt");
 
 
         private static TagKey<Block> tag(String name) {
@@ -28,6 +29,7 @@ public class ITags {
 
         public static TagKey<Item> RESOURCE_NODES = tag("resource_nodes");
         public static TagKey<Item> MINER_MK1 = tag("miner_mk1");
+        public static TagKey<Item> CONVEYOR_BELT= tag("conveyor_belt");
 
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation("forge", name));

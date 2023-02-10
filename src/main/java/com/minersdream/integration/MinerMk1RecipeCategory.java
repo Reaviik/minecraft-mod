@@ -34,10 +34,12 @@ public class MinerMk1RecipeCategory implements IRecipeCategory<MinerMk1Recipe> {
     public ResourceLocation getUid() {
         return UID;
     }
+
     @Override
     public Class<? extends MinerMk1Recipe> getRecipeClass() {
         return MinerMk1Recipe.class;
     }
+
     @Override
     public Component getTitle() {
         return new TextComponent("Miner Mark 1");

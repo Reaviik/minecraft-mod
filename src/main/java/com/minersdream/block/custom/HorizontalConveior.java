@@ -73,8 +73,6 @@ public class HorizontalConveior extends Block {
 
 
 
-
-
     @Override
         public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
             if(!pLevel.isClientSide()) {

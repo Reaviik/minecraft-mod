@@ -21,7 +21,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
@@ -33,7 +32,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.world.BlockEvent;
@@ -178,8 +176,13 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         return false;
     }
 
-
-    public static BlockPos getChestPos(BlockState pState, BlockPos pPos){
+    public static final boolean isRedstonePowered(LevelAccessor world, BlockPos pPos){
+        if(world instanceof Level _lvl_isPow && _lvl_isPow.hasNeighborSignal(new BlockPos(pPos.getX(), pPos.getY(), pPos.getZ()))){
+            return true;
+        }
+        return false;
+    }
+    public static @Nullable BlockPos getChestPos(BlockState pState, BlockPos pPos){
         if(pState.getValue(FACING) == Direction.NORTH){
             return new BlockPos(pPos.getX()+3, pPos.getY()-1, pPos.getZ());
         }
@@ -199,7 +202,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
     }
 
     //O paranaue necessario de verificação e setagem de itens
-    public static void execute(LevelAccessor world, double x, double y, double z, MinerMK1BlockEntity entity, Block resource, BlockPos pPos, BlockState pState) {
+    public static void execute(@NotNull LevelAccessor world, double x, double y, double z, MinerMK1BlockEntity entity, Block resource, BlockPos pPos, BlockState pState) {
         //Pega o Proprio bloco como entidade
         BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
         if (_ent != null) {
@@ -207,7 +210,6 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
             // * pureza do nodo
             // + Overclock %
             //Id do slot de saida
-            //TODO >> jogar no Bau
             final int _slotid = 0;
             //Verifica se tem e quantos upgrades tem no bloco
             hasUpgrades(entity);
@@ -219,7 +221,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
             BlockEntity chest = world.getBlockEntity(new BlockPos(getChestPos(pState, pPos)));
             //Se requisição de classe acima retornar valido
             //E se o bloco me questão (x y z) estiver energisado por redstone ->>
-            if (_setstack != null && world instanceof Level _lvl_isPow && _lvl_isPow.hasNeighborSignal(new BlockPos(x, y, z))) {
+            if (_setstack != null && isRedstonePowered(world, pPos)) {
                 //Todo fazer encher o slot da mineradora quando tiver cheio o bau de saida
                 //Tem um inventário na frente da Mineradora?
                 if(hasInventory(world,getChestPos(pState, pPos), _setstack)){
@@ -248,10 +250,11 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
                     SendMessage.send(world, "Tem uma Esteira: ");
                     if (world instanceof Level _level && !_level.isClientSide()) {
                         //Define a posição e o iten que sera jogado no mundo
-                        ItemEntity entityToSpawn = new ItemEntity(_level, getChestPos(pState, pPos).getX()+0.5, getChestPos(pState, pPos).getY()+1.8, getChestPos(pState, pPos).getZ()+0.5, new ItemStack(_setstack.getItem()));
+                        ItemEntity entityToSpawn = new ItemEntity(_level, getChestPos(pState, pPos).getX()+0.5, getChestPos(pState, pPos).getY()+1, getChestPos(pState, pPos).getZ()+0.5, new ItemStack(_setstack.getItem()));
                         //seta um delay para poder pegar o iten
                         //entityToSpawn.setPickUpDelay(1);
                         //Não sei, mas ta ai
+                        entityToSpawn.setDeltaMovement(0, 0, 0);
                         _level.addFreshEntity(entityToSpawn);
                         //Faz barulhinho, mesmo problema acima /|\
                         world.levelEvent(2001, new BlockPos(x, y - 2, z), Block.getId(resource.defaultBlockState()));
@@ -266,7 +269,6 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
                     //Faz barulhindo de quebrar bloco
                     //Todo >> resource.defaultBlockState() teoricamente deveria pegar o material do bloco para fazer o son correspondente
                     world.levelEvent(2001, new BlockPos(x, y - 2, z), Block.getId(resource.defaultBlockState()));
-                    //Todo >> não sei se isso serve para algo nesse caso
                     _ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
                         if (capability instanceof IItemHandlerModifiable)
                             ((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
@@ -281,11 +283,11 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
     }
 
     //Verifica se o bloco na posição "Mineravel" tem a Tag de RESOURCE_NODES que tem em todos os nodos de recurso
-    public static boolean verifyTags(ItemStack item) {
+    public static boolean verifyTags(@NotNull ItemStack item) {
         return item.is(ITags.Items.RESOURCE_NODES);
     }
     //Tick Manager
-    public static void tick(Level pLevel, BlockPos pPos, BlockState pState, MinerMK1BlockEntity pBlockEntity) {
+    public static void tick(@NotNull Level pLevel, @NotNull BlockPos pPos, BlockState pState, MinerMK1BlockEntity pBlockEntity) {
         //Passa o bloco na posição "Mineravel" para a variavel resource
         Block resource = pLevel.getBlockState(new BlockPos(pPos.getX(), pPos.getY() - 2, pPos.getZ())).getBlock();
         //Verifica se tem a tag RESOURCE_NODES
@@ -310,27 +312,20 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
 
     //Verificar a se e qual a quantidade de Overclocks tem nos slots de overclock
     private static void hasUpgrades(MinerMK1BlockEntity entity) {
-        //Reseta a quantidade para não escalonar
-        //int upgrades = 0;
         //Reseta o MaxProgress do bloco
         entity.maxProgress = 180;
         //Verifica todos os slots de 1 a 3
         for (int i = 1; i <= 3; i++) {
-            //Se tiver Overclock no slot, adiciona 1 a variavel
             if (entity.itemHandler.getStackInSlot(i).getItem() == ModBlocks.OVERCLOCK.get().asItem()) {
                 entity.maxProgress -= entity.maxProgress * 0.5;
-                //upgrades++;
             }
         }
-        //Seta a velocidade que o bloco vai trabalhar (Em ticks)
-        //
-        //entity.maxProgress = entity.maxProgress - upgrades * 33;
     }
-
+    //Reseta o progresso
     private void resetProgress() {
         this.progress = 0;
     }
-    //Dispara o Demolish quando o bloco é quebrado
+    //Todo >> Dispara o Demolish quando o bloco é quebrado
     @SubscribeEvent
     public void onBlockBreak(BlockEvent.BreakEvent event) {
         SendMessage.send(event.getWorld(),"Event? ");

@@ -1,0 +1,11 @@
+{
+  "type": "minersdream:miner_mk1",
+  "ingredients": [
+    {
+      "item": "minersdream:glowstone_resource_node"
+    }
+  ],
+  "output": {
+    "item": "minecraft:glowstone_dust"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minersdream:miner_mk1",
+  "ingredients": [
+    {
+      "item": "minersdream:gold_resource_node"
+    }
+  ],
+  "output": {
+    "item": "minecraft:raw_gold"
+  }
+}

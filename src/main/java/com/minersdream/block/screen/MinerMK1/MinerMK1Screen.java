@@ -1,6 +1,7 @@
 package com.minersdream.block.screen.MinerMK1;
 
 import com.minersdream.MinersDream;
+import com.minersdream.block.entity.custom.MinerMK1BlockEntity;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -8,6 +9,7 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.level.LevelAccessor;
 
 public class MinerMK1Screen extends AbstractContainerScreen<MinerMK1Menu> {
 
@@ -31,7 +33,7 @@ public class MinerMK1Screen extends AbstractContainerScreen<MinerMK1Menu> {
         //Renderiza a GUI
         this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
         //Teoricamente renderiza uma barra de progreço se isCrafting for true
-        //TODO >>
+        //TODO >> Fazer essa barra funcionar
         if(menu.isCrafting()) {
             y = (height - imageHeight) / 2;
             blit(pPoseStack, x + 102, y + 41, 8, 0, 8, menu.getScaledProgress());

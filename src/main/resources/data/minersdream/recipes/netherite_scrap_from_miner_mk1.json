@@ -1,0 +1,11 @@
+{
+  "type": "minersdream:miner_mk1",
+  "ingredients": [
+    {
+      "item": "minersdream:ancient_debris_resource_node"
+    }
+  ],
+  "output": {
+    "item": "minecraft:netherite_scrap"
+  }
+}

@@ -52,7 +52,6 @@ public class LocateRod extends Item {
         return super.useOn(pContext);
     }
 
-
     private void outputValuableCoordinates(BlockPos blockPos, Player player, Block blockBelow, LevelAccessor pLevel) {
         //distância euclidiana
         double distance = Math.sqrt(Math.pow(player.getX() - blockPos.getX(), 2) +
@@ -65,8 +64,5 @@ public class LocateRod extends Item {
         pLevel.playSound(player, new BlockPos(blockPos.getX(), blockPos.getY(), blockPos.getZ()), new SoundEvent(new ResourceLocation("minecraft:block.amethyst_block.hit")), BLOCKS, inverseDistanceRounded, 1);
         pLevel.levelEvent(2001, new BlockPos(blockPos.getX(), blockPos.getY(), blockPos.getZ()), Block.getId(Blocks.AMETHYST_BLOCK.defaultBlockState()));
 
-        //oldMessage Bi The Ibagems Abilton
-        //player.sendMessage(new TextComponent("Found " + blockBelow.asItem().getRegistryName().toString() + " at " +
-                //"(" + blockPos.getX() + ", " + blockPos.getY() + "," + blockPos.getZ() + ")"), player.getUUID());
     }
 }

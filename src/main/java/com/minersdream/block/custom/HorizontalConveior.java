@@ -25,8 +25,8 @@ public class HorizontalConveior extends Block {
         public HorizontalConveior(Properties properties) {
             super(properties);
         }
-    public static final VoxelShape SHAPE_W = Block.box(0, 6, 2, 16, 8, 14);
-    public static final VoxelShape SHAPE_N = Block.box(2, 6, 0, 14, 8, 16);
+    public static final VoxelShape SHAPE_W = Block.box(0, 0, 2, 16, 4, 14);
+    public static final VoxelShape SHAPE_N = Block.box(2, 0, 0, 14, 4, 16);
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());

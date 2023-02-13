@@ -5,6 +5,8 @@ import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.screen.BlockTeste.BlockTesteScreen;
 import com.minersdream.block.screen.MinerMK1.MinerMK1Screen;
 import com.minersdream.block.screen.ModMenuTypes;
+import com.minersdream.block.screen.furnace.FurnaceSmelterMenu;
+import com.minersdream.block.screen.furnace.FurnaceSmelterScreen;
 import com.minersdream.recipe.ModRecipes;
 import com.mojang.logging.LogUtils;
 import com.minersdream.item.ModItems;
@@ -46,8 +48,6 @@ public class MinersDream {
 
         ModRecipes.register(modEventBus);
 
-        //ModStructures.register(modEventBus);
-
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::clientSetup);
 
@@ -71,6 +71,13 @@ public class MinersDream {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_MK1_GERENCIADOR_PARTE1.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get(), RenderType.cutout());
 
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.FURNACE_AQUECEDOR_PARTE1.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.FURNACE_AQUECEDOR_PARTE2.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.FURNACE_EJETOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.FURNACE_INPUT.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.FURNACE_SMELTER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.FURNACE_TUBES.get(), RenderType.cutout());
+
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_RESOURCE_NODE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_RESOURCE_NODE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOLD_RESOURCE_NODE.get(), RenderType.translucent());
@@ -91,6 +98,7 @@ public class MinersDream {
 
         MenuScreens.register(ModMenuTypes.BLOCK_TESTE_MENU.get(), BlockTesteScreen::new);
         MenuScreens.register(ModMenuTypes.MINER_MK1_MENU.get(), MinerMK1Screen::new);
+        MenuScreens.register(ModMenuTypes.FURNACE_SMELTER_MENU.get(), FurnaceSmelterScreen::new);
     }
     private void setup(final FMLCommonSetupEvent event) {
         // some preinit code

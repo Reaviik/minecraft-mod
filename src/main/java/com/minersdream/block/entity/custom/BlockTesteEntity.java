@@ -38,7 +38,7 @@ import java.util.Random;
 public class BlockTesteEntity extends BlockEntity implements MenuProvider {
 
     //Manipulador de Stack/slot
-    private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
+    public final ItemStackHandler itemHandler = new ItemStackHandler(4) {
         //IMPORTANTE notifica quando o inventário é manipulado/modificado
       @Override
       protected void onContentsChanged(int slot) {setChanged();}

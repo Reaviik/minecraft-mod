@@ -2,7 +2,7 @@ package com.minersdream.block.custom;
 
 import com.minersdream.block.ModBlocks;
 import com.minersdream.block.entity.ModBlockEntities;
-import com.minersdream.block.entity.custom.MinerMK1BlockEntity;
+import com.minersdream.block.entity.custom.miners.MinerMK1BlockEntity;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

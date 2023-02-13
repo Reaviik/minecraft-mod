@@ -1,12 +1,12 @@
-package com.minersdream.block.screen.MinerMK1;
+package com.minersdream.block.screen.furnace;
 
 import com.minersdream.block.ModBlocks;
-import com.minersdream.block.entity.custom.miners.MinerMK1BlockEntity;
+import com.minersdream.block.entity.custom.furnace.FurnaceSmelterBlockEntity;
 import com.minersdream.block.screen.ModMenuTypes;
+import com.minersdream.block.screen.slot.ModInputSlot;
 import com.minersdream.block.screen.slot.ModResultSlot;
 import com.minersdream.block.screen.slot.ModUpgradeSlot;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -15,33 +15,33 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 
-public class MinerMK1Menu extends AbstractContainerMenu {
-    private final MinerMK1BlockEntity blockEntity;
+public class FurnaceSmelterMenu extends AbstractContainerMenu {
+    private final FurnaceSmelterBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
 
-    public MinerMK1Menu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
+    public FurnaceSmelterMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
         this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
     }
     //Responsavel por setar a posição dos slots
-    public MinerMK1Menu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
-        super(ModMenuTypes.MINER_MK1_MENU.get(), pContainerId);
-        checkContainerSize(inv, 4);
-        blockEntity = ((MinerMK1BlockEntity) entity);
+    public FurnaceSmelterMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
+        super(ModMenuTypes.FURNACE_SMELTER_MENU.get(), pContainerId);
+        checkContainerSize(inv, 5);
+        blockEntity = ((FurnaceSmelterBlockEntity) entity);
         this.level = inv.player.level;
         this.data = data;
         //Não sei
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
-        //Seta a posição dos slots
-        ResourceLocation bc = new ResourceLocation("minersdream:textures/slot/output_slot.png");
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new ModResultSlot(handler, 0, 94, -10));
+            this.addSlot(new ModResultSlot(handler, 0, 116, -26));
                 //Slot 0 slot de saida
                 //Slots 1,2,3 slots de upgrade
-            this.addSlot(new ModUpgradeSlot(handler, 1, 73, 36));
-            this.addSlot(new ModUpgradeSlot(handler, 2, 107, 36));
-            this.addSlot(new ModUpgradeSlot(handler, 3, 141, 36));
+            this.addSlot(new ModUpgradeSlot(handler, 1, 73, 30));
+            this.addSlot(new ModUpgradeSlot(handler, 2, 107, 30));
+            this.addSlot(new ModUpgradeSlot(handler, 3, 141, 30));
+                //Slot de entrada
+            this.addSlot(new ModInputSlot(handler, 4, 28, -26));
         });
     }
     //Matematica muito loca que diz quando o bloco esta craftando algo
@@ -72,7 +72,7 @@ public class MinerMK1Menu extends AbstractContainerMenu {
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
     //DEFINA ISSO PELO AMOR DE DEUS!
-    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // Numero de slots que o bloco tem!!!
+    private static final int TE_INVENTORY_SLOT_COUNT = 5;  // Numero de slots que o bloco tem!!!
 
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {
@@ -114,9 +114,9 @@ public class MinerMK1Menu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.MINER_MK1_MOTOR.get());
+                pPlayer, ModBlocks.FURNACE_SMELTER.get());
     }
-    //Faz 0 sentido pra min, porque ta adicionando slota ao inventario do player? e o meu inventario? só o player ganha slot extra?
+    //Faz 0 sentido pra min, porque ta adicionando slot ao inventario do player? e o meu inventario? só o player ganha slot extra?
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {

@@ -1,11 +1,10 @@
-package com.minersdream.block.entity.custom;
+package com.minersdream.block.entity.custom.miners;
 
 import com.minersdream.block.ModBlocks;
 import com.minersdream.block.custom.NodesHandler;
 import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.screen.MinerMK1.MinerMK1Menu;
 import com.minersdream.util.ITags;
-import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -35,7 +34,6 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
 
 import javax.annotation.Nonnull;
 import java.util.concurrent.atomic.AtomicInteger;

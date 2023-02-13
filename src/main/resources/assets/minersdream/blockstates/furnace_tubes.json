@@ -1,0 +1,8 @@
+{
+  "variants":{
+    "facing=north":{"model": "minersdream:block/furnace_tubes"},
+    "facing=east":{"model": "minersdream:block/furnace_tubes", "y": 90},
+    "facing=south":{"model": "minersdream:block/furnace_tubes", "y": 180},
+    "facing=west":{"model": "minersdream:block/furnace_tubes", "y": 270}
+  }
+}

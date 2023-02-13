@@ -1,7 +1,7 @@
-package com.minersdream.block.custom;
+package com.minersdream.block.custom.furnace;
 
 import com.minersdream.block.entity.ModBlockEntities;
-import com.minersdream.block.entity.custom.miners.MinerMK1BlockEntity;
+import com.minersdream.block.entity.custom.furnace.FurnaceSmelterBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -19,67 +19,23 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.stream.Stream;
-
-
-public class MinerMk1Motor extends BaseEntityBlock {
+public class FurnaceSmelter extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    private static final VoxelShape SHAPE_N = Stream.of(
-            Block.box(-4.38224, 0.00711, -0.48566, -2.00724, 16.00711, 1.83934),
-            Block.box(-4.38224, 0.00711, 14.11434, -2.00724, 16.00711, 16.43934),
-            Block.box(18.11776, 0.00711, 14.11434, 20.49276, 16.00711, 16.43934),
-            Block.box(18.11776, 0.00711, -0.48566, 20.49276, 16.00711, 1.83934),
-            Block.box(0,0,0,16,16,16)
-    ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
-    private static final VoxelShape SHAPE_E = Stream.of(
-            Block.box(14.16066, 0.00711, -4.38223, 16.48566, 16.00711, -2.00723),
-            Block.box(-0.43934, 0.00711, -4.38223, 1.88565, 16.00711, -2.00723),
-            Block.box(-0.43934, 0.00711, 18.11776, 1.88565, 16.00711, 20.49276),
-            Block.box(14.16066, 0.00711, 18.11776, 16.48566, 16.00711, 20.49276),
-            Block.box(0,0,0,16,16,16)
-    ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
-
-    private static final VoxelShape SHAPE_S = Stream.of(
-            Block.box(18.00724, 0.00711, 14.16066, 20.38224, 16.00711, 16.48566),
-            Block.box(18.00724, 0.00711, -0.43934, 20.38224, 16.00711, 1.885659),
-            Block.box(-4.49276, 0.00711, -0.43934, -2.11776, 16.00711, 1.885659),
-            Block.box(-4.49276, 0.00711, 14.16066, -2.11776, 16.00711, 16.48566),
-            Block.box(0,0,0,16,16,16)
-    ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
-
-    private static final VoxelShape SHAPE_W = Stream.of(
-            Block.box(-0.48566, 0.00711, 18.00724, 1.83934, 16.00711, 20.38224),
-            Block.box(14.11434, 0.00711, 18.00724, 16.43934, 16.00711, 20.38224),
-            Block.box(14.11434, 0.00711, -4.49276, 16.43934, 16.00711, -2.11776),
-            Block.box(-0.48566, 0.00711, -4.49276, 1.83934, 16.00711, -2.117760),
-            Block.box(0,0,0,16,16,16)
-    ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
     //Essencial
-    public MinerMk1Motor(Properties pProperties) {
+    public FurnaceSmelter(Properties pProperties) {
         super(pProperties);
     }
     //Molde Hitbox
-    @Override
+    private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 16, 16);
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext){
-        switch (pState.getValue(FACING)) {
-            case EAST:
-                return SHAPE_E;
-            case SOUTH:
-                return SHAPE_S;
-            case WEST:
-                return SHAPE_W;
-            default:
-                return SHAPE_N;
-        }
+        return SHAPE;
     }
 
     //Facing//
@@ -113,8 +69,8 @@ public class MinerMk1Motor extends BaseEntityBlock {
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof MinerMK1BlockEntity) {
-                ((MinerMK1BlockEntity) blockEntity).drops();
+            if (blockEntity instanceof FurnaceSmelterBlockEntity) {
+                ((FurnaceSmelterBlockEntity) blockEntity).drops();
             }
         }
         super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
@@ -124,8 +80,8 @@ public class MinerMk1Motor extends BaseEntityBlock {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
-            if (entity instanceof MinerMK1BlockEntity) {
-                NetworkHooks.openGui(((ServerPlayer) pPlayer), (MinerMK1BlockEntity) entity, pPos);
+            if (entity instanceof FurnaceSmelterBlockEntity) {
+                NetworkHooks.openGui(((ServerPlayer) pPlayer), (FurnaceSmelterBlockEntity) entity, pPos);
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }
@@ -137,11 +93,11 @@ public class MinerMk1Motor extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new MinerMK1BlockEntity(pPos, pState);
+        return new FurnaceSmelterBlockEntity(pPos, pState);
     }
     //Pega o tick atual do bloco
     @Override
     public <T extends BlockEntity> BlockEntityTicker getTicker(Level plevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.MINER_MK1_BLOCK_ENTITY.get(), MinerMK1BlockEntity::tick);
+        return createTickerHelper(pBlockEntityType, ModBlockEntities.FURNACE_SMELTER_BLOCK_ENTITY.get(), FurnaceSmelterBlockEntity::tick);
     }
 }

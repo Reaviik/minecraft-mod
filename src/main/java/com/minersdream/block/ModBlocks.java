@@ -2,6 +2,7 @@ package com.minersdream.block;
 
 import com.minersdream.MinersDream;
 import com.minersdream.block.custom.*;
+import com.minersdream.block.custom.furnace.*;
 import com.minersdream.item.ModCreativeModeTab;
 import com.minersdream.item.ModItems;
 import net.minecraft.client.gui.screens.Screen;
@@ -135,6 +136,28 @@ public class ModBlocks {
     public static final RegistryObject<Block> MINER_MK1_GERENCIADOR_PARTE2 = registerBlock("miner_mk1_gerenciador_parte2",
             () -> new MinerMk1GerenciadorParte2(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
                     .strength(10f).lightLevel(LUZ -> {return 1;})), ModCreativeModeTab.MinersDream_TAB);
+
+
+    public static final RegistryObject<Block> FURNACE_AQUECEDOR_PARTE1 = registerBlock("furnace_aquecedor_parte1",
+            () -> new FurnaceAquecedorParte1(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
+                    .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
+    public static final RegistryObject<Block> FURNACE_AQUECEDOR_PARTE2 = registerBlock("furnace_aquecedor_parte2",
+            () -> new FurnaceAquecedorParte2(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
+                    .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
+    public static final RegistryObject<Block> FURNACE_EJETOR = registerBlock("furnace_ejetor",
+            () -> new FurnaceEjetor(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
+                    .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
+    public static final RegistryObject<Block> FURNACE_INPUT = registerBlock("furnace_input",
+            () -> new FurnaceInput(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
+                    .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
+    public static final RegistryObject<Block> FURNACE_SMELTER = registerBlock("furnace_smelter",
+            () -> new FurnaceSmelter(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
+                    .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
+    public static final RegistryObject<Block> FURNACE_TUBES = registerBlock("furnace_tubes",
+            () -> new FurnaceTubes(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
+                    .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
+
+
     public static final RegistryObject<Block> HORIZONTAL_CONVEIOR = registerBlock("horizontal_conveior",
             () -> new HorizontalConveior(BlockBehaviour.Properties.of(Material.WOOL).noOcclusion()
                     .strength(1.5f)), ModCreativeModeTab.MinersDream_TAB);

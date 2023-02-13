@@ -1,4 +1,4 @@
-package com.minersdream.block.screen.MinerMK1;
+package com.minersdream.block.screen.furnace;
 
 import com.minersdream.MinersDream;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -9,13 +9,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class MinerMK1Screen extends AbstractContainerScreen<MinerMK1Menu> {
+public class FurnaceSmelterScreen extends AbstractContainerScreen<FurnaceSmelterMenu> {
 
     //O caminho até a textura da GUI é setado aqui
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(MinersDream.MOD_ID, "textures/gui/miner_gui.png");
+            new ResourceLocation(MinersDream.MOD_ID, "textures/gui/furnace_gui.png");
     //Define a Scream
-    public MinerMK1Screen(MinerMK1Menu pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public FurnaceSmelterScreen(FurnaceSmelterMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
     //Renderiza a GUI na posião x, y, com base no tanahdo da imagem e da tela
@@ -25,9 +25,9 @@ public class MinerMK1Screen extends AbstractContainerScreen<MinerMK1Menu> {
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         //Posições definir o x 0 e y 0 da GUI
-        this.imageHeight = 221;
+        this.imageHeight = 226;
         int x = (width - imageWidth) / 2;
-        int y = (height - (imageHeight + 55)) / 2;
+        int y = (height - (imageHeight + 58)) / 2;
         //Renderiza a GUI
         this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
         //Teoricamente renderiza uma barra de progreço se isCrafting for true
@@ -44,5 +44,10 @@ public class MinerMK1Screen extends AbstractContainerScreen<MinerMK1Menu> {
         renderBackground(pPoseStack);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         renderTooltip(pPoseStack, pMouseX, pMouseY);
+    }
+    @Override
+    protected void renderLabels(PoseStack matrixStack, int mouseX, int mouseY) {
+        this.font.draw(matrixStack, this.title, +72.0F, -54.0F, 16777215);
+        this.font.draw(matrixStack, this.playerInventoryTitle, 8.0F, (float) (this.imageHeight - 152), 16777215);
     }
 }

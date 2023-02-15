@@ -76,7 +76,9 @@ public class HorizontalConveior extends Block {
                     
                     pEntity.setXRot(0);
                     pEntity.setYRot(0);
+                    ((ItemEntity) pEntity).setExtendedLifetime();
                     ((ItemEntity) pEntity).setPickUpDelay(10);
+
 
                     if(pState.getValue(FACING) == Direction.EAST) {
                         pEntity.setPos(pEntity.getX(), pEntity.getY(), pPos.getZ() + 0.5);

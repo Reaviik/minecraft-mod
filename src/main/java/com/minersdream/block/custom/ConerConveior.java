@@ -84,6 +84,7 @@ public class ConerConveior extends Block {
                     LOGGER.info(pState.getValue(FACING).toString());
                     pEntity.setXRot(0);
                     pEntity.setYRot(0);
+                    ((ItemEntity) pEntity).setExtendedLifetime();
                     double eX = pEntity.getX();
                     double eY = pEntity.getY();
                     double eZ = pEntity.getZ();
@@ -129,33 +130,3 @@ public class ConerConveior extends Block {
             super.stepOn(pLevel, pPos, pState, pEntity);
         }
 }
-
-/*
-                    if(pState.getValue(FACING) == Direction.EAST) {
-                        if(eX > pX + 0.5){
-                            pEntity.push(-0.01D, 0f, 0f);
-                        }else {
-                           pEntity.push(0f, 0f, -0.01D);
-                       }
-
-                    }else if(pState.getValue(FACING) == Direction.SOUTH) {
-                        if(eZ > pZ + 0.5){
-                            pEntity.push(0f, 0f, - 0.01D);
-                        }else {
-                            pEntity.push(+ 0.01D, 0f, 0f);
-                        }
-
-                    }else if(pState.getValue(FACING) == Direction.WEST) {
-                        if(eX < pX + 0.5){
-                            pEntity.push(+ 0.01D, 0f, 0f);
-                        }else {
-                            pEntity.push(0f, 0f, + 0.01D);
-                        }
-
-                    }else {
-                        if(eZ < pZ + 0.5){
-                            pEntity.push(0f, 0f, + 0.01D);
-                        }else {
-                            pEntity.push(- 0.01D, 0f, 0f);
-                        }
-                    }*/

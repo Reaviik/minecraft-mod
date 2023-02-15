@@ -133,6 +133,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         super.saveAdditional(tag);
     }
 
+
     //Carrega os itens do inventario do bloco (quando carrega a chunk)
     @Override
     public void load(CompoundTag nbt) {
@@ -156,7 +157,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         return item.is(ITags.Items.CONVEYOR_BELT);
     }
     //Verifica se o bloco na frente do separador tem inventario
-    public static final boolean hasInventory(@NotNull LevelAccessor world, BlockPos pPos, ItemStack item) {
+    public static final boolean hasInventory(@NotNull LevelAccessor world, BlockPos pPos) {
         pPos = new BlockPos(pPos.getX(), pPos.getY(), pPos.getZ());
         BlockEntity tileEntity = world.getBlockEntity(pPos);
         if (tileEntity != null && tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).isPresent()){
@@ -240,10 +241,10 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
             BlockEntity chest = world.getBlockEntity(new BlockPos(getChestPos(pState, pPos)));
             //Se requisição de classe acima retornar valido
             //E se o bloco me questão (x y z) estiver energisado por redstone ->>
-            if (_setstack != null && isRedstonePowered(world, pPos)) {
+            if (_setstack != null && !isRedstonePowered(world, pPos)) {
                 //Todo fazer encher o slot da mineradora quando tiver cheio o bau de saida
                 //Tem um inventário na frente da Mineradora e se esse inventario tem espaço
-                if(hasInventory(world,getChestPos(pState, pPos), _setstack) && hasFreeSpaceInInventory(world, pState, pPos, _setstack).get() >= 0){
+                if(hasInventory(world,getChestPos(pState, pPos)) && hasFreeSpaceInInventory(world, pState, pPos, _setstack).get() >= 0){
                         //Faz algo
                         chest.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
                         if (capability instanceof IItemHandlerModifiable) {
@@ -265,7 +266,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
                         //Não sei, mas ta ai
                         entityToSpawn.setPickUpDelay(10);
                         entityToSpawn.setDeltaMovement(0, 0, 0);
-                        entityToSpawn.setUnlimitedLifetime();
+                        entityToSpawn.setExtendedLifetime();
                         _level.addFreshEntity(entityToSpawn);
                         //Faz barulhinho, mesmo problema acima /|\
                         world.levelEvent(2001, new BlockPos(x, y - 2, z), Block.getId(resource.defaultBlockState()));

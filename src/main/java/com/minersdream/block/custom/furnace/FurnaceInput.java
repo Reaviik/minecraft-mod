@@ -1,7 +1,6 @@
 package com.minersdream.block.custom.furnace;
 
-import com.minersdream.block.ModBlocks;
-import com.minersdream.block.entity.custom.miners.MinerMK1BlockEntity;
+import com.minersdream.util.SendMessage;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -11,12 +10,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -26,16 +23,15 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
-import java.util.Properties;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
+import static net.minecraft.world.entity.Entity.RemovalReason.KILLED;
 
-public class FurnaceInput extends BaseEntityBlock {
+
+public class FurnaceInput extends Block {
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public FurnaceInput(Properties pProperties) {
@@ -80,8 +76,7 @@ public class FurnaceInput extends BaseEntityBlock {
                 return SHAPE_N;
         }
     }
-    //Facing//
-    @SuppressWarnings("deprecated")
+
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext){
@@ -99,39 +94,62 @@ public class FurnaceInput extends BaseEntityBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder){
         pBuilder.add(FACING);
     }
-    //TODO >> continuar
-    public void insertItem(Level pLevel, BlockPos pPos, BlockEntity pEntity, ItemStack _setStack, BlockPos hPos){
-        BlockEntity chest = pLevel.getBlockEntity(pPos);
-        BlockEntity input = pLevel.getBlockEntity(hPos);
-        chest.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-                chest.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(container  -> {
-                    if(capability.getStackInSlot(4) == _setStack && capability.getSlotLimit(4) < capability.getStackInSlot(4).getCount() && container.getStackInSlot(0).getCount() == 1) {
-                        container.extractItem(0, 1, false);
-                        capability.insertItem(0, _setStack, false);
+
+    public void insertItem(Level pLevel, BlockPos pPos, Entity pEntity, ItemStack _setStack){
+        //posição da smelter
+        BlockEntity smelter = pLevel.getBlockEntity(pPos);
+        //smelter
+        if(smelter != null) {
+            smelter.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+                //se a quantidade de items no slot é menor que a capacidade do slot
+                if ((capability.getStackInSlot(4).getCount() < capability.getSlotLimit(4))) {
+                    //se o item é igual o item a ser inserido e se a quantidade de espaço no slot é menor que a quandidade de items a ser inserido  ou o islot esta vazio
+                    if(capability.getStackInSlot(4).getItem() == _setStack.getItem() && (capability.getSlotLimit(4) - capability.getStackInSlot(4).getCount()) >= _setStack.getCount() || capability.getStackInSlot(4).isEmpty()) {
+
+                        capability.insertItem(4, _setStack, false);
+                        pEntity.remove(KILLED);
                     }
-                });
-        });
+                }
+            });
+        }
     }
     @Override
     public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
         if(!pLevel.isClientSide()) {
             if (pEntity instanceof ItemEntity) {
                 if(pState.getValue(FACING) == Direction.EAST) {
-
+                    insertItem(
+                            pLevel,
+                            new BlockPos(pPos.getX(),pPos.getY(),pPos.getZ()+1),
+                            pEntity,
+                            ((ItemEntity) pEntity).getItem());
+                        SendMessage.send(pLevel, "East");
                 }else if(pState.getValue(FACING) == Direction.SOUTH) {
+                    insertItem(
+                            pLevel,
+                            new BlockPos(pPos.getX()-1,pPos.getY(),pPos.getZ()),
+                            pEntity,
+                            ((ItemEntity) pEntity).getItem());
+                        SendMessage.send(pLevel, "South");
 
                 }else if(pState.getValue(FACING) == Direction.WEST) {
+                    insertItem(
+                            pLevel,
+                            new BlockPos(pPos.getX(),pPos.getY(),pPos.getZ()-1),
+                            pEntity,
+                            ((ItemEntity) pEntity).getItem());
+                        SendMessage.send(pLevel, "West");
 
                 }else {
+                    insertItem(
+                            pLevel,
+                            new BlockPos(pPos.getX()+1,pPos.getY(),pPos.getZ()),
+                            pEntity,
+                            ((ItemEntity) pEntity).getItem());
+                        SendMessage.send(pLevel, "North");
                 }
             }
         }
         super.stepOn(pLevel, pPos, pState, pEntity);
-    }
-
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new FurnaceBlockEntity(pPos, pState);
     }
 }

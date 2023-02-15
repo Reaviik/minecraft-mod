@@ -3,6 +3,7 @@ package com.minersdream.block;
 import com.minersdream.MinersDream;
 import com.minersdream.block.custom.*;
 import com.minersdream.block.custom.furnace.*;
+import com.minersdream.block.custom.minerMk1.*;
 import com.minersdream.item.ModCreativeModeTab;
 import com.minersdream.item.ModItems;
 import net.minecraft.client.gui.screens.Screen;
@@ -155,6 +156,9 @@ public class ModBlocks {
                     .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
     public static final RegistryObject<Block> FURNACE_TUBES = registerBlock("furnace_tubes",
             () -> new FurnaceTubes(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
+                    .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
+    public static final RegistryObject<Block> FURNACE = registerBlock("furnace",
+            () -> new Furnace(BlockBehaviour.Properties.of(Material.METAL).noOcclusion()
                     .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
 
 

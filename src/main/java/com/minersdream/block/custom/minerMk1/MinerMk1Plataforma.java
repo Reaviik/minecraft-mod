@@ -1,4 +1,4 @@
-package com.minersdream.block.custom;
+package com.minersdream.block.custom.minerMk1;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;

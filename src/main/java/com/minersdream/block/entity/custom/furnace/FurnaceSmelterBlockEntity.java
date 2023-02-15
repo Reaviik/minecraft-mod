@@ -240,7 +240,8 @@ public class FurnaceSmelterBlockEntity extends BlockEntity implements MenuProvid
     }
     //Tick Manager
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, FurnaceSmelterBlockEntity pBlockEntity) {
-            if(pBlockEntity.progress <= pBlockEntity.maxProgress){pBlockEntity.progress++;
+            if(pBlockEntity.progress <= pBlockEntity.maxProgress){
+                pBlockEntity.progress++;
             } else {
                 setChanged(pLevel, pPos, pState);
                 pBlockEntity.resetProgress();
@@ -249,28 +250,31 @@ public class FurnaceSmelterBlockEntity extends BlockEntity implements MenuProvid
                 setChanged(pLevel, pPos, pState);
                 craftItem(pBlockEntity);
             }
-            if(hasOutput(pBlockEntity) && pBlockEntity.progress == pBlockEntity.maxProgress -1) {
-                ItemStack _setstack = new ItemStack(pBlockEntity.itemHandler.getStackInSlot(0).getItem());
-                if(hasInventory(pLevel,getChestPos(pState, pPos)) && hasFreeSpaceInInventory(pLevel, pState, pPos, _setstack).get() >= 0){
-                    BlockEntity chest = pLevel.getBlockEntity(new BlockPos(getChestPos(pState, pPos)));
-                    chest.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-                        if (capability instanceof IItemHandlerModifiable) {
-                            int freeSlot = hasFreeSpaceInInventory(pLevel, pState, pPos, _setstack).get();
-                            capability.insertItem(freeSlot, _setstack, false);
-                        }
-                    });
+            if(hasOutput(pBlockEntity)) {
+                if (pBlockEntity.progress == pBlockEntity.maxProgress / 2 && hasInventory(pLevel, getChestPos(pState, pPos))) {
+                    ItemStack _setstack = new ItemStack(pBlockEntity.itemHandler.getStackInSlot(0).getItem());
+                    if (hasFreeSpaceInInventory(pLevel, pState, pPos, _setstack).get() >= 0) {
+                        pBlockEntity.itemHandler.extractItem(0, 1, false);
+                        BlockEntity chest = pLevel.getBlockEntity(new BlockPos(getChestPos(pState, pPos)));
+                        chest.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+                            if (capability instanceof IItemHandlerModifiable) {
+                                int freeSlot = hasFreeSpaceInInventory(pLevel, pState, pPos, _setstack).get();
+                                capability.insertItem(freeSlot, _setstack, false);
+                            }
+                        });
+                    }
                 }
-                if(verifyConveiorTags(pLevel.getBlockState(new BlockPos(getChestPos(pState, pPos))).getBlock().asItem().getDefaultInstance())) {
-                    pBlockEntity.itemHandler.extractItem(0, 1, false);
-                    ItemEntity entityToSpawn = new ItemEntity(pLevel, getChestPos(pState, pPos).getX() + 0.5, getChestPos(pState, pPos).getY() + 1, getChestPos(pState, pPos).getZ() + 0.5, new ItemStack(pBlockEntity.itemHandler.getStackInSlot(0).getItem()));
-                    entityToSpawn.setPickUpDelay(10);
-                    entityToSpawn.setDeltaMovement(0, 0, 0);
-                    entityToSpawn.setExtendedLifetime();
-                    pLevel.addFreshEntity(entityToSpawn);
-                    setChanged(pLevel, pPos, pState);
+                if (verifyConveiorTags(pLevel.getBlockState(new BlockPos(getChestPos(pState, pPos))).getBlock().asItem().getDefaultInstance())) {
+                        ItemEntity entityToSpawn = new ItemEntity(pLevel, getChestPos(pState, pPos).getX() + 0.5, getChestPos(pState, pPos).getY() + 1, getChestPos(pState, pPos).getZ() + 0.5, new ItemStack(pBlockEntity.itemHandler.getStackInSlot(0).getItem()));
+                        pBlockEntity.itemHandler.extractItem(0, 1, false);
+                        entityToSpawn.setPickUpDelay(10);
+                        entityToSpawn.setDeltaMovement(0, 0, 0);
+                        entityToSpawn.setExtendedLifetime();
+                        pLevel.addFreshEntity(entityToSpawn);
+                        setChanged(pLevel, pPos, pState);
+                    }
                 }
             }
-        }
     //Reseta o progresso
     private void resetProgress() {
         this.progress = 0;

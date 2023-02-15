@@ -1,4 +1,4 @@
-package com.minersdream.block.custom;
+package com.minersdream.block.custom.minerMk1;
 
 import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.entity.custom.miners.MinerMK1BlockEntity;

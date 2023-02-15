@@ -1,0 +1,11 @@
+{
+  "type": "minersdream:smelter",
+  "ingredients": [
+    {
+      "item": "minecraft:raw_gold"
+    }
+  ],
+  "output": {
+    "item": "minecraft:gold_ingot"
+  }
+}

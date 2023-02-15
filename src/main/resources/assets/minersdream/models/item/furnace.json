@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures":{
-    "layer0": "minersdream:item/miner_mk1_item"
+    "layer0": "minersdream:item/furnace_item"
   }
 }

@@ -1,4 +1,4 @@
-package com.minersdream.block.custom;
+package com.minersdream.block.custom.minerMk1;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -19,38 +19,34 @@ import org.jetbrains.annotations.Nullable;
 import java.util.stream.Stream;
 
 
-public class MinerMk1GerenciadorParte2 extends Block {
+public class MinerMk1Separador extends Block {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     private static final VoxelShape SHAPE_N = Stream.of(
-            Block.box(-4.82016, 13.99289, 1.97742, 7.17984, 18.99289, 13.82742),
-            Block.box(-9.82016, -0.00711, 3.97742, 12.17984, 14.99289, 11.82742),
-            Block.box(-9.54645, 0.00711, 0.60355, -7.54645, 14.00711, 2.60355),
-            Block.box(7.24838, 13.99289, 12.20789, 9.248380000000001, 22.99289, 14.20789)
+            Block.box(-0.25686, 3.86653, 1.9362, 15.84314, 13.11653, 14.1112),
+            Block.box(0.24314, 14.53074, 3.85042, 11.84314, 15.78074, 12.17542),
+            Block.box(12.59314, 17.78074, 7.45042, 13.74314, 28.78074, 8.57542)
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
     private static final VoxelShape SHAPE_E = Stream.of(
-            Block.box(2.17258, 13.99289, -4.82016, 14.02258, 18.99289, 7.17984),
-            Block.box(4.17258, -0.00711, -9.820160000000001, 12.02258, 14.99289, 12.17984),
-            Block.box(13.39645, 0.00711, -9.54645, 15.39645, 14.00711, -7.54645),
-            Block.box(1.7921099999999992, 13.99289, 7.24838, 3.792109999999999, 22.99289, 9.248380000000001)
+            Block.box(1.8887999999999998, 3.86653, -0.25685999999999964, 14.0638, 13.11653, 15.84314),
+            Block.box(3.824579999999999, 14.53074, 0.24314000000000036, 12.14958, 15.78074, 11.84314),
+            Block.box(7.424580000000001, 17.78074, 12.59314, 8.549579999999999, 28.78074, 13.74314)
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
     private static final VoxelShape SHAPE_S = Stream.of(
-            Block.box(8.82016, 13.99289, 2.17258, 20.82016, 18.99289, 14.02258),
-            Block.box(3.8201599999999996, -0.00711, 4.17258, 25.82016, 14.99289, 12.02258),
-            Block.box(23.54645, 0.00711, 13.39645, 25.54645, 14.00711, 15.39645),
-            Block.box(6.751619999999999, 13.99289, 1.7921099999999992, 8.751619999999999, 22.99289, 3.792109999999999)
+            Block.box(0.15686, 3.86653, 1.8887999999999998, 16.25686, 13.11653, 14.0638),
+            Block.box(4.15686, 14.53074, 3.824579999999999, 15.75686, 15.78074, 12.14958),
+            Block.box(2.2568599999999996, 17.78074, 7.424580000000001, 3.40686, 28.78074, 8.549579999999999)
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
     private static final VoxelShape SHAPE_W = Stream.of(
-            Block.box(1.9774200000000004, 13.99289, 8.82016, 13.82742, 18.99289, 20.82016),
-            Block.box(3.9774200000000004, -0.00711, 3.8201599999999996, 11.82742, 14.99289, 25.82016),
-            Block.box(0.6035500000000003, 0.00711, 23.54645, 2.6035500000000003, 14.00711, 25.54645),
-            Block.box(12.20789, 13.99289, 6.751619999999999, 14.20789, 22.99289, 8.751619999999999)
+            Block.box(1.9361999999999995, 3.86653, 0.15686, 14.1112, 13.11653, 16.25686),
+            Block.box(3.8504199999999997, 14.53074, 4.15686, 12.17542, 15.78074, 15.75686),
+            Block.box(7.450420000000001, 17.78074, 2.2568599999999996, 8.57542, 28.78074, 3.40686)
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
-    public MinerMk1GerenciadorParte2(Properties pProperties) {
+    public MinerMk1Separador(Properties pProperties) {
         super(pProperties);
     }
 

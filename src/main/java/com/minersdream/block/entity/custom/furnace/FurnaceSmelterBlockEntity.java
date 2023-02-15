@@ -5,6 +5,7 @@ import com.minersdream.block.entity.ModBlockEntities;
 import com.minersdream.block.entity.custom.miners.MinerMK1BlockEntity;
 import com.minersdream.block.screen.furnace.FurnaceSmelterMenu;
 import com.minersdream.recipe.FurnaceSmelterRecipe;
+import com.minersdream.util.ITags;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -14,12 +15,15 @@ import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -28,6 +32,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -35,6 +40,7 @@ import org.slf4j.Logger;
 
 import javax.annotation.Nonnull;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class FurnaceSmelterBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(5) {
@@ -137,6 +143,9 @@ public class FurnaceSmelterBlockEntity extends BlockEntity implements MenuProvid
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
         return inventory.getItem(0).getMaxStackSize() > inventory.getItem(0).getCount();
     }
+    public static boolean verifyConveiorTags(@NotNull ItemStack item) {
+        return item.is(ITags.Items.CONVEYOR_BELT);
+    }
     private static boolean hasRecipe(FurnaceSmelterBlockEntity entity) {
         Level level = entity.getLevel();
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
@@ -150,6 +159,35 @@ public class FurnaceSmelterBlockEntity extends BlockEntity implements MenuProvid
         return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
                 && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
     }
+    public static final boolean hasInventory(@NotNull LevelAccessor world, BlockPos pPos) {
+        pPos = new BlockPos(pPos.getX(), pPos.getY(), pPos.getZ());
+        BlockEntity tileEntity = world.getBlockEntity(pPos);
+        if (tileEntity != null && tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).isPresent()){
+            tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).isPresent();
+            return true;
+        }
+        return false;
+    }
+    public static @NotNull AtomicInteger hasFreeSpaceInInventory(@NotNull LevelAccessor world, BlockState pState, BlockPos pPos, ItemStack _setstack){
+        BlockEntity chest = world.getBlockEntity(new BlockPos(getChestPos(pState, pPos)));
+        AtomicInteger index = new AtomicInteger(-1);
+        chest.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+            if (capability instanceof IItemHandlerModifiable) {
+                for(int i = 0; i < capability.getSlots(); i++){
+                    if(capability.getStackInSlot(i).getCount() < capability.getStackInSlot(i).getMaxStackSize() || capability.getStackInSlot(i) == _setstack) {
+                        index.set(i);
+                        break;
+                    }
+                }
+            }});
+        return index;
+    }
+    private static boolean hasOutput(FurnaceSmelterBlockEntity entity){
+        if(entity.itemHandler.getStackInSlot(0).getCount() > 0){
+            return true;
+        }
+        return false;
+    }
     private static int hasUpgrades(@NotNull FurnaceSmelterBlockEntity entity) {
         //Reseta o MaxProgress do bloco
         int overclock = 0;
@@ -162,6 +200,24 @@ public class FurnaceSmelterBlockEntity extends BlockEntity implements MenuProvid
             }
         }
         return overclock;
+    }
+    public static @Nullable BlockPos getChestPos(@NotNull BlockState pState, BlockPos pPos){
+        if(pState.getValue(FACING) == Direction.NORTH){
+            return new BlockPos(pPos.getX()+2, pPos.getY(), pPos.getZ());
+        }
+        else if(pState.getValue(FACING) == Direction.EAST){
+            return new BlockPos(pPos.getX(), pPos.getY(), pPos.getZ()+2);
+
+        }
+        else if(pState.getValue(FACING) == Direction.SOUTH){
+            return new BlockPos(pPos.getX()-2, pPos.getY(), pPos.getZ());
+
+        }
+        else if(pState.getValue(FACING) == Direction.WEST){
+            return new BlockPos(pPos.getX(), pPos.getY(), pPos.getZ()-2);
+
+        }
+        return null;
     }
     private static void craftItem(FurnaceSmelterBlockEntity entity) {
         hasUpgrades(entity);
@@ -184,17 +240,37 @@ public class FurnaceSmelterBlockEntity extends BlockEntity implements MenuProvid
     }
     //Tick Manager
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, FurnaceSmelterBlockEntity pBlockEntity) {
-        if(hasRecipe(pBlockEntity)) {
-            pBlockEntity.progress++;
-            setChanged(pLevel, pPos, pState);
-            if(pBlockEntity.progress > pBlockEntity.maxProgress) {
+            if(pBlockEntity.progress <= pBlockEntity.maxProgress){pBlockEntity.progress++;
+            } else {
+                setChanged(pLevel, pPos, pState);
+                pBlockEntity.resetProgress();
+            }
+            if(pBlockEntity.progress == pBlockEntity.maxProgress && hasRecipe(pBlockEntity)) {
+                setChanged(pLevel, pPos, pState);
                 craftItem(pBlockEntity);
             }
-        } else {
-            pBlockEntity.resetProgress();
-            setChanged(pLevel, pPos, pState);
+            if(hasOutput(pBlockEntity) && pBlockEntity.progress == pBlockEntity.maxProgress -1) {
+                ItemStack _setstack = new ItemStack(pBlockEntity.itemHandler.getStackInSlot(0).getItem());
+                if(hasInventory(pLevel,getChestPos(pState, pPos)) && hasFreeSpaceInInventory(pLevel, pState, pPos, _setstack).get() >= 0){
+                    BlockEntity chest = pLevel.getBlockEntity(new BlockPos(getChestPos(pState, pPos)));
+                    chest.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+                        if (capability instanceof IItemHandlerModifiable) {
+                            int freeSlot = hasFreeSpaceInInventory(pLevel, pState, pPos, _setstack).get();
+                            capability.insertItem(freeSlot, _setstack, false);
+                        }
+                    });
+                }
+                if(verifyConveiorTags(pLevel.getBlockState(new BlockPos(getChestPos(pState, pPos))).getBlock().asItem().getDefaultInstance())) {
+                    pBlockEntity.itemHandler.extractItem(0, 1, false);
+                    ItemEntity entityToSpawn = new ItemEntity(pLevel, getChestPos(pState, pPos).getX() + 0.5, getChestPos(pState, pPos).getY() + 1, getChestPos(pState, pPos).getZ() + 0.5, new ItemStack(pBlockEntity.itemHandler.getStackInSlot(0).getItem()));
+                    entityToSpawn.setPickUpDelay(10);
+                    entityToSpawn.setDeltaMovement(0, 0, 0);
+                    entityToSpawn.setExtendedLifetime();
+                    pLevel.addFreshEntity(entityToSpawn);
+                    setChanged(pLevel, pPos, pState);
+                }
+            }
         }
-    }
     //Reseta o progresso
     private void resetProgress() {
         this.progress = 0;

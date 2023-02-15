@@ -80,46 +80,34 @@ public class ConerConveior extends Block {
         public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
             if(!pLevel.isClientSide()){
                 if(pEntity instanceof ItemEntity){
-
-                    LOGGER.info(pState.getValue(FACING).toString());
                     pEntity.setXRot(0);
                     pEntity.setYRot(0);
                     ((ItemEntity) pEntity).setExtendedLifetime();
-                    double eX = pEntity.getX();
-                    double eY = pEntity.getY();
-                    double eZ = pEntity.getZ();
-                    double pX = pPos.getX();
-                    double pY = pPos.getY();
-                    double pZ = pPos.getZ();
                     ((ItemEntity) pEntity).setPickUpDelay(10);
 
                     if(pState.getValue(FACING) == Direction.EAST) {
-                        SendMessage.send(pLevel, "Conveior East");
-                        if(eZ < pZ + 0.5){
+                        if(pEntity.getZ() < pPos.getZ() + 0.5){
                             pEntity.push(0f, 0f, + 0.01D);
                         }else {
                            pEntity.push(+ 0.01D, 0f, 0f);
                        }
 
                     }else if(pState.getValue(FACING) == Direction.SOUTH) {
-                        SendMessage.send(pLevel, "Conveior South");
-                        if(eX < pX + 0.5){
+                        if(pEntity.getX() < pPos.getX() + 0.5){
                             pEntity.push(0f, 0f, + 0.01D);
                         }else {
                             pEntity.push(- 0.01D, 0f, 0f);
                         }
 
                     }else if(pState.getValue(FACING) == Direction.WEST) {
-                        SendMessage.send(pLevel, "Conveior West");
-                        if(eZ > pZ + 0.5){
+                        if(pEntity.getZ() > pPos.getZ() + 0.5){
                             pEntity.push(0f, 0f, - 0.01D);
                         }else {
                             pEntity.push(- 0.01D, 0f, 0f);
                         }
 
                     }else {
-                        SendMessage.send(pLevel, "Conveior North");
-                        if(eX > pX + 0.5){
+                        if(pEntity.getX() > pPos.getX() + 0.5){
                             pEntity.push(0f, 0f, - 0.01D);
                         }else {
                             pEntity.push(+ 0.01D, 0f, 0f);

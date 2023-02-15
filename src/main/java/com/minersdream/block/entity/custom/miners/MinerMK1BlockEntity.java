@@ -241,7 +241,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
             BlockEntity chest = world.getBlockEntity(new BlockPos(getChestPos(pState, pPos)));
             //Se requisição de classe acima retornar valido
             //E se o bloco me questão (x y z) estiver energisado por redstone ->>
-            if (_setstack != null && !isRedstonePowered(world, pPos)) {
+            if (_setstack != null && isRedstonePowered(world, pPos)) {
                 //Todo fazer encher o slot da mineradora quando tiver cheio o bau de saida
                 //Tem um inventário na frente da Mineradora e se esse inventario tem espaço
                 if(hasInventory(world,getChestPos(pState, pPos)) && hasFreeSpaceInInventory(world, pState, pPos, _setstack).get() >= 0){

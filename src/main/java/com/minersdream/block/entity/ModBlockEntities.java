@@ -1,10 +1,8 @@
 package com.minersdream.block.entity;
 
-import ca.weblite.objc.Proxy;
 import com.minersdream.MinersDream;
 import com.minersdream.block.ModBlocks;
 import com.minersdream.block.entity.custom.BlockTesteEntity;
-import com.minersdream.block.entity.custom.furnace.FurnaceEjectorBlockEntity;
 import com.minersdream.block.entity.custom.furnace.FurnaceSmelterBlockEntity;
 import com.minersdream.block.entity.custom.miners.MinerMK1BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -30,10 +28,6 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<FurnaceSmelterBlockEntity>> FURNACE_SMELTER_BLOCK_ENTITY =
             BLOCK_ENTITIES.register("furnace_smelter_block_entity", () ->
                     BlockEntityType.Builder.of(FurnaceSmelterBlockEntity::new,
-                            ModBlocks.FURNACE_SMELTER.get()).build(null));
-    public static final RegistryObject<BlockEntityType<FurnaceEjectorBlockEntity>> FURNACE_EJECTOR_BLOCK_ENTITY =
-            BLOCK_ENTITIES.register("furnace_ejector_block_entity", () ->
-                    BlockEntityType.Builder.of(FurnaceEjectorBlockEntity::new,
                             ModBlocks.FURNACE_SMELTER.get()).build(null));
 
     public static void register(IEventBus eventBus) {

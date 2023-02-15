@@ -123,14 +123,14 @@ public class FurnaceInput extends Block {
                             new BlockPos(pPos.getX(),pPos.getY(),pPos.getZ()+1),
                             pEntity,
                             ((ItemEntity) pEntity).getItem());
-                        SendMessage.send(pLevel, "East");
+                        //SendMessage.send(pLevel, "East");
                 }else if(pState.getValue(FACING) == Direction.SOUTH) {
                     insertItem(
                             pLevel,
                             new BlockPos(pPos.getX()-1,pPos.getY(),pPos.getZ()),
                             pEntity,
                             ((ItemEntity) pEntity).getItem());
-                        SendMessage.send(pLevel, "South");
+                        //SendMessage.send(pLevel, "South");
 
                 }else if(pState.getValue(FACING) == Direction.WEST) {
                     insertItem(
@@ -138,7 +138,7 @@ public class FurnaceInput extends Block {
                             new BlockPos(pPos.getX(),pPos.getY(),pPos.getZ()-1),
                             pEntity,
                             ((ItemEntity) pEntity).getItem());
-                        SendMessage.send(pLevel, "West");
+                       // SendMessage.send(pLevel, "West");
 
                 }else {
                     insertItem(
@@ -146,7 +146,7 @@ public class FurnaceInput extends Block {
                             new BlockPos(pPos.getX()+1,pPos.getY(),pPos.getZ()),
                             pEntity,
                             ((ItemEntity) pEntity).getItem());
-                        SendMessage.send(pLevel, "North");
+                        //SendMessage.send(pLevel, "North");
                 }
             }
         }

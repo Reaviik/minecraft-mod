@@ -45,4 +45,9 @@ public class MinerMK1Screen extends AbstractContainerScreen<MinerMK1Menu> {
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         renderTooltip(pPoseStack, pMouseX, pMouseY);
     }
+    @Override
+    protected void renderLabels(PoseStack matrixStack, int mouseX, int mouseY) {
+        this.font.draw(matrixStack, this.title, +78.0F, -43.0F, 00000000);
+        this.font.draw(matrixStack, this.playerInventoryTitle, 8.0F, (float) (this.imageHeight - 148), 16777215);
+    }
 }

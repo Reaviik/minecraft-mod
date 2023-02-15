@@ -110,26 +110,25 @@ public class DiagonalConveior extends Block {
                     LOGGER.info(pState.getValue(FACING).toString());
                     pEntity.setXRot(0);
                     pEntity.setYRot(0);
-                    pEntity.setNoGravity(true);
                     ((ItemEntity) pEntity).setExtendedLifetime();
                     ((ItemEntity) pEntity).setPickUpDelay(10);
 
                     if(pState.getValue(FACING) == Direction.EAST) {
                         pEntity.setPos(pEntity.getX() - 0.25, pEntity.getY() + 0.25,pPos.getZ() + 0.5);
-                        SendMessage.send(pLevel, "Conveior East");
+
 
 
                     }else if(pState.getValue(FACING) == Direction.SOUTH) {
                         pEntity.setPos(pPos.getX() + 0.5, pEntity.getY() + 0.25,pEntity.getZ() - 0.25);
-                        SendMessage.send(pLevel, "Conveior South");
+
 
                     }else if(pState.getValue(FACING) == Direction.WEST) {
                         pEntity.setPos(pEntity.getX() + 0.25, pEntity.getY() + 0.25,pPos.getZ() + 0.5);
-                        SendMessage.send(pLevel, "Conveior West");
+
 
                     }else {
                         pEntity.setPos(pPos.getX()  + 0.5, pEntity.getY() + 0.25,pEntity.getZ() + 0.25);
-                        SendMessage.send(pLevel, "Conveior North");
+
                     }
                 }
             }

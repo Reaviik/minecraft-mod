@@ -1,7 +1,5 @@
 package com.minersdream.block.custom.furnace;
 
-import com.minersdream.block.entity.ModBlockEntities;
-import com.minersdream.block.entity.custom.furnace.FurnaceEjectorBlockEntity;
 import com.minersdream.util.ITags;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
@@ -11,13 +9,10 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -35,7 +30,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
 
-public class FurnaceEjetor extends BaseEntityBlock {
+public class FurnaceEjetor extends Block {
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
@@ -166,14 +161,5 @@ public class FurnaceEjetor extends BaseEntityBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder){
         pBuilder.add(FACING);
     }
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new FurnaceEjectorBlockEntity(pPos, pState);
-    }
-    //Pega o tick atual do bloco
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker getTicker(Level plevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.FURNACE_EJECTOR_BLOCK_ENTITY.get(), FurnaceEjectorBlockEntity::tick);
-    }
+
 }

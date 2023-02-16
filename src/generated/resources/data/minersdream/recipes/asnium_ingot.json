@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minersdream:asnium_block"
+    }
+  ],
+  "result": {
+    "item": "minersdream:asnium_ingot",
+    "count": 9
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minersdream:conveyor",
+    "minersdream:conveyor_left",
+    "minersdream:conveyor_right",
+    "minersdream:conveyor_up",
+    "minersdream:conveyor_down"
+  ]
+}

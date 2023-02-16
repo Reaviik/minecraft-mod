@@ -92,9 +92,11 @@ public class MinersDream {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.QUARTZ_RESOURCE_NODE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.ANCIENT_DEBRIS_RESOURCE_NODE.get(), RenderType.translucent());
 
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.HORIZONTAL_CONVEIOR.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.DIAGONAL_CONVEIOR.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CONER_CONVEIOR.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CONVEYOR.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CONVEYOR_UP.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CONVEYOR_DOWN.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CONVEYOR_LEFT.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CONVEYOR_RIGHT.get(), RenderType.translucent());
 
         MenuScreens.register(ModMenuTypes.BLOCK_TESTE_MENU.get(), BlockTesteScreen::new);
         MenuScreens.register(ModMenuTypes.MINER_MK1_MENU.get(), MinerMK1Screen::new);

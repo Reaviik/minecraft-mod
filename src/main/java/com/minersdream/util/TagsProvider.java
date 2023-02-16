@@ -47,9 +47,11 @@ public class TagsProvider {
                     .add(ModBlocks.MINER_MK1_GERENCIADOR_PARTE1.get())
                     .add(ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get());
             tag(ITags.Blocks.CONVEYOR_BELT)
-                    .add(ModBlocks.HORIZONTAL_CONVEIOR.get())
-                    .add(ModBlocks.FENCE_VERTICAL.get())
-                    .add(ModBlocks.CONER_CONVEIOR.get());
+                    .add(ModBlocks.CONVEYOR.get())
+                    .add(ModBlocks.CONVEYOR_LEFT.get())
+                    .add(ModBlocks.CONVEYOR_RIGHT.get())
+                    .add(ModBlocks.CONVEYOR_UP.get())
+                    .add(ModBlocks.CONVEYOR_DOWN.get());
 
 //            tag(ITags.Blocks.ICES).addTag(ITags.Blocks.ICES_ICE).addTag(ITags.Blocks.ICES_PACKED).addTag(ITags.Blocks.ICES_BLUE);
 //            tag(ITags.Blocks.ICES_ICE).add(net.minecraft.world.level.block.Blocks.ICE);
@@ -113,9 +115,11 @@ public class TagsProvider {
                     .add(ModBlocks.MINER_MK1_GERENCIADOR_PARTE1.get().asItem())
                     .add(ModBlocks.MINER_MK1_GERENCIADOR_PARTE2.get().asItem());
             tag(ITags.Items.CONVEYOR_BELT)
-                    .add(ModBlocks.HORIZONTAL_CONVEIOR.get().asItem())
-                    .add(ModBlocks.FENCE_VERTICAL.get().asItem())
-                    .add(ModBlocks.CONER_CONVEIOR.get().asItem());
+                    .add(ModBlocks.CONVEYOR.get().asItem())
+                    .add(ModBlocks.CONVEYOR_LEFT.get().asItem())
+                    .add(ModBlocks.CONVEYOR_RIGHT.get().asItem())
+                    .add(ModBlocks.CONVEYOR_UP.get().asItem())
+                    .add(ModBlocks.CONVEYOR_DOWN.get().asItem());
 
             // Remove non-dry ice if Forge handles them in the future
 //            tag(ITags.Items.ICES).addTag(ITags.Items.ICES_ICE).addTag(ITags.Items.ICES_PACKED).addTag(ITags.Items.ICES_BLUE);

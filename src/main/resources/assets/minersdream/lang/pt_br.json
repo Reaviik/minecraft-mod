@@ -62,9 +62,11 @@
   "block.minersdream.ancient_debris_resource_node": "Nodo de minerio de detritos de minerio ancestral.",
   "tooltip.minersdream.ancient_debris_resource_node": "§fTier §55",
 
-  "block.minersdream.horizontal_conveior": "Esteira horizontal",
-  "block.minersdream.coner_conveior": "Esteira curva",
-  "block.minersdream.vertical_conveior": "Esteira vertical",
+  "block.minersdream.conveyor": "Esteira horizontal",
+  "block.minersdream.conveyor_up": "Esteira diagonal",
+  "block.minersdream.conveyor_down": "Esteira diagonal",
+  "block.minersdream.conveyor_left": "Esteira curva",
+  "block.minersdream.conveyor_right": "Esteira curva",
 
   "block.minersdream.block_teste": "Decantador",
   "tooltip.minersdream.block_teste": "Ninguém sabe para que serve esse bloco",

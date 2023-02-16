@@ -58,7 +58,7 @@ public class FurnaceEjetor extends Block {
         }
         return item.get();
     }
-    public static boolean verifyConveiorTags(@NotNull ItemStack item) {
+    public static boolean verifyConveyorTags(@NotNull ItemStack item) {
         return item.is(ITags.Items.CONVEYOR_BELT);
     }
     public static final boolean hasInventory(@NotNull LevelAccessor world, BlockPos pPos) {

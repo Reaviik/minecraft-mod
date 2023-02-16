@@ -153,7 +153,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
     //Verifica se o bloco na posição de saida é uma esteira
-    public static boolean verifyConveiorTags(@NotNull ItemStack item) {
+    public static boolean verifyConveyorTags(@NotNull ItemStack item) {
         return item.is(ITags.Items.CONVEYOR_BELT);
     }
     //Verifica se o bloco na frente do separador tem inventario
@@ -257,7 +257,7 @@ public class MinerMK1BlockEntity extends BlockEntity implements MenuProvider {
                     });
                 }
                 //Tem uma esteira?
-                else if(verifyConveiorTags(world.getBlockState(new BlockPos(getChestPos(pState, pPos))).getBlock().asItem().getDefaultInstance())){
+                else if(verifyConveyorTags(world.getBlockState(new BlockPos(getChestPos(pState, pPos))).getBlock().asItem().getDefaultInstance())){
                     if (world instanceof Level _level && !_level.isClientSide()) {
                         //Define a posição e o iten que sera jogado no mundo
                         ItemEntity entityToSpawn = new ItemEntity(_level, getChestPos(pState, pPos).getX()+0.5, getChestPos(pState, pPos).getY()+1, getChestPos(pState, pPos).getZ()+0.5, new ItemStack(_setstack.getItem()));

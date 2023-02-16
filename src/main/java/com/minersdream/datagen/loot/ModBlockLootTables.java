@@ -22,11 +22,14 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(ModBlocks.FENCE.get());
         this.dropSelf(ModBlocks.FENCE_VERTICAL.get());
         this.dropSelf(ModBlocks.MINER_MK1.get());
+        this.dropSelf(ModBlocks.FURNACE.get());
         this.dropSelf(ModBlocks.OVERCLOCK.get());
         this.dropSelf(ModBlocks.ASNIUM_LAMP.get());
-        this.dropSelf(ModBlocks.HORIZONTAL_CONVEIOR.get());
-        this.dropSelf(ModBlocks.DIAGONAL_CONVEIOR.get());
-        this.dropSelf(ModBlocks.CONER_CONVEIOR.get());
+        this.dropSelf(ModBlocks.CONVEYOR_DOWN.get());
+        this.dropSelf(ModBlocks.CONVEYOR_UP.get());
+        this.dropSelf(ModBlocks.CONVEYOR_RIGHT.get());
+        this.dropSelf(ModBlocks.CONVEYOR_LEFT.get());
+        this.dropSelf(ModBlocks.CONVEYOR.get());
 
         // MINER MK1
         this.add(ModBlocks.MINER_MK1_SEPARADOR.get(),
@@ -43,9 +46,23 @@ public class ModBlockLootTables extends BlockLoot {
                 (block) -> createSingleItemTableWithSilkTouch(Blocks.AIR, Blocks.AIR));
         this.add(ModBlocks.MINER_MK1_PLATAFORMA.get(),
                 (block) -> createSingleItemTableWithSilkTouch(Blocks.AIR, Blocks.AIR));
-
         this.add(ModBlocks.MINER_MK1_MOTOR.get(),
                 (block) -> createSingleItemTable(ModBlocks.MINER_MK1.get()));
+
+        //FURNACE
+        this.add(ModBlocks.FURNACE_INPUT.get(),
+                (block) -> createSingleItemTableWithSilkTouch(Blocks.AIR, Blocks.AIR));
+        this.add(ModBlocks.FURNACE_EJETOR.get(),
+                (block) -> createSingleItemTableWithSilkTouch(Blocks.AIR, Blocks.AIR));
+        this.add(ModBlocks.FURNACE_TUBES.get(),
+                (block) -> createSingleItemTableWithSilkTouch(Blocks.AIR, Blocks.AIR));
+        this.add(ModBlocks.FURNACE_AQUECEDOR_PARTE1.get(),
+                (block) -> createSingleItemTableWithSilkTouch(Blocks.AIR, Blocks.AIR));
+        this.add(ModBlocks.FURNACE_AQUECEDOR_PARTE2.get(),
+                (block) -> createSingleItemTableWithSilkTouch(Blocks.AIR, Blocks.AIR));
+        this.add(ModBlocks.FURNACE_SMELTER.get(),
+                (block) -> createSingleItemTable(ModBlocks.FURNACE.get()));
+
 
 
 

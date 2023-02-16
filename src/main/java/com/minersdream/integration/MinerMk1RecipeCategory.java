@@ -26,7 +26,7 @@ public class MinerMk1RecipeCategory implements IRecipeCategory<MinerMk1Recipe> {
 
     public MinerMk1RecipeCategory(IGuiHelper helper) {
     this.background = helper.createDrawable(TEXTURE, 0, 0,176, 134);
-    this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.MINER_MK1_MOTOR.get()));
+    this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.MINER_MK1.get()));
 
     }
 

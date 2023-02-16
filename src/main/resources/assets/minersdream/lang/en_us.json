@@ -62,9 +62,11 @@
   "block.minersdream.ancient_debris_resource_node": "Ancient Debris resource node.",
   "tooltip.minersdream.ancient_debris_resource_node": "§fTier §95",
 
-  "block.minersdream.horizontal_conveior": "Horizontal conveyor",
-  "block.minersdream.coner_conveior": "Conner conveyor",
-  "block.minersdream.vertical_conveior": "Vertical conveyor",
+  "block.minersdream.conveyor": "Horizontal conveyor",
+  "block.minersdream.conveyor_up": "Up conveyor",
+  "block.minersdream.conveyor_down": "Down conveyor",
+  "block.minersdream.conveyor_left": "Left conveyor",
+  "block.minersdream.conveyor_right": "Right conveyor",
 
   "block.minersdream.block_teste": "Decanter",
   "tooltip.minersdream.block_teste": "No one know what this block is for",

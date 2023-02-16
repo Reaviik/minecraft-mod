@@ -1,0 +1,11 @@
+{
+  "type": "minersdream:miner_mk1",
+  "ingredients": [
+    {
+      "item": "minersdream:copper_resource_node"
+    }
+  ],
+  "output": {
+    "item": "minersdream:raw_copper"
+  }
+}

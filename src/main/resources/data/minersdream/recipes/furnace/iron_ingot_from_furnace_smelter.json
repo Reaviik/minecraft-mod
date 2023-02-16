@@ -2,10 +2,10 @@
   "type": "minersdream:smelter",
   "ingredients": [
     {
-      "item": "minecraft:raw_iron"
+      "item": "minersdream:raw_iron"
     }
   ],
   "output": {
-    "item": "minecraft:iron_ingot"
+    "item": "minersdream:iron_ingot"
   }
 }

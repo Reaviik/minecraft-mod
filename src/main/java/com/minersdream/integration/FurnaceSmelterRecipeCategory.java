@@ -26,7 +26,7 @@ public class FurnaceSmelterRecipeCategory implements IRecipeCategory<FurnaceSmel
 
     public FurnaceSmelterRecipeCategory(IGuiHelper helper) {
     this.background = helper.createDrawable(TEXTURE, 0, 0,176, 134);
-    this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.FURNACE_SMELTER.get()));
+    this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.FURNACE.get()));
 
     }
 
@@ -59,8 +59,8 @@ public class FurnaceSmelterRecipeCategory implements IRecipeCategory<FurnaceSmel
         builder.addSlot(RecipeIngredientRole.INPUT, 73, 89).addIngredients(Ingredient.of((ModBlocks.OVERCLOCK.get())));
         builder.addSlot(RecipeIngredientRole.INPUT, 107, 89).addIngredients(Ingredient.of(ModBlocks.OVERCLOCK.get()));
         builder.addSlot(RecipeIngredientRole.INPUT, 141, 89).addIngredients(Ingredient.of(ModBlocks.OVERCLOCK.get()));
-        builder.addSlot(RecipeIngredientRole.INPUT, 97, 22).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 61, 22).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.INPUT, 28, 32).addIngredients(recipe.getIngredients().get(0));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 32).addItemStack(recipe.getResultItem());
     }
 
 

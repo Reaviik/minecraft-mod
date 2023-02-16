@@ -21,6 +21,18 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> RAW_ASNIUM = ITEMS.register("raw_asnium",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB)));
+    public static final RegistryObject<Item> IRON_INGOT = ITEMS.register("iron_ingot",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> RAW_IRON = ITEMS.register("raw_iron",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB)));
+    public static final RegistryObject<Item> COPPER_INGOT = ITEMS.register("copper_ingot",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> RAW_COPPER = ITEMS.register("raw_copper",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB)));
+    public static final RegistryObject<Item> GOLD_INGOT = ITEMS.register("gold_ingot",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> RAW_GOLD = ITEMS.register("raw_gold",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MinersDream_TAB)));
 
     // TOOLS
     public static final RegistryObject<Item> ASNIUM_PICKAXE = ITEMS.register("asnium_pickaxe",

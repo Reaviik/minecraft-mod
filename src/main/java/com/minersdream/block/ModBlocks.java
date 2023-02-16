@@ -2,6 +2,7 @@ package com.minersdream.block;
 
 import com.minersdream.MinersDream;
 import com.minersdream.block.custom.*;
+import com.minersdream.block.custom.conveyor.*;
 import com.minersdream.block.custom.furnace.*;
 import com.minersdream.block.custom.minerMk1.*;
 import com.minersdream.item.ModCreativeModeTab;
@@ -162,14 +163,20 @@ public class ModBlocks {
                     .strength(10f).lightLevel(LUZ -> {return 1;})),ModCreativeModeTab.MinersDream_TAB);
 
 
-    public static final RegistryObject<Block> HORIZONTAL_CONVEIOR = registerBlock("horizontal_conveior",
-            () -> new HorizontalConveior(BlockBehaviour.Properties.of(Material.WOOL).noOcclusion()
+    public static final RegistryObject<Block> CONVEYOR = registerBlock("conveyor",
+            () -> new Conveyor(BlockBehaviour.Properties.of(Material.WOOL).noOcclusion()
                     .strength(1.5f)), ModCreativeModeTab.MinersDream_TAB);
-    public static final RegistryObject<Block> DIAGONAL_CONVEIOR = registerBlock("diagonal_conveior",
-            () -> new DiagonalConveior(BlockBehaviour.Properties.of(Material.WOOL).noOcclusion()
+    public static final RegistryObject<Block> CONVEYOR_UP = registerBlock("conveyor_up",
+            () -> new ConveyorUP(BlockBehaviour.Properties.of(Material.WOOL).noOcclusion()
                     .strength(1.5f)), ModCreativeModeTab.MinersDream_TAB);
-    public static final RegistryObject<Block> CONER_CONVEIOR = registerBlock("coner_conveior",
-            () -> new ConerConveior(BlockBehaviour.Properties.of(Material.WOOL).noOcclusion()
+    public static final RegistryObject<Block> CONVEYOR_DOWN = registerBlock("conveyor_down",
+            () -> new ConveyorDOWN(BlockBehaviour.Properties.of(Material.WOOL).noOcclusion()
+                    .strength(1.5f)), ModCreativeModeTab.MinersDream_TAB);
+    public static final RegistryObject<Block> CONVEYOR_LEFT = registerBlock("conveyor_left",
+            () -> new ConveyorLEFT(BlockBehaviour.Properties.of(Material.WOOL).noOcclusion()
+                    .strength(1.5f)), ModCreativeModeTab.MinersDream_TAB);
+    public static final RegistryObject<Block> CONVEYOR_RIGHT = registerBlock("conveyor_right",
+            () -> new ConveyorRIGHT(BlockBehaviour.Properties.of(Material.WOOL).noOcclusion()
                     .strength(1.5f)), ModCreativeModeTab.MinersDream_TAB);
 
 

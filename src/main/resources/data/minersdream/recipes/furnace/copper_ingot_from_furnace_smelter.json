@@ -2,10 +2,10 @@
   "type": "minersdream:smelter",
   "ingredients": [
     {
-      "item": "minecraft:raw_copper"
+      "item": "minersdream:raw_copper"
     }
   ],
   "output": {
-    "item": "minecraft:copper_ingot"
+    "item": "minersdream:copper_ingot"
   }
 }

@@ -12,6 +12,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -24,6 +26,7 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -41,6 +44,8 @@ import org.slf4j.Logger;
 import javax.annotation.Nonnull;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import static net.minecraft.sounds.SoundSource.BLOCKS;
 
 public class FurnaceSmelterBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(5) {
@@ -143,7 +148,7 @@ public class FurnaceSmelterBlockEntity extends BlockEntity implements MenuProvid
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
         return inventory.getItem(0).getMaxStackSize() > inventory.getItem(0).getCount();
     }
-    public static boolean verifyConveiorTags(@NotNull ItemStack item) {
+    public static boolean verifyConveyorTags(@NotNull ItemStack item) {
         return item.is(ITags.Items.CONVEYOR_BELT);
     }
     private static boolean hasRecipe(FurnaceSmelterBlockEntity entity) {
@@ -249,6 +254,7 @@ public class FurnaceSmelterBlockEntity extends BlockEntity implements MenuProvid
             if(pBlockEntity.progress == pBlockEntity.maxProgress && hasRecipe(pBlockEntity)) {
                 setChanged(pLevel, pPos, pState);
                 craftItem(pBlockEntity);
+                pLevel.playLocalSound(pPos.getX(), pPos.getY(), pPos.getZ(), new SoundEvent(new ResourceLocation("minecraft:block.lava.extinguish")), BLOCKS, 1F, 2, false);
             }
             if(hasOutput(pBlockEntity)) {
                 if (pBlockEntity.progress == pBlockEntity.maxProgress / 2 && hasInventory(pLevel, getChestPos(pState, pPos))) {
@@ -264,7 +270,7 @@ public class FurnaceSmelterBlockEntity extends BlockEntity implements MenuProvid
                         });
                     }
                 }
-                if (verifyConveiorTags(pLevel.getBlockState(new BlockPos(getChestPos(pState, pPos))).getBlock().asItem().getDefaultInstance())) {
+                if (verifyConveyorTags(pLevel.getBlockState(new BlockPos(getChestPos(pState, pPos))).getBlock().asItem().getDefaultInstance())) {
                         ItemEntity entityToSpawn = new ItemEntity(pLevel, getChestPos(pState, pPos).getX() + 0.5, getChestPos(pState, pPos).getY() + 1, getChestPos(pState, pPos).getZ() + 0.5, new ItemStack(pBlockEntity.itemHandler.getStackInSlot(0).getItem()));
                         pBlockEntity.itemHandler.extractItem(0, 1, false);
                         entityToSpawn.setPickUpDelay(10);

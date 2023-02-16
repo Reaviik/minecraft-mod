@@ -17,8 +17,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         // SIMPLE ITEMS
-        simpleItem(ModItems.ASNIUM_INGOT.get());
-        simpleItem(ModItems.RAW_ASNIUM.get());
+        //simpleItem(ModItems.RAW_ASNIUM.get());
 
         // HANDHELD ITEMS
         //handheldItem(ModItems.ASNIUM_PICKAXE.get());

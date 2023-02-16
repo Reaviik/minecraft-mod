@@ -1,6 +1,7 @@
 package com.minersdream.block.custom;
 
 import com.minersdream.block.ModBlocks;
+import com.minersdream.item.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -22,11 +23,11 @@ public class NodesHandler extends Item{
     public static Item getParallelItem(Block pBlock){
         // TODO Retornar sound effect
         if(pBlock == ModBlocks.IRON_RESOURCE_NODE.get()) {
-            return Items.RAW_IRON;
+            return ModItems.RAW_IRON.get();
         }else if(pBlock == ModBlocks.COPPER_RESOURCE_NODE.get()){
-            return Items.RAW_COPPER;
+            return ModItems.RAW_COPPER.get();
         }else if(pBlock == ModBlocks.GOLD_RESOURCE_NODE.get()){
-            return Items.RAW_GOLD;
+            return ModItems.RAW_GOLD.get();
         }else if(pBlock == ModBlocks.COAL_RESOURCE_NODE.get()){
             return Items.COAL;
         }else if(pBlock == ModBlocks.REDSTONE_RESOURCE_NODE.get()){

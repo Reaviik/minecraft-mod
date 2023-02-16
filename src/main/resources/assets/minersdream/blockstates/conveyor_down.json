@@ -1,0 +1,8 @@
+{
+  "variants":{
+    "facing=north":{"model": "minersdream:block/conveyor_down"},
+    "facing=east":{"model": "minersdream:block/conveyor_down", "y": 90},
+    "facing=south":{"model": "minersdream:block/conveyor_down", "y": 180},
+    "facing=west":{"model": "minersdream:block/conveyor_down", "y": 270}
+  }
+}
